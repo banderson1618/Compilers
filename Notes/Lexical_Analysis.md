@@ -1,0 +1,74 @@
+- Features
+  - Groups characters into tokens for syntax analyzer
+  - Strips white space
+  - Keeps track of line numbers (for diagnostics)
+  - Generates output listing with errors marked
+  - Delete comments
+  - Convert numbers to binary form
+- Sequence of tokens
+  - Operators
+  - punctuation
+  - keywords
+  - identifiers
+  - string literals
+  - character literals
+  - numeric literals
+  - numbers
+    - base 10
+    - octal
+- Token
+  - Type of word
+  - Part of speech
+  - Implemented as enumeration
+- Lexeme
+  - Some kinds of token need associated data
+  - Value derived from matched text
+- Pattern
+  - Regular expressions used to recognize tokens
+- Keywords
+  - Reserved identifiers
+  - Only token kind is significant
+- Literals
+  - String, character, or numeric
+  - Both token kind and lexeme are significant
+  - Lexeme may be interpreted first
+- Operators
+  - Like separators
+  - No real difference to (?)
+- Identifiers
+  - Rules vary by lnaugage
+- Comments
+  - No syntatic meaning
+  - No token
+  - Scanner skips over comments
+  - Detect open comments,
+- Punctuation
+  - Separators
+- Free form vs Fixed form
+  - Does whitespace matter?
+- Ways to construct
+  - Scanner generator - flex
+  - Hand written
+    - Performance
+      - Lexical Analysis can be bottleneck
+      - Minimize processing per character
+      - Large I/O reads
+      - We compile frequently so performance is important
+- Case equivalance
+  - Some languages are case insensitive, some are
+- Specifiying REs in Unix Tools
+  - Alternation [xy] x|y
+  - any character .
+  - Sequence abc
+  - Repetition x*
+  - Optional x?y+
+- File Structure
+  - Definitions
+    - Sub-expressions like character
+    - Include files for rules
+  - Rules
+    - RegEx
+    - Action
+    - Precedence of expressions by order
+  - Code
+    - Helper code

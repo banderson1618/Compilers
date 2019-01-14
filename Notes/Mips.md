@@ -1,0 +1,57 @@
+- MIPS
+  - Microprocessor without interlocked pipeline stages
+  - Developed in 1981 by John L. Hennessy
+  - One of the first RISC architectures
+  - Common in embedded systems
+- Signed vs unsigned
+  - Signed integers are stored as 2s complement
+- Co-processor
+  - Floating point instructions don't matter for us
+- Load/Store
+  - li - load immediate
+    - li $27, 42
+  - la - load address
+    - la $s0, label
+  - lw - load word
+    - lw $dest, $target, (offset)
+  - sw - save word
+- Arithmetic
+  - add, addi, addu, addiu
+    - add $dest, $op1, $op2
+  - sub, subu
+  - mult, multu
+    - mult $op1, $op2
+  - div, divu
+  - mfhi, mflo, used to get results of mult and div
+- Conditionals
+  - slt, sltu, slti, sltiu
+  - and, andi
+  - or, ori
+  - nor
+- Branching
+  - beq, bne
+  - j, jr, jal
+- Reserved
+  - $zero - always 0
+  - $at - Assembler Temporary
+  - $k0, $k1 - reserved for kernel
+- Variables
+  - $s0-$s7 - saved registers
+    - "saved" after function call
+  - $t0-$t9 - Temporary Registers
+    - "undefined" after function call
+- Function Calls
+  - $v0, $v1 - return values
+  - $a0-$a3 - Arguments
+  - $ra - return address - set by jal
+- Memory Management
+  - $gp - Global pointer
+  - $sp - ?
+- syscall
+  - I/O provided by simulator
+  - Put system call number into $v0
+  - 1 - print integer - $a0 contains integer to print
+  - 4 - print string - $a0 contains address of string
+  - 5 - read integer
+  - ?
+- 

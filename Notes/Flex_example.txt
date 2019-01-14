@@ -1,0 +1,15 @@
+
+%%
+
+do|DO { return DO_TOKEN; }
+begin|BEGIN {return BEGIN_TOKEN;}
+//etc, etc...
+
+[A-Za-z][A-Zaz0-9_]* { yylval.stuff = ; yytext return ID_TOKEN; }
+
+\+
+'+'
+
+
+
+%%
