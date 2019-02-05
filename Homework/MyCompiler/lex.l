@@ -128,7 +128,7 @@ write|WRITE {return WRITE_TOKEN;}
 
 ']' {return RBRACKET_TOKEN;}
 := {return ASSIGN_TOKEN;}
-% {return REMAIN_TOKEN;}
+'%' {return REMAIN_TOKEN;}
 
 
 
