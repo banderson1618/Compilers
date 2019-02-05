@@ -99,7 +99,11 @@ var|VAR {return VAR_TOKEN;}
 while|WHILE {return WHILE_TOKEN;}
 write|WRITE {return WRITE_TOKEN;}
 
+
+
 [A-Za-z][A-Zaz0-9_]* { yylval.id = strdup(yytext); return ID_TOKEN; }
+
+
 
 '+' {return ADD_TOKEN;}
 '-' {return SUB_TOKEN;}
@@ -127,9 +131,11 @@ write|WRITE {return WRITE_TOKEN;}
 % {return REMAIN_TOKEN;}
 
 
+
 [0x][0-9a-e]* {yylval.val = atoi(yytext); return NUM_TOKEN;}
 [0][0-7]* {yylval.val = atoi(yytext); return NUM_TOKEN;}
 [1-9][0-9]* {yylval.val = atoi(yytext); return NUM_TOKEN;}
+
 
 ['][a-zA-Z^"]['] {return CHAR_TOKEN;}
 ["][.]*["] {return STRING_TOKEN;}

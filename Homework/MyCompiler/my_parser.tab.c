@@ -62,11 +62,11 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "translate.y" /* yacc.c:339  */
+#line 1 "my_parser.y" /* yacc.c:339  */
 
 #include <ctype.h>
 
-#line 70 "translate.tab.c" /* yacc.c:339  */
+#line 70 "my_parser.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -96,7 +96,18 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+
+union YYSTYPE
+{
+#line 6 "my_parser.y" /* yacc.c:355  */
+
+	int val;
+	char* id;
+
+#line 108 "my_parser.tab.c" /* yacc.c:355  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -110,7 +121,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 114 "translate.tab.c" /* yacc.c:358  */
+#line 125 "my_parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -407,7 +418,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,     7,     7
+       0,    12,    12
 };
 #endif
 
@@ -1172,13 +1183,13 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 7 "translate.y" /* yacc.c:1646  */
-    {printf("%d\n", (yyvsp[0]));}
-#line 1178 "translate.tab.c" /* yacc.c:1646  */
+#line 12 "my_parser.y" /* yacc.c:1646  */
+    {printf("%d\n", 1);}
+#line 1189 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1182 "translate.tab.c" /* yacc.c:1646  */
+#line 1193 "my_parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1406,7 +1417,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 9 "translate.y" /* yacc.c:1906  */
+#line 14 "my_parser.y" /* yacc.c:1906  */
 
 
 yylex(){

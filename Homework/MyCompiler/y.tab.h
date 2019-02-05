@@ -46,7 +46,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 6 "translate.y" /* yacc.c:1909  */
+#line 6 "my_parser.y" /* yacc.c:1909  */
 
 	int val;
 	char* id;

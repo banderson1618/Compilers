@@ -1122,22 +1122,22 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 102 "lex.l"
+#line 104 "lex.l"
 { yylval.id = strdup(yytext); return ID_TOKEN; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 104 "lex.l"
+#line 108 "lex.l"
 {return ADD_TOKEN;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 105 "lex.l"
+#line 109 "lex.l"
 {return SUB_TOKEN;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 106 "lex.l"
+#line 110 "lex.l"
 {return MULT_TOKEN;}
 	YY_BREAK
 case 36:
@@ -1145,132 +1145,132 @@ case 36:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 107 "lex.l"
+#line 111 "lex.l"
 {return DIV_TOKEN;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 108 "lex.l"
+#line 112 "lex.l"
 {return AND_TOKEN;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 109 "lex.l"
+#line 113 "lex.l"
 {return OR_TOKEN;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 110 "lex.l"
+#line 114 "lex.l"
 {return TILDE_TOKEN;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 111 "lex.l"
+#line 115 "lex.l"
 {return EQ_TOKEN;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 112 "lex.l"
+#line 116 "lex.l"
 {return NEQ_TOKEN;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 113 "lex.l"
+#line 117 "lex.l"
 {return LESS_TOKEN;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 114 "lex.l"
+#line 118 "lex.l"
 {return GREATER_TOKEN;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 115 "lex.l"
+#line 119 "lex.l"
 {return LEQ_TOKEN;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 116 "lex.l"
+#line 120 "lex.l"
 {return GEQ_TOKEN;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 117 "lex.l"
+#line 121 "lex.l"
 {return PER_TOKEN;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 118 "lex.l"
+#line 122 "lex.l"
 {return COMMA_TOKEN;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 119 "lex.l"
+#line 123 "lex.l"
 {return COLON_TOKEN;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 120 "lex.l"
+#line 124 "lex.l"
 {return SEMICOLON_TOKEN;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 122 "lex.l"
+#line 126 "lex.l"
 {return LPAREN_TOKEN;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 123 "lex.l"
+#line 127 "lex.l"
 {return RPAREN_TOKEN;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 125 "lex.l"
+#line 129 "lex.l"
 {return RBRACKET_TOKEN;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 126 "lex.l"
+#line 130 "lex.l"
 {return ASSIGN_TOKEN;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 127 "lex.l"
+#line 131 "lex.l"
 {return REMAIN_TOKEN;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 130 "lex.l"
+#line 135 "lex.l"
 {yylval.val = atoi(yytext); return NUM_TOKEN;}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 131 "lex.l"
+#line 136 "lex.l"
 {yylval.val = atoi(yytext); return NUM_TOKEN;}
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 132 "lex.l"
+#line 137 "lex.l"
 {yylval.val = atoi(yytext); return NUM_TOKEN;}
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 134 "lex.l"
+#line 140 "lex.l"
 {return CHAR_TOKEN;}
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 135 "lex.l"
+#line 141 "lex.l"
 {return STRING_TOKEN;}
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 137 "lex.l"
+#line 143 "lex.l"
 {return COMMENT_TOKEN;}
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 141 "lex.l"
+#line 147 "lex.l"
 ECHO;
 	YY_BREAK
 #line 1277 "lex.yy.c"
@@ -2278,7 +2278,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 141 "lex.l"
+#line 147 "lex.l"
 
 
 

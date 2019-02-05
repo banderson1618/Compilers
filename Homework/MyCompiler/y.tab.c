@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "translate.y" /* yacc.c:339  */
+#line 1 "my_parser.y" /* yacc.c:339  */
 
 #include <ctype.h>
 
@@ -102,7 +102,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 6 "translate.y" /* yacc.c:355  */
+#line 6 "my_parser.y" /* yacc.c:355  */
 
 	int val;
 	char* id;
@@ -1186,7 +1186,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 12 "translate.y" /* yacc.c:1646  */
+#line 12 "my_parser.y" /* yacc.c:1646  */
     {printf("%d\n", 1);}
 #line 1192 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -1420,7 +1420,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 14 "translate.y" /* yacc.c:1906  */
+#line 14 "my_parser.y" /* yacc.c:1906  */
 
 
 yylex(){
