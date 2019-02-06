@@ -4,6 +4,8 @@
 extern int yylex();
 //#include "y.tab.h"
 #include "tokens.hpp"
+
+int linenum = 1;
 %}
 
 %option noyywrap
@@ -70,8 +72,7 @@ write|WRITE {return WRITE_TOKEN;}
 '%' {return REMAIN_TOKEN;}
 
 [ \t]* {;}
-[\n] { //linenumber++;
-	; }
+[\n] { linenumber++; }
 
 [0x][0-9a-e]* { //yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}

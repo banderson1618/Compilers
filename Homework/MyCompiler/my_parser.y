@@ -7,6 +7,7 @@ extern int yylex();
 extern int yyparse();
 extern FILE *yyin;
 void yyerror(const char *s);
+extern int linenum;
 %}
 %token AND_TOKEN
 %token OR_TOKEN
@@ -22,7 +23,6 @@ void yyerror(const char *s);
 %token DIV_TOKEN
 %token REMAIN_TOKEN
 %token TILDE_TOKEN
-%token SUB_TOKEN
 %token LPAREN_TOKEN
 %token RPAREN_TOKEN
 
@@ -31,6 +31,8 @@ void yyerror(const char *s);
 	int val;
 	char* id;
 }
+
+%type <val> expr
 %%
 
 lvalue 		: '' {}
@@ -52,11 +54,12 @@ expr		: lvalue { }
 		| TILDE_TOKEN expr		{ $$ = ~ $2 }
 		| SUB_TOKEN expr		{ $$ = 0 - $2 }
 		| LPAREN_TOKEN expr RPAREN_TOKEN{ $$ = $2}
+		| ID_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN
 		;
 %%
 
 int main(int, char**){
-	FILE *myfile = fopen("my.file", 'r');
+	FILE *myfile = fopen("nested_for.cpsl", 'r');
 	if(!myfile){
 		std::cout << "Can't open file" << std::endl;
 		return -1
@@ -68,7 +71,7 @@ int main(int, char**){
 }
 
 void yyerror(const char* s){
-	std::cout << "Parsing error. Message: " << s << endl;
+	std::cout << "Parsing error on line " << linenum << ".\n Message: " << s << endl;
 	exit(-1);
 }
 
