@@ -74,7 +74,7 @@ extern FILE *yyin;
 void yyerror(const char *s);
 extern int linenumber;
 
-#line 78 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:339  */
+#line 78 "my_parser.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -92,10 +92,7 @@ extern int linenumber;
 # define YYERROR_VERBOSE 0
 #endif
 
-/* In a future release of Bison, this section will be replaced
-   by #include "parser.hpp".  */
-#ifndef YY_YY_HOME_BRADEN_DOCUMENTS_HOMEWORK_COMPILERS_HOMEWORK_MYCOMPILER_PARSER_HPP_INCLUDED
-# define YY_YY_HOME_BRADEN_DOCUMENTS_HOMEWORK_COMPILERS_HOMEWORK_MYCOMPILER_PARSER_HPP_INCLUDED
+
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -109,65 +106,64 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    END = 258,
-    ARRAY_TOKEN = 259,
-    BEGIN_TOKEN = 260,
-    CHR_TOKEN = 261,
-    CONST_TOKEN = 262,
-    DO_TOKEN = 263,
-    DOWNTO_TOKEN = 264,
-    ELSE_TOKEN = 265,
-    ELSEIF_TOKEN = 266,
-    END_TOKEN = 267,
-    FOR_TOKEN = 268,
-    FORWARD_TOKEN = 269,
-    FUNCTION_TOKEN = 270,
-    IF_TOKEN = 271,
-    OF_TOKEN = 272,
-    ORD_TOKEN = 273,
-    PRED_TOKEN = 274,
-    PROC_TOKEN = 275,
-    READ_TOKEN = 276,
-    RECORD_TOKEN = 277,
-    REF_TOKEN = 278,
-    REPEAT_TOKEN = 279,
-    RETURN_TOKEN = 280,
-    STOP_TOKEN = 281,
-    SUCC_TOKEN = 282,
-    THEN_TOKEN = 283,
-    TO_TOKEN = 284,
-    TYPE_TOKEN = 285,
-    UNTIL_TOKEN = 286,
-    VAR_TOKEN = 287,
-    WHILE_TOKEN = 288,
-    WRITE_TOKEN = 289,
-    ID_TOKEN = 290,
-    ADD_TOKEN = 291,
-    SUB_TOKEN = 292,
-    MULT_TOKEN = 293,
-    DIV_TOKEN = 294,
-    AND_TOKEN = 295,
-    OR_TOKEN = 296,
-    TILDE_TOKEN = 297,
-    EQ_TOKEN = 298,
-    NEQ_TOKEN = 299,
-    LESS_TOKEN = 300,
-    GREATER_TOKEN = 301,
-    LEQ_TOKEN = 302,
-    GEQ_TOKEN = 303,
-    PER_TOKEN = 304,
-    COMMA_TOKEN = 305,
-    COLON_TOKEN = 306,
-    SEMICOLON_TOKEN = 307,
-    LPAREN_TOKEN = 308,
-    RPAREN_TOKEN = 309,
-    LBRAC_TOKEN = 310,
-    RBRAC_TOKEN = 311,
-    ASSIGN_TOKEN = 312,
-    REMAIN_TOKEN = 313,
-    NUM_TOKEN = 314,
-    CHAR_TOKEN = 315,
-    STRING_TOKEN = 316
+    ARRAY_TOKEN = 258,
+    BEGIN_TOKEN = 259,
+    CHR_TOKEN = 260,
+    CONST_TOKEN = 261,
+    DO_TOKEN = 262,
+    DOWNTO_TOKEN = 263,
+    ELSE_TOKEN = 264,
+    ELSEIF_TOKEN = 265,
+    END_TOKEN = 266,
+    FOR_TOKEN = 267,
+    FORWARD_TOKEN = 268,
+    FUNCTION_TOKEN = 269,
+    IF_TOKEN = 270,
+    OF_TOKEN = 271,
+    ORD_TOKEN = 272,
+    PRED_TOKEN = 273,
+    PROC_TOKEN = 274,
+    READ_TOKEN = 275,
+    RECORD_TOKEN = 276,
+    REF_TOKEN = 277,
+    REPEAT_TOKEN = 278,
+    RETURN_TOKEN = 279,
+    STOP_TOKEN = 280,
+    SUCC_TOKEN = 281,
+    THEN_TOKEN = 282,
+    TO_TOKEN = 283,
+    TYPE_TOKEN = 284,
+    UNTIL_TOKEN = 285,
+    VAR_TOKEN = 286,
+    WHILE_TOKEN = 287,
+    WRITE_TOKEN = 288,
+    ID_TOKEN = 289,
+    ADD_TOKEN = 290,
+    SUB_TOKEN = 291,
+    MULT_TOKEN = 292,
+    DIV_TOKEN = 293,
+    AND_TOKEN = 294,
+    OR_TOKEN = 295,
+    TILDE_TOKEN = 296,
+    EQ_TOKEN = 297,
+    NEQ_TOKEN = 298,
+    LESS_TOKEN = 299,
+    GREATER_TOKEN = 300,
+    LEQ_TOKEN = 301,
+    GEQ_TOKEN = 302,
+    PER_TOKEN = 303,
+    COMMA_TOKEN = 304,
+    COLON_TOKEN = 305,
+    SEMICOLON_TOKEN = 306,
+    LPAREN_TOKEN = 307,
+    RPAREN_TOKEN = 308,
+    LBRAC_TOKEN = 309,
+    RBRAC_TOKEN = 310,
+    ASSIGN_TOKEN = 311,
+    REMAIN_TOKEN = 312,
+    NUM_TOKEN = 313,
+    CHAR_TOKEN = 314,
+    STRING_TOKEN = 315
   };
 #endif
 
@@ -181,7 +177,7 @@ union YYSTYPE
 	int val;
 	char* id;
 
-#line 185 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:355  */
+#line 181 "my_parser.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -194,11 +190,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_BRADEN_DOCUMENTS_HOMEWORK_COMPILERS_HOMEWORK_MYCOMPILER_PARSER_HPP_INCLUDED  */
+
 
 /* Copy the second part of user declarations.  */
 
-#line 202 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:358  */
+#line 198 "my_parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -438,23 +434,23 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  6
+#define YYFINAL  5
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   281
+#define YYLAST   225
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  62
+#define YYNTOKENS  61
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  24
+#define YYNNTS  5
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  60
+#define YYNRULES  32
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  123
+#define YYNSTATES  70
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   316
+#define YYMAXUTOK   315
 
 #define YYTRANSLATE(YYX)                                                \
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -494,20 +490,17 @@ static const yytype_uint8 yytranslate[] =
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
-      55,    56,    57,    58,    59,    60,    61
+      55,    56,    57,    58,    59,    60
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    92,    92,    97,    98,   102,   109,   110,   111,   112,
-     113,   114,   115,   116,   117,   118,   119,   120,   121,   122,
-     123,   124,   125,   126,   127,   128,   129,   130,   131,   132,
-     133,   135,   136,   137,   189,   190,   192,   194,   195,   199,
-     200,   202,   204,   205,   207,   208,   209,   211,   213,   215,
-     216,   218,   221,   223,   226,   228,   233,   234,   236,   237,
-     239
+       0,    90,    90,    91,    95,   102,   103,   104,   105,   106,
+     107,   108,   109,   110,   111,   112,   113,   114,   115,   116,
+     117,   118,   119,   120,   121,   122,   123,   124,   125,   126,
+     128,   129,   130
 };
 #endif
 
@@ -516,7 +509,7 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "END", "ARRAY_TOKEN", "BEGIN_TOKEN",
+  "$end", "error", "$undefined", "ARRAY_TOKEN", "BEGIN_TOKEN",
   "CHR_TOKEN", "CONST_TOKEN", "DO_TOKEN", "DOWNTO_TOKEN", "ELSE_TOKEN",
   "ELSEIF_TOKEN", "END_TOKEN", "FOR_TOKEN", "FORWARD_TOKEN",
   "FUNCTION_TOKEN", "IF_TOKEN", "OF_TOKEN", "ORD_TOKEN", "PRED_TOKEN",
@@ -529,11 +522,7 @@ static const char *const yytname[] =
   "COMMA_TOKEN", "COLON_TOKEN", "SEMICOLON_TOKEN", "LPAREN_TOKEN",
   "RPAREN_TOKEN", "LBRAC_TOKEN", "RBRAC_TOKEN", "ASSIGN_TOKEN",
   "REMAIN_TOKEN", "NUM_TOKEN", "CHAR_TOKEN", "STRING_TOKEN", "$accept",
-  "program", "lvalue", "expr", "args_list", "comma_expr", "const_decl",
-  "eq_item", "eq_list", "type_decl", "type_item", "type_list", "type",
-  "simple_type", "record_type", "rec_list", "rec_item", "array_type",
-  "array_args", "ident_list", "id_list", "var_decl", "var_list",
-  "var_item", YY_NULLPTR
+  "lvalue", "expr", "args_list", "comma_expr", YY_NULLPTR
 };
 #endif
 
@@ -548,14 +537,14 @@ static const yytype_uint16 yytoknum[] =
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
      305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
-     315,   316
+     315
 };
 # endif
 
-#define YYPACT_NINF -63
+#define YYPACT_NINF -48
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-63)))
+  (!!((Yystate) == (-48)))
 
 #define YYTABLE_NINF -1
 
@@ -566,19 +555,13 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-      -4,   -31,     5,   -23,   -33,   -31,   -63,   -24,   -16,    43,
-     -31,   -63,   -26,   -24,   -17,   -63,   -32,   -30,   -29,   -28,
-     -47,    43,    43,    43,   -63,   -63,   -63,   -63,    69,   -63,
-      -3,   -24,   -63,   -19,   -25,   -17,    43,    43,    43,    43,
-     -15,    43,    43,   223,   223,    28,    43,    43,    43,    43,
-      43,    43,    43,    43,    43,    43,    43,    43,   -63,    43,
-     -21,   -17,   -63,     1,   -63,   -63,   -63,   -63,   -13,   -63,
-      -3,   -63,   -17,    92,   115,   138,   161,   -63,   184,   -18,
-     200,   -63,   223,   223,   223,   223,   223,   223,   223,   223,
-     223,   223,   223,   223,   223,    43,    18,    44,   -17,     4,
-     -63,   -63,     6,   -63,   -63,   -63,   -63,   -63,    43,   -63,
-     -63,   -63,     3,    -3,   -63,   -63,    -3,   -63,   223,   -63,
-     -63,     8,   -63
+     -31,   -46,     4,   -28,    -5,   -48,   -48,   -45,   -42,   -41,
+     -38,   -47,    -5,    -5,    -5,   -48,   -48,   -48,   -48,   -20,
+      -5,    -5,    -5,    -5,    -5,   168,   168,    35,    -5,    -5,
+      -5,    -5,    -5,    -5,    -5,    -5,    -5,    -5,    -5,    -5,
+     -48,    -5,    60,    83,   106,   129,   152,   -25,   -48,   168,
+     168,   168,   168,   168,   168,   168,   168,   168,   168,   168,
+     168,   168,   -48,   -48,   -48,   -48,    -5,   -48,   -48,   168
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -586,35 +569,25 @@ static const yytype_int16 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-      35,     0,     0,    40,     0,    38,     1,     0,    57,     0,
-      38,    34,     0,    43,     0,     2,     0,     0,     0,     0,
-       3,     0,     0,     0,    28,    29,    30,     6,     0,    37,
-       0,    43,    39,     0,     0,    59,     0,     0,     0,     0,
-       0,     0,     0,    21,    20,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,    36,     0,
-       0,    50,    47,     0,    44,    45,    46,    42,     0,    54,
-       0,    56,    59,     0,     0,     0,     0,     4,    32,     0,
-       0,    22,    15,    16,    17,    18,     8,     7,     9,    10,
-      13,    14,    11,    12,    19,     0,     0,     0,    50,     0,
-      41,    55,     0,    58,    24,    25,    26,    27,     0,    31,
-      23,     5,     0,     0,    48,    49,     0,    60,    33,    53,
-      52,     0,    51
+       0,     2,     0,     0,     0,     1,     3,     0,     0,     0,
+       0,     2,     0,     0,     0,    27,    28,    29,     5,     0,
+       0,     0,     0,     0,     0,    20,    19,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       4,     0,     0,     0,     0,     0,    31,     0,    21,    14,
+      15,    16,    17,     7,     6,     8,     9,    12,    13,    10,
+      11,    18,    23,    24,    25,    26,     0,    30,    22,    32
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -63,   -63,   -63,    -9,   -38,   -63,   -63,    62,    67,   -63,
-      72,    50,   -62,   -63,   -63,   -14,   -63,   -63,   -63,   -46,
-     -63,   -63,    11,    73
+     -48,    30,    28,   -48,   -48
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,    27,    78,    79,   109,     3,    10,    11,     8,
-      31,    32,    63,    64,    65,    97,    98,    66,    96,    34,
-      69,    15,    71,    72
+      -1,    18,    19,    47,    67
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -622,111 +595,87 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-      28,    60,    40,     1,     4,     6,    41,     7,   102,    42,
-       9,    12,    43,    44,    45,    99,    14,    30,    33,    61,
-      77,    36,   101,    37,    38,    39,    70,    73,    74,    75,
-      76,    68,    62,    80,    95,   113,   110,    82,    83,    84,
-      85,    86,    87,    88,    89,    90,    91,    92,    93,    16,
-      94,   120,    99,   100,   121,   116,   114,   112,   117,   119,
-     122,    17,    18,     5,    46,    47,    48,    49,    50,    51,
-      19,    52,    53,    54,    55,    56,    57,    29,    20,    13,
-      21,    67,    81,   103,   115,    22,    59,    35,     0,     0,
-       0,     0,     0,     0,     0,     0,    23,     0,     0,   118,
-       0,     0,    24,    25,    26,    46,    47,    48,    49,    50,
-      51,     0,    52,    53,    54,    55,    56,    57,     0,     0,
-       0,    58,     0,     0,     0,     0,     0,    59,    46,    47,
-      48,    49,    50,    51,     0,    52,    53,    54,    55,    56,
-      57,     0,     0,     0,     0,     0,   104,     0,     0,     0,
-      59,    46,    47,    48,    49,    50,    51,     0,    52,    53,
-      54,    55,    56,    57,     0,     0,     0,     0,     0,   105,
-       0,     0,     0,    59,    46,    47,    48,    49,    50,    51,
-       0,    52,    53,    54,    55,    56,    57,     0,     0,     0,
-       0,     0,   106,     0,     0,     0,    59,    46,    47,    48,
-      49,    50,    51,     0,    52,    53,    54,    55,    56,    57,
-       0,     0,     0,     0,     0,   107,     0,     0,     0,    59,
-      46,    47,    48,    49,    50,    51,     0,    52,    53,    54,
-      55,    56,    57,     0,   108,     0,    46,    47,    48,    49,
-      50,    51,    59,    52,    53,    54,    55,    56,    57,     0,
-       0,     0,     0,     0,     0,   111,     0,     0,    59,    46,
-      47,    48,    49,    50,    51,     0,    52,    53,    54,    55,
-      56,    57,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,    59
+       7,     3,     3,     1,     5,    24,     6,    20,     4,     4,
+      21,    22,     8,     9,    23,    28,    29,    30,    31,    32,
+      33,    10,    34,    35,    36,    37,    38,    39,    68,    11,
+       2,    12,     0,     0,    40,     0,    13,    41,     0,     0,
+      25,    26,    27,     0,     0,     0,     0,    14,    42,    43,
+      44,    45,    46,    15,    16,    17,    49,    50,    51,    52,
+      53,    54,    55,    56,    57,    58,    59,    60,     0,    61,
+      28,    29,    30,    31,    32,    33,     0,    34,    35,    36,
+      37,    38,    39,     0,     0,     0,     0,     0,    48,     0,
+       0,     0,    41,     0,    69,    28,    29,    30,    31,    32,
+      33,     0,    34,    35,    36,    37,    38,    39,     0,     0,
+       0,     0,     0,    62,     0,     0,     0,    41,    28,    29,
+      30,    31,    32,    33,     0,    34,    35,    36,    37,    38,
+      39,     0,     0,     0,     0,     0,    63,     0,     0,     0,
+      41,    28,    29,    30,    31,    32,    33,     0,    34,    35,
+      36,    37,    38,    39,     0,     0,     0,     0,     0,    64,
+       0,     0,     0,    41,    28,    29,    30,    31,    32,    33,
+       0,    34,    35,    36,    37,    38,    39,     0,     0,     0,
+       0,     0,    65,     0,     0,     0,    41,    28,    29,    30,
+      31,    32,    33,     0,    34,    35,    36,    37,    38,    39,
+       0,    66,     0,    28,    29,    30,    31,    32,    33,    41,
+      34,    35,    36,    37,    38,    39,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,    41
 };
 
 static const yytype_int8 yycheck[] =
 {
-       9,     4,    49,     7,    35,     0,    53,    30,    70,    56,
-      43,    35,    21,    22,    23,    61,    32,    43,    35,    22,
-      35,    53,    35,    53,    53,    53,    51,    36,    37,    38,
-      39,    50,    35,    42,    55,    17,    54,    46,    47,    48,
-      49,    50,    51,    52,    53,    54,    55,    56,    57,     6,
-      59,   113,    98,    52,   116,    51,    12,    95,    52,    56,
-      52,    18,    19,     1,    36,    37,    38,    39,    40,    41,
-      27,    43,    44,    45,    46,    47,    48,    10,    35,     7,
-      37,    31,    54,    72,    98,    42,    58,    14,    -1,    -1,
-      -1,    -1,    -1,    -1,    -1,    -1,    53,    -1,    -1,   108,
-      -1,    -1,    59,    60,    61,    36,    37,    38,    39,    40,
-      41,    -1,    43,    44,    45,    46,    47,    48,    -1,    -1,
-      -1,    52,    -1,    -1,    -1,    -1,    -1,    58,    36,    37,
-      38,    39,    40,    41,    -1,    43,    44,    45,    46,    47,
-      48,    -1,    -1,    -1,    -1,    -1,    54,    -1,    -1,    -1,
-      58,    36,    37,    38,    39,    40,    41,    -1,    43,    44,
-      45,    46,    47,    48,    -1,    -1,    -1,    -1,    -1,    54,
-      -1,    -1,    -1,    58,    36,    37,    38,    39,    40,    41,
-      -1,    43,    44,    45,    46,    47,    48,    -1,    -1,    -1,
-      -1,    -1,    54,    -1,    -1,    -1,    58,    36,    37,    38,
-      39,    40,    41,    -1,    43,    44,    45,    46,    47,    48,
-      -1,    -1,    -1,    -1,    -1,    54,    -1,    -1,    -1,    58,
-      36,    37,    38,    39,    40,    41,    -1,    43,    44,    45,
-      46,    47,    48,    -1,    50,    -1,    36,    37,    38,    39,
-      40,    41,    58,    43,    44,    45,    46,    47,    48,    -1,
-      -1,    -1,    -1,    -1,    -1,    55,    -1,    -1,    58,    36,
-      37,    38,    39,    40,    41,    -1,    43,    44,    45,    46,
-      47,    48,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
-      -1,    58
+       5,    48,    48,    34,     0,    52,    34,    52,    55,    55,
+      52,    52,    17,    18,    52,    35,    36,    37,    38,    39,
+      40,    26,    42,    43,    44,    45,    46,    47,    53,    34,
+       0,    36,    -1,    -1,    54,    -1,    41,    57,    -1,    -1,
+      12,    13,    14,    -1,    -1,    -1,    -1,    52,    20,    21,
+      22,    23,    24,    58,    59,    60,    28,    29,    30,    31,
+      32,    33,    34,    35,    36,    37,    38,    39,    -1,    41,
+      35,    36,    37,    38,    39,    40,    -1,    42,    43,    44,
+      45,    46,    47,    -1,    -1,    -1,    -1,    -1,    53,    -1,
+      -1,    -1,    57,    -1,    66,    35,    36,    37,    38,    39,
+      40,    -1,    42,    43,    44,    45,    46,    47,    -1,    -1,
+      -1,    -1,    -1,    53,    -1,    -1,    -1,    57,    35,    36,
+      37,    38,    39,    40,    -1,    42,    43,    44,    45,    46,
+      47,    -1,    -1,    -1,    -1,    -1,    53,    -1,    -1,    -1,
+      57,    35,    36,    37,    38,    39,    40,    -1,    42,    43,
+      44,    45,    46,    47,    -1,    -1,    -1,    -1,    -1,    53,
+      -1,    -1,    -1,    57,    35,    36,    37,    38,    39,    40,
+      -1,    42,    43,    44,    45,    46,    47,    -1,    -1,    -1,
+      -1,    -1,    53,    -1,    -1,    -1,    57,    35,    36,    37,
+      38,    39,    40,    -1,    42,    43,    44,    45,    46,    47,
+      -1,    49,    -1,    35,    36,    37,    38,    39,    40,    57,
+      42,    43,    44,    45,    46,    47,    -1,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    57
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     7,    63,    68,    35,    69,     0,    30,    71,    43,
-      69,    70,    35,    72,    32,    83,     6,    18,    19,    27,
-      35,    37,    42,    53,    59,    60,    61,    64,    65,    70,
-      43,    72,    73,    35,    81,    85,    53,    53,    53,    53,
-      49,    53,    56,    65,    65,    65,    36,    37,    38,    39,
-      40,    41,    43,    44,    45,    46,    47,    48,    52,    58,
-       4,    22,    35,    74,    75,    76,    79,    73,    50,    82,
-      51,    84,    85,    65,    65,    65,    65,    35,    65,    66,
-      65,    54,    65,    65,    65,    65,    65,    65,    65,    65,
-      65,    65,    65,    65,    65,    55,    80,    77,    78,    81,
-      52,    35,    74,    84,    54,    54,    54,    54,    50,    67,
-      54,    55,    66,    17,    12,    77,    51,    52,    65,    56,
-      74,    74,    52
+       0,    34,    62,    48,    55,     0,    34,     5,    17,    18,
+      26,    34,    36,    41,    52,    58,    59,    60,    62,    63,
+      52,    52,    52,    52,    52,    63,    63,    63,    35,    36,
+      37,    38,    39,    40,    42,    43,    44,    45,    46,    47,
+      54,    57,    63,    63,    63,    63,    63,    64,    53,    63,
+      63,    63,    63,    63,    63,    63,    63,    63,    63,    63,
+      63,    63,    53,    53,    53,    53,    49,    65,    53,    63
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    62,    63,    64,    64,    64,    65,    65,    65,    65,
-      65,    65,    65,    65,    65,    65,    65,    65,    65,    65,
-      65,    65,    65,    65,    65,    65,    65,    65,    65,    65,
-      65,    66,    67,    67,    68,    68,    69,    70,    70,    71,
-      71,    72,    73,    73,    74,    74,    74,    75,    76,    77,
-      77,    78,    79,    80,    81,    82,    83,    83,    84,    84,
-      85
+       0,    61,    62,    62,    62,    63,    63,    63,    63,    63,
+      63,    63,    63,    63,    63,    63,    63,    63,    63,    63,
+      63,    63,    63,    63,    63,    63,    63,    63,    63,    63,
+      64,    65,    65
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     3,     1,     3,     4,     1,     3,     3,     3,
-       3,     3,     3,     3,     3,     3,     3,     3,     3,     3,
-       2,     2,     3,     4,     4,     4,     4,     4,     1,     1,
-       1,     2,     0,     2,     3,     0,     4,     2,     0,     3,
-       0,     4,     2,     0,     1,     1,     1,     1,     3,     2,
-       0,     4,     4,     3,     2,     2,     3,     0,     2,     0,
-       4
+       0,     2,     1,     3,     4,     1,     3,     3,     3,     3,
+       3,     3,     3,     3,     3,     3,     3,     3,     3,     2,
+       2,     3,     4,     4,     4,     4,     4,     1,     1,     1,
+       2,     0,     2
 };
 
 
@@ -1402,362 +1351,200 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 3:
-#line 97 "my_parser.y" /* yacc.c:1646  */
+        case 2:
+#line 90 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1409 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1358 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
-  case 4:
-#line 98 "my_parser.y" /* yacc.c:1646  */
+  case 3:
+#line 91 "my_parser.y" /* yacc.c:1646  */
     {// $$ = symbol_table.lookup($1).symbol_table.lookup($3);
 						 //	delete($1); 
 						 //	delete($3); 
 						}
-#line 1418 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1367 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
-  case 5:
-#line 102 "my_parser.y" /* yacc.c:1646  */
+  case 4:
+#line 95 "my_parser.y" /* yacc.c:1646  */
     { 
 								//$$ = symbol_table.lookup($1)[$3];
 								//delete($1);
 							}
-#line 1427 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1376 "my_parser.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 5:
+#line 102 "my_parser.y" /* yacc.c:1646  */
+    { }
+#line 1382 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 109 "my_parser.y" /* yacc.c:1646  */
+#line 103 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1433 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1388 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 110 "my_parser.y" /* yacc.c:1646  */
+#line 104 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1439 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1394 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 111 "my_parser.y" /* yacc.c:1646  */
+#line 105 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1445 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1400 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 112 "my_parser.y" /* yacc.c:1646  */
+#line 106 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1451 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1406 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 113 "my_parser.y" /* yacc.c:1646  */
+#line 107 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1457 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1412 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 114 "my_parser.y" /* yacc.c:1646  */
+#line 108 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1463 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1418 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 115 "my_parser.y" /* yacc.c:1646  */
+#line 109 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1469 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1424 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 116 "my_parser.y" /* yacc.c:1646  */
+#line 110 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1475 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1430 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 117 "my_parser.y" /* yacc.c:1646  */
+#line 111 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1481 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1436 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 118 "my_parser.y" /* yacc.c:1646  */
+#line 112 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1487 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1442 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 119 "my_parser.y" /* yacc.c:1646  */
+#line 113 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1493 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1448 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 120 "my_parser.y" /* yacc.c:1646  */
+#line 114 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1499 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1454 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 121 "my_parser.y" /* yacc.c:1646  */
+#line 115 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1505 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1460 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 122 "my_parser.y" /* yacc.c:1646  */
+#line 116 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1511 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1466 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 123 "my_parser.y" /* yacc.c:1646  */
+#line 117 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1517 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1472 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 124 "my_parser.y" /* yacc.c:1646  */
+#line 118 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1523 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1478 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 125 "my_parser.y" /* yacc.c:1646  */
+#line 119 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1529 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1484 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 126 "my_parser.y" /* yacc.c:1646  */
+#line 120 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1535 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1490 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 127 "my_parser.y" /* yacc.c:1646  */
+#line 121 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1541 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1496 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 128 "my_parser.y" /* yacc.c:1646  */
+#line 122 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1547 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1502 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 129 "my_parser.y" /* yacc.c:1646  */
+#line 123 "my_parser.y" /* yacc.c:1646  */
     { }
-#line 1553 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1508 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 130 "my_parser.y" /* yacc.c:1646  */
-    { }
-#line 1559 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 124 "my_parser.y" /* yacc.c:1646  */
+    {  }
+#line 1514 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 131 "my_parser.y" /* yacc.c:1646  */
+#line 125 "my_parser.y" /* yacc.c:1646  */
     {  }
-#line 1565 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1520 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 132 "my_parser.y" /* yacc.c:1646  */
+#line 126 "my_parser.y" /* yacc.c:1646  */
     {  }
-#line 1571 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1526 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 133 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1577 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 128 "my_parser.y" /* yacc.c:1646  */
+    {}
+#line 1532 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 135 "my_parser.y" /* yacc.c:1646  */
+#line 129 "my_parser.y" /* yacc.c:1646  */
     {}
-#line 1583 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1538 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 136 "my_parser.y" /* yacc.c:1646  */
+#line 130 "my_parser.y" /* yacc.c:1646  */
     {}
-#line 1589 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 33:
-#line 137 "my_parser.y" /* yacc.c:1646  */
-    {}
-#line 1595 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 34:
-#line 189 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1601 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 35:
-#line 190 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1607 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 36:
-#line 192 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1613 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 37:
-#line 194 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1619 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 38:
-#line 195 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1625 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 39:
-#line 199 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1631 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 40:
-#line 200 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1637 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 41:
-#line 202 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1643 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 42:
-#line 204 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1649 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 43:
-#line 205 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1655 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 44:
-#line 207 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1661 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 45:
-#line 208 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1667 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 46:
-#line 209 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1673 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 47:
-#line 211 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1679 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 48:
-#line 213 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1685 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 49:
-#line 215 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1691 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 50:
-#line 216 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1697 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 51:
-#line 219 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1703 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 52:
-#line 221 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1709 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 53:
-#line 223 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1715 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 54:
-#line 226 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1721 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 55:
-#line 228 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1727 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 56:
-#line 233 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1733 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 57:
-#line 234 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1739 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 58:
-#line 236 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1745 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 59:
-#line 237 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1751 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
-    break;
-
-  case 60:
-#line 239 "my_parser.y" /* yacc.c:1646  */
-    {  }
-#line 1757 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1544 "my_parser.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1761 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" /* yacc.c:1646  */
+#line 1548 "my_parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1985,7 +1772,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 289 "my_parser.y" /* yacc.c:1906  */
+#line 283 "my_parser.y" /* yacc.c:1906  */
 
 
 

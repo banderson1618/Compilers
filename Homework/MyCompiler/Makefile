@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named calc
+# Target rules for targets named cpsl
 
 # Build rule for target.
-calc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 calc
-.PHONY : calc
+cpsl: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cpsl
+.PHONY : cpsl
 
 # fast build rule for target.
-calc/fast:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/build
-.PHONY : calc/fast
+cpsl/fast:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/build
+.PHONY : cpsl/fast
 
 main.o: main.cpp.o
 
@@ -129,7 +129,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -138,7 +138,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -147,7 +147,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 parser.o: parser.cpp.o
@@ -156,7 +156,7 @@ parser.o: parser.cpp.o
 
 # target to build an object file
 parser.cpp.o:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/parser.cpp.o
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/parser.cpp.o
 .PHONY : parser.cpp.o
 
 parser.i: parser.cpp.i
@@ -165,7 +165,7 @@ parser.i: parser.cpp.i
 
 # target to preprocess a source file
 parser.cpp.i:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/parser.cpp.i
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/parser.cpp.i
 .PHONY : parser.cpp.i
 
 parser.s: parser.cpp.s
@@ -174,7 +174,7 @@ parser.s: parser.cpp.s
 
 # target to generate assembly for a file
 parser.cpp.s:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/parser.cpp.s
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/parser.cpp.s
 .PHONY : parser.cpp.s
 
 scanner.o: scanner.cpp.o
@@ -183,7 +183,7 @@ scanner.o: scanner.cpp.o
 
 # target to build an object file
 scanner.cpp.o:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/scanner.cpp.o
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/scanner.cpp.o
 .PHONY : scanner.cpp.o
 
 scanner.i: scanner.cpp.i
@@ -192,7 +192,7 @@ scanner.i: scanner.cpp.i
 
 # target to preprocess a source file
 scanner.cpp.i:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/scanner.cpp.i
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/scanner.cpp.i
 .PHONY : scanner.cpp.i
 
 scanner.s: scanner.cpp.s
@@ -201,35 +201,8 @@ scanner.s: scanner.cpp.s
 
 # target to generate assembly for a file
 scanner.cpp.s:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/scanner.cpp.s
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/scanner.cpp.s
 .PHONY : scanner.cpp.s
-
-symbol_table.o: symbol_table.cpp.o
-
-.PHONY : symbol_table.o
-
-# target to build an object file
-symbol_table.cpp.o:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/symbol_table.cpp.o
-.PHONY : symbol_table.cpp.o
-
-symbol_table.i: symbol_table.cpp.i
-
-.PHONY : symbol_table.i
-
-# target to preprocess a source file
-symbol_table.cpp.i:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/symbol_table.cpp.i
-.PHONY : symbol_table.cpp.i
-
-symbol_table.s: symbol_table.cpp.s
-
-.PHONY : symbol_table.s
-
-# target to generate assembly for a file
-symbol_table.cpp.s:
-	$(MAKE) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/symbol_table.cpp.s
-.PHONY : symbol_table.cpp.s
 
 # Help Target
 help:
@@ -238,7 +211,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... calc"
+	@echo "... cpsl"
 	@echo "... edit_cache"
 	@echo "... main.o"
 	@echo "... main.i"
@@ -249,9 +222,6 @@ help:
 	@echo "... scanner.o"
 	@echo "... scanner.i"
 	@echo "... scanner.s"
-	@echo "... symbol_table.o"
-	@echo "... symbol_table.i"
-	@echo "... symbol_table.s"
 .PHONY : help
 
 

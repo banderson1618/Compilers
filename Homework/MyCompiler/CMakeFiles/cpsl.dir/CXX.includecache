@@ -7,16 +7,14 @@
 #IncludeRegexTransform: 
 
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp
-symbol_table.hpp
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/symbol_table.hpp
+iostream
+-
 
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp
 ctype.h
 -
 iostream
 -
-symbol_table.hpp
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/symbol_table.hpp
 map
 -
 stddef.h
@@ -51,22 +49,10 @@ stdlib.h
 -
 stdio.h
 -
+iostream
+-
 parser.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp
 unistd.h
--
-
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/symbol_table.cpp
-symbol_table.hpp
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/symbol_table.hpp
-iostream
--
-
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/symbol_table.hpp
-string
--
-vector
--
-map
 -
 

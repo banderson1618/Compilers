@@ -133,7 +133,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=calc
+CMAKE_PROJECT_NAME:STATIC=CPSL_Compiler
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -184,6 +184,12 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Value Computed by CMake
+CPSL_Compiler_BINARY_DIR:STATIC=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler
+
+//Value Computed by CMake
+CPSL_Compiler_SOURCE_DIR:STATIC=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler
+
 //path to the flex executable
 FLEX_EXECUTABLE:FILEPATH=/usr/bin/flex
 
@@ -192,12 +198,6 @@ FLEX_INCLUDE_DIR:PATH=/usr/include
 
 //Path to the fl library
 FL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfl.so
-
-//Value Computed by CMake
-calc_BINARY_DIR:STATIC=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler
-
-//Value Computed by CMake
-calc_SOURCE_DIR:STATIC=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler
 
 
 ########################

@@ -4,10 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/calc.dir/main.cpp.o"
-  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/calc.dir/parser.cpp.o"
-  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/calc.dir/scanner.cpp.o"
-  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/symbol_table.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/calc.dir/symbol_table.cpp.o"
+  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/cpsl.dir/main.cpp.o"
+  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/cpsl.dir/parser.cpp.o"
+  "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp" "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/cpsl.dir/scanner.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

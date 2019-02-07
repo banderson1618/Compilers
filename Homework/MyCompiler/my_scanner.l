@@ -1,9 +1,10 @@
 %{
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 extern int yylex();
-//#include "y.tab.h"
 #include "parser.hpp"
+#define yyterminate() return END
 
 int linenumber = 1;
 %}
@@ -13,7 +14,7 @@ int linenumber = 1;
 %%
 
 array|ARRAY {return ARRAY_TOKEN;}
-begin|BEGIN {return BEGIN_TOKEN;}
+begin|BEGIN {std::cout << "Got here" << std::endl;return BEGIN_TOKEN;}
 chr|CHR {return CHR_TOKEN;}
 const|CONST {return CONST_TOKEN;}
 do|DO {return DO_TOKEN;}
@@ -28,7 +29,7 @@ if|IF {return IF_TOKEN;}
 of|OF {return OF_TOKEN;}
 ord|ORD {return ORD_TOKEN;}
 pred|PRED {return PRED_TOKEN;}
-procedure|PROCEDURE {return PROCEDURE_TOKEN;}
+procedure|PROCEDURE {return PROC_TOKEN;}
 read|READ {return READ_TOKEN;}
 record|RECORD {return RECORD_TOKEN;}
 ref|REF {return REF_TOKEN;}
@@ -44,15 +45,13 @@ var|VAR {return VAR_TOKEN;}
 while|WHILE {return WHILE_TOKEN;}
 write|WRITE {return WRITE_TOKEN;}
 
-[A-Za-z][A-Zaz0-9_]* { //yylval.id = strdup(yytext); 
-			return ID_TOKEN; }
 
 '+' {return ADD_TOKEN;}
 '-' {return SUB_TOKEN;}
 '*' {return MULT_TOKEN;}
-'/' {return DIV_TOKEN;}
+\/ {return DIV_TOKEN;}
 & {return AND_TOKEN;}
-'|' {return OR_TOKEN;}
+\| {return OR_TOKEN;}
 ~ {return TILDE_TOKEN;}
 = {return EQ_TOKEN;}
 '<>' {return NEQ_TOKEN;}
@@ -61,49 +60,40 @@ write|WRITE {return WRITE_TOKEN;}
 '<=' {return LEQ_TOKEN;}
 '>=' {return GEQ_TOKEN;}
 '.' {return PER_TOKEN;}
-',' {return COMMA_TOKEN;}
-':' {return COLON_TOKEN;}
-';' {return SEMICOLON_TOKEN;}
-'\(' {return LPAREN_TOKEN;}
-'\)' {return RPAREN_TOKEN;}
-'\[' {return RBRAC_TOKEN;}
-']' {return LBRAC_TOKEN;}
+, {return COMMA_TOKEN;}
+: {return COLON_TOKEN;}
+; {return SEMICOLON_TOKEN;}
+\( {return LPAREN_TOKEN;}
+\) {return RPAREN_TOKEN;}
+\[ {return RBRAC_TOKEN;}
+\] {return LBRAC_TOKEN;}
 := {return ASSIGN_TOKEN;}
-'%' {return REMAIN_TOKEN;}
+% {return REMAIN_TOKEN;}
 
-[ \t]* {;}
+[ \t]* {}
 [\n] { linenumber++; }
 
-[0x][0-9a-e]* { //yylval.val = atoi(yytext); 
+[0x][0-9a-e]* { yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}
-[0][0-7]* {//yylval.val = atoi(yytext); 
+[0][0-7]* {yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}
-[1-9][0-9]* {//yylval.val = atoi(yytext); 
+[1-9][0-9]* {yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}
 
 
 ['][a-zA-Z^"]['] {return CHAR_TOKEN;}
 ["][.]*["] {return STRING_TOKEN;}
 
-[$][.]* {return COMMENT_TOKEN;}
+[$][.]*\\n {;}
+
+
+
+[A-Za-z][A-Zaz0-9_]* { 	std::cout << "Found ID token " << yytext << std::endl;
+			yylval.id = strdup(yytext); 
+			return ID_TOKEN; }
 
 
 
 %%
-
-/*
-int main(int numargs, char** args){
-	FILE *myfile = fopen("nested_for.cpsl", "r");
-	
-	if (!myfile){
-		printf("Can't find a file\n");
-		return -1;
-	}
-	yyin = myfile;
-	while(yylex());
-	printf("\n");
-	return 0;
-}
-*/
 
 
