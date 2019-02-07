@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+37c305186a0b55812f52ac991d8383fc parser.cpp
+6fcba338a078fc2ebbdc9cac0444a75b scanner.cpp

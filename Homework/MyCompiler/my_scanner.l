@@ -3,9 +3,9 @@
 #include <stdio.h>
 extern int yylex();
 //#include "y.tab.h"
-#include "tokens.hpp"
+#include "parser.hpp"
 
-int linenum = 1;
+int linenumber = 1;
 %}
 
 %option noyywrap
@@ -66,8 +66,8 @@ write|WRITE {return WRITE_TOKEN;}
 ';' {return SEMICOLON_TOKEN;}
 '\(' {return LPAREN_TOKEN;}
 '\)' {return RPAREN_TOKEN;}
-'\[' {return RBRACKET_TOKEN;}
-']' {return LBRACKET_TOKEN;}
+'\[' {return RBRAC_TOKEN;}
+']' {return LBRAC_TOKEN;}
 := {return ASSIGN_TOKEN;}
 '%' {return REMAIN_TOKEN;}
 
@@ -91,6 +91,7 @@ write|WRITE {return WRITE_TOKEN;}
 
 %%
 
+/*
 int main(int numargs, char** args){
 	FILE *myfile = fopen("nested_for.cpsl", "r");
 	
@@ -103,5 +104,6 @@ int main(int numargs, char** args){
 	printf("\n");
 	return 0;
 }
+*/
 
 
