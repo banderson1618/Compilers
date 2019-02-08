@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/main.cpp
 iostream
 -
 
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/parser.cpp
 ctype.h
 -
 iostream
@@ -32,9 +32,9 @@ stdlib.h
 stdio.h
 -
 
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/parser.hpp
 
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/scanner.cpp
 stdio.h
 -
 string.h
@@ -52,7 +52,7 @@ stdio.h
 iostream
 -
 parser.hpp
-/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/parser.hpp
 unistd.h
 -
 

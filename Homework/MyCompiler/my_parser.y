@@ -181,12 +181,11 @@ statement	: assign				{  }
 		| null_statement			{  }
 		;
 		
-statement_seq	: statement SEMICOLON_TOKEN statement_seq{  }
-		
+statement_seq	: statement statement_semi		{  }	
 		| /* empty */				{  }
 		;
 
-statement_semi	: SEMICOLON_TOKEN statement		{  }
+statement_semi	: SEMICOLON_TOKEN statement statement_semi{  }
 		| /* empty */
 		;
 
