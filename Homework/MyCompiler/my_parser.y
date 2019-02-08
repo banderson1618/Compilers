@@ -68,6 +68,7 @@ extern int linenumber;
 %token NUM_TOKEN
 %token CHAR_TOKEN
 %token STRING_TOKEN
+%token END_OF_FILE 0
 
 %union
 {
@@ -89,20 +90,16 @@ extern int linenumber;
 
 
 
-program		: const_decl type_decl var_decl// func_proc_list block PER_TOKEN	{  }	
-		//| VAR_TOKEN ID_TOKEN COMMA_TOKEN ID_TOKEN			{  }		
+program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
+						{  }	
+		//| statement_seq  END_OF_FILE	{  }
 		;
 
 
-lvalue 		: ID_TOKEN 			{ }//$$ = symbol_table.lookup($1); delete($1); }
-		| ID_TOKEN PER_TOKEN ID_TOKEN 	{// $$ = symbol_table.lookup($1).symbol_table.lookup($3);
-						 //	delete($1); 
-						 //	delete($3); 
-						}
-		| ID_TOKEN RBRAC_TOKEN expr LBRAC_TOKEN { 
-								//$$ = symbol_table.lookup($1)[$3];
-								//delete($1);
-							}
+lvalue 		: ID_TOKEN 				{  }
+		| ID_TOKEN PER_TOKEN expr 		{  }
+		| ID_TOKEN LBRAC_TOKEN expr RBRAC_TOKEN {  }
+		| ID_TOKEN LBRAC_TOKEN expr RBRAC_TOKEN PER_TOKEN expr {  }
 		;
 
 // Expressions
@@ -132,9 +129,11 @@ expr		: lvalue 				{ }//$$ = $1; }
 		| CHAR_TOKEN				{  }
 		| STRING_TOKEN				{  }
 		;
-args_list	: expr comma_expr			{};
+args_list	: expr comma_expr			{}
+		| /* empty */
+		;
 comma_expr	: /* empty */				{}
-		| COMMA_TOKEN expr			{}
+		| COMMA_TOKEN expr comma_expr		{}
 		;
 
 // Statements
@@ -144,8 +143,8 @@ procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }//$$ = $1($3) 
 
 write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }//$$ = std::cout << $3; };
 read_statement	: READ_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }//$$ = std::cin >> $3; };
-return_statement: RETURN_TOKEN SEMICOLON_TOKEN 		{ }//$$ = return;}
-		| RETURN_TOKEN expr SEMICOLON_TOKEN 	{ }//$$ = return $2;}
+return_statement: RETURN_TOKEN  			{ }//$$ = return;}
+		| RETURN_TOKEN expr  			{ }//$$ = return $2;}
 		;
 stop_statement	: STOP_TOKEN				{ }//$$ = return 0;}
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
@@ -182,7 +181,14 @@ statement	: assign				{  }
 		| null_statement			{  }
 		;
 		
-statement_seq	: statement SEMICOLON_TOKEN statement_seq {  };
+statement_seq	: statement SEMICOLON_TOKEN statement_seq{  }
+		
+		| /* empty */				{  }
+		;
+
+statement_semi	: SEMICOLON_TOKEN statement		{  }
+		| /* empty */
+		;
 
 
 // Constant declaration
@@ -220,19 +226,20 @@ rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 		;
 array_type	: ARRAY_TOKEN array_args OF_TOKEN type	{  }
 		;
-array_args	: LBRAC_TOKEN args_list RBRAC_TOKEN	{  }
+array_args	: LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN	{  }
 		;		
 
 ident_list	: ID_TOKEN id_list			{  }
 		;
-id_list		: COMMA_TOKEN ID_TOKEN			{  }
+id_list		: COMMA_TOKEN ID_TOKEN id_list		{  }
+		| /* empty */				{  }
 		;
 
 
 // Variable Declaration
 var_decl	: VAR_TOKEN var_item var_list		{  }
 		| /* empty */				{  }
-
+		;
 var_list	: var_item var_list			{  }
 		| /* empty */				{  }
 		;

@@ -45,6 +45,7 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
+    END_OF_FILE = 0,
     END = 258,
     ARRAY_TOKEN = 259,
     BEGIN_TOKEN = 260,
@@ -112,12 +113,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 73 "my_parser.y" /* yacc.c:1909  */
+#line 74 "my_parser.y" /* yacc.c:1909  */
 
 	int val;
 	char* id;
 
-#line 121 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp" /* yacc.c:1909  */
+#line 122 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
