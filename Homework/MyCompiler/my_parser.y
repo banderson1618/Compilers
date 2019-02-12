@@ -70,6 +70,14 @@ extern int linenumber;
 %token STRING_TOKEN
 %token END_OF_FILE 0
 
+%right OR_TOKEN
+%right AND_TOKEN
+%left TILDE_TOKEN
+%nonassoc EQ_TOKEN NEQ_TOKEN LESS_TOKEN LEQ_TOKEN GREATER_TOKEN GEQ_TOKEN
+%left ADD_TOKEN
+%left MULT_TOKEN DIV_TOKEN REMAIN_TOKEN
+%right SUB_TOKEN
+
 %union
 {
 	int val;
@@ -92,14 +100,17 @@ extern int linenumber;
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 						{  }	
-		//| statement_seq  END_OF_FILE	{  }
+		//| var_decl END_OF_FILE	{  }
 		;
 
 
 lvalue 		: ID_TOKEN 				{  }
-		| ID_TOKEN PER_TOKEN expr 		{  }
-		| ID_TOKEN LBRAC_TOKEN expr RBRAC_TOKEN {  }
-		| ID_TOKEN LBRAC_TOKEN expr RBRAC_TOKEN PER_TOKEN expr {  }
+		| ID_TOKEN lvalue_seq	 		{  }
+		;
+
+lvalue_seq	: PER_TOKEN ID_TOKEN lvalue_seq		{  }
+		| LBRAC_TOKEN expr RBRAC_TOKEN lvalue_seq {  }
+		| /* empty */
 		;
 
 // Expressions
@@ -113,7 +124,7 @@ expr		: lvalue 				{ }//$$ = $1; }
 		| expr LESS_TOKEN expr			{ }//$$ = $1 < $3; }
 		| expr GREATER_TOKEN expr		{ }//$$ = $1 > $3; }
 		| expr ADD_TOKEN expr			{ }//$$ = $1 + $3; }
-		| expr SUB_TOKEN expr			{ }//$$ = $1 - $3; }
+		| expr SUB_TOKEN expr %prec ADD_TOKEN	{ }//$$ = $1 - $3; }
 		| expr MULT_TOKEN expr			{ }//$$ = $1 * $3; }
 		| expr DIV_TOKEN expr 			{ }//$$ = $1 / $3; }
 		| expr REMAIN_TOKEN expr		{ }//$$ = $1 % $3; }
