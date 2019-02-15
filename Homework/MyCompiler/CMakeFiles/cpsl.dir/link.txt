@@ -1,0 +1,1 @@
+/usr/bin/c++   -g3 -std=c++14  -rdynamic CMakeFiles/cpsl.dir/main.cpp.o CMakeFiles/cpsl.dir/parser.cpp.o CMakeFiles/cpsl.dir/scanner.cpp.o  -o cpsl -lfl 
