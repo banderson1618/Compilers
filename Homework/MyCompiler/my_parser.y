@@ -100,7 +100,6 @@ extern int linenumber;
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 						{  }	
-		//| var_decl END_OF_FILE	{  }
 		;
 
 
@@ -123,7 +122,7 @@ expr		: lvalue 				{ }//$$ = $1; }
 		| expr GEQ_TOKEN expr			{ }//$$ = $1 >= $3; }
 		| expr LESS_TOKEN expr			{ }//$$ = $1 < $3; }
 		| expr GREATER_TOKEN expr		{ }//$$ = $1 > $3; }
-		| expr ADD_TOKEN expr			{ }//$$ = $1 + $3; }
+		| expr ADD_TOKEN expr			{ $$ = new Add($1, $3)}//$$ = $1 + $3; }
 		| expr SUB_TOKEN expr %prec ADD_TOKEN	{ }//$$ = $1 - $3; }
 		| expr MULT_TOKEN expr			{ }//$$ = $1 * $3; }
 		| expr DIV_TOKEN expr 			{ }//$$ = $1 / $3; }
