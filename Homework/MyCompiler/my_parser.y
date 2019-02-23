@@ -1,4 +1,6 @@
 %{
+#include "Expressions/AddExpression.hpp"
+#include "Expressions/Expression.hpp"
 #include <ctype.h>
 #include <iostream>
 #include <map>
@@ -9,6 +11,7 @@ extern FILE *yyin;
 void yyerror(const char *s);
 extern int linenumber;
 %}
+
 %token END
 %token ARRAY_TOKEN
 %token BEGIN_TOKEN
@@ -82,17 +85,18 @@ extern int linenumber;
 {
 	int val;
 	char* id;
+	Expression* expr;
 }
 
-/*
+
 %type <val> lvalue
-%type <val> expr
 %type <val> procedure_call
 %type <val> write_statement
 %type <val> read_statement
 %type <val> return_statement
 %type <id> ID_TOKEN
-*/
+%type <expr> expr
+
 
 %%
 
@@ -100,6 +104,7 @@ extern int linenumber;
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 						{  }	
+		//| var_decl END_OF_FILE	{  }
 		;
 
 
@@ -113,31 +118,37 @@ lvalue_seq	: PER_TOKEN ID_TOKEN lvalue_seq		{  }
 		;
 
 // Expressions
-expr		: lvalue 				{ }//$$ = $1; }
-		| expr OR_TOKEN expr 			{ }//$$ = $1 || $3; }
-		| expr AND_TOKEN expr 			{ }//$$ = $1 && $3; }
-		| expr EQ_TOKEN expr 			{ }//$$ = $1 == $3; }
-		| expr NEQ_TOKEN expr			{ }//$$ = $1 != $3; }
-		| expr LEQ_TOKEN expr			{ }//$$ = $1 <= $3; }
-		| expr GEQ_TOKEN expr			{ }//$$ = $1 >= $3; }
-		| expr LESS_TOKEN expr			{ }//$$ = $1 < $3; }
-		| expr GREATER_TOKEN expr		{ }//$$ = $1 > $3; }
-		| expr ADD_TOKEN expr			{ $$ = new Add($1, $3)}//$$ = $1 + $3; }
-		| expr SUB_TOKEN expr %prec ADD_TOKEN	{ }//$$ = $1 - $3; }
-		| expr MULT_TOKEN expr			{ }//$$ = $1 * $3; }
-		| expr DIV_TOKEN expr 			{ }//$$ = $1 / $3; }
-		| expr REMAIN_TOKEN expr		{ }//$$ = $1 % $3; }
-		| TILDE_TOKEN expr			{ }//$$ = ~ $2; }
-		| SUB_TOKEN expr			{ }//$$ = 0 - $2; }
-		| LPAREN_TOKEN expr RPAREN_TOKEN	{ }//$$ = $2; }
-		| ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }// $$ = $1($3)}
-		| CHR_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN { }// $$ = $3 }
-		| ORD_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN { }//$$ = $3 }
-		| PRED_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN { }//$$ = $3++}
-		| SUCC_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN { }//$$ = $3--}
-		| NUM_TOKEN				{  }
-		| CHAR_TOKEN				{  }
-		| STRING_TOKEN				{  }
+expr		: lvalue 				{ }
+		| expr OR_TOKEN expr 			{ }
+		| expr AND_TOKEN expr 			{ }
+		| expr EQ_TOKEN expr 			{ }
+		| expr NEQ_TOKEN expr			{ }
+		| expr LEQ_TOKEN expr			{ }
+		| expr GEQ_TOKEN expr			{ }
+		| expr LESS_TOKEN expr			{ }
+		| expr GREATER_TOKEN expr		{ }
+		| expr ADD_TOKEN expr			{ std::cout << "Ayy" << std::endl;
+								$$ =  new AddExpression($1, $3);}
+		| expr SUB_TOKEN expr %prec ADD_TOKEN	{ }
+		| expr MULT_TOKEN expr			{ }
+		| expr DIV_TOKEN expr 			{ }
+		| expr REMAIN_TOKEN expr		{ }
+		| TILDE_TOKEN expr			{ }
+		| SUB_TOKEN expr			{ }
+		| LPAREN_TOKEN expr RPAREN_TOKEN	{ }
+		| ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN 
+							{ }
+		| CHR_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
+							{ }
+		| ORD_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
+							{ }
+		| PRED_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
+							{ }
+		| SUCC_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
+							{ }
+		| NUM_TOKEN				{ }
+		| CHAR_TOKEN				{ }
+		| STRING_TOKEN				{ }
 		;
 args_list	: expr comma_expr			{}
 		| /* empty */

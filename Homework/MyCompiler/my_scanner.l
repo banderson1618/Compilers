@@ -1,4 +1,6 @@
 %{
+#include "Expressions/AddExpression.hpp"
+#include "Expressions/Expression.hpp"
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
