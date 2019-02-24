@@ -150,6 +150,141 @@ Expressions/AddExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.s
 .PHONY : Expressions/AddExpression.cpp.s
 
+Expressions/AndExpression.o: Expressions/AndExpression.cpp.o
+
+.PHONY : Expressions/AndExpression.o
+
+# target to build an object file
+Expressions/AndExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o
+.PHONY : Expressions/AndExpression.cpp.o
+
+Expressions/AndExpression.i: Expressions/AndExpression.cpp.i
+
+.PHONY : Expressions/AndExpression.i
+
+# target to preprocess a source file
+Expressions/AndExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.i
+.PHONY : Expressions/AndExpression.cpp.i
+
+Expressions/AndExpression.s: Expressions/AndExpression.cpp.s
+
+.PHONY : Expressions/AndExpression.s
+
+# target to generate assembly for a file
+Expressions/AndExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.s
+.PHONY : Expressions/AndExpression.cpp.s
+
+Expressions/BitwiseExpression.o: Expressions/BitwiseExpression.cpp.o
+
+.PHONY : Expressions/BitwiseExpression.o
+
+# target to build an object file
+Expressions/BitwiseExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o
+.PHONY : Expressions/BitwiseExpression.cpp.o
+
+Expressions/BitwiseExpression.i: Expressions/BitwiseExpression.cpp.i
+
+.PHONY : Expressions/BitwiseExpression.i
+
+# target to preprocess a source file
+Expressions/BitwiseExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.i
+.PHONY : Expressions/BitwiseExpression.cpp.i
+
+Expressions/BitwiseExpression.s: Expressions/BitwiseExpression.cpp.s
+
+.PHONY : Expressions/BitwiseExpression.s
+
+# target to generate assembly for a file
+Expressions/BitwiseExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.s
+.PHONY : Expressions/BitwiseExpression.cpp.s
+
+Expressions/CharExpression.o: Expressions/CharExpression.cpp.o
+
+.PHONY : Expressions/CharExpression.o
+
+# target to build an object file
+Expressions/CharExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o
+.PHONY : Expressions/CharExpression.cpp.o
+
+Expressions/CharExpression.i: Expressions/CharExpression.cpp.i
+
+.PHONY : Expressions/CharExpression.i
+
+# target to preprocess a source file
+Expressions/CharExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.i
+.PHONY : Expressions/CharExpression.cpp.i
+
+Expressions/CharExpression.s: Expressions/CharExpression.cpp.s
+
+.PHONY : Expressions/CharExpression.s
+
+# target to generate assembly for a file
+Expressions/CharExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.s
+.PHONY : Expressions/CharExpression.cpp.s
+
+Expressions/DivExpression.o: Expressions/DivExpression.cpp.o
+
+.PHONY : Expressions/DivExpression.o
+
+# target to build an object file
+Expressions/DivExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o
+.PHONY : Expressions/DivExpression.cpp.o
+
+Expressions/DivExpression.i: Expressions/DivExpression.cpp.i
+
+.PHONY : Expressions/DivExpression.i
+
+# target to preprocess a source file
+Expressions/DivExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.i
+.PHONY : Expressions/DivExpression.cpp.i
+
+Expressions/DivExpression.s: Expressions/DivExpression.cpp.s
+
+.PHONY : Expressions/DivExpression.s
+
+# target to generate assembly for a file
+Expressions/DivExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.s
+.PHONY : Expressions/DivExpression.cpp.s
+
+Expressions/EqExpression.o: Expressions/EqExpression.cpp.o
+
+.PHONY : Expressions/EqExpression.o
+
+# target to build an object file
+Expressions/EqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o
+.PHONY : Expressions/EqExpression.cpp.o
+
+Expressions/EqExpression.i: Expressions/EqExpression.cpp.i
+
+.PHONY : Expressions/EqExpression.i
+
+# target to preprocess a source file
+Expressions/EqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.i
+.PHONY : Expressions/EqExpression.cpp.i
+
+Expressions/EqExpression.s: Expressions/EqExpression.cpp.s
+
+.PHONY : Expressions/EqExpression.s
+
+# target to generate assembly for a file
+Expressions/EqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.s
+.PHONY : Expressions/EqExpression.cpp.s
+
 Expressions/Expression.o: Expressions/Expression.cpp.o
 
 .PHONY : Expressions/Expression.o
@@ -176,6 +311,519 @@ Expressions/Expression.s: Expressions/Expression.cpp.s
 Expressions/Expression.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/Expression.cpp.s
 .PHONY : Expressions/Expression.cpp.s
+
+Expressions/FuncExpression.o: Expressions/FuncExpression.cpp.o
+
+.PHONY : Expressions/FuncExpression.o
+
+# target to build an object file
+Expressions/FuncExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o
+.PHONY : Expressions/FuncExpression.cpp.o
+
+Expressions/FuncExpression.i: Expressions/FuncExpression.cpp.i
+
+.PHONY : Expressions/FuncExpression.i
+
+# target to preprocess a source file
+Expressions/FuncExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.i
+.PHONY : Expressions/FuncExpression.cpp.i
+
+Expressions/FuncExpression.s: Expressions/FuncExpression.cpp.s
+
+.PHONY : Expressions/FuncExpression.s
+
+# target to generate assembly for a file
+Expressions/FuncExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.s
+.PHONY : Expressions/FuncExpression.cpp.s
+
+Expressions/GeqExpression.o: Expressions/GeqExpression.cpp.o
+
+.PHONY : Expressions/GeqExpression.o
+
+# target to build an object file
+Expressions/GeqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o
+.PHONY : Expressions/GeqExpression.cpp.o
+
+Expressions/GeqExpression.i: Expressions/GeqExpression.cpp.i
+
+.PHONY : Expressions/GeqExpression.i
+
+# target to preprocess a source file
+Expressions/GeqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.i
+.PHONY : Expressions/GeqExpression.cpp.i
+
+Expressions/GeqExpression.s: Expressions/GeqExpression.cpp.s
+
+.PHONY : Expressions/GeqExpression.s
+
+# target to generate assembly for a file
+Expressions/GeqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.s
+.PHONY : Expressions/GeqExpression.cpp.s
+
+Expressions/GreaterExpression.o: Expressions/GreaterExpression.cpp.o
+
+.PHONY : Expressions/GreaterExpression.o
+
+# target to build an object file
+Expressions/GreaterExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o
+.PHONY : Expressions/GreaterExpression.cpp.o
+
+Expressions/GreaterExpression.i: Expressions/GreaterExpression.cpp.i
+
+.PHONY : Expressions/GreaterExpression.i
+
+# target to preprocess a source file
+Expressions/GreaterExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.i
+.PHONY : Expressions/GreaterExpression.cpp.i
+
+Expressions/GreaterExpression.s: Expressions/GreaterExpression.cpp.s
+
+.PHONY : Expressions/GreaterExpression.s
+
+# target to generate assembly for a file
+Expressions/GreaterExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.s
+.PHONY : Expressions/GreaterExpression.cpp.s
+
+Expressions/IntExpression.o: Expressions/IntExpression.cpp.o
+
+.PHONY : Expressions/IntExpression.o
+
+# target to build an object file
+Expressions/IntExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o
+.PHONY : Expressions/IntExpression.cpp.o
+
+Expressions/IntExpression.i: Expressions/IntExpression.cpp.i
+
+.PHONY : Expressions/IntExpression.i
+
+# target to preprocess a source file
+Expressions/IntExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.i
+.PHONY : Expressions/IntExpression.cpp.i
+
+Expressions/IntExpression.s: Expressions/IntExpression.cpp.s
+
+.PHONY : Expressions/IntExpression.s
+
+# target to generate assembly for a file
+Expressions/IntExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.s
+.PHONY : Expressions/IntExpression.cpp.s
+
+Expressions/LeqExpression.o: Expressions/LeqExpression.cpp.o
+
+.PHONY : Expressions/LeqExpression.o
+
+# target to build an object file
+Expressions/LeqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o
+.PHONY : Expressions/LeqExpression.cpp.o
+
+Expressions/LeqExpression.i: Expressions/LeqExpression.cpp.i
+
+.PHONY : Expressions/LeqExpression.i
+
+# target to preprocess a source file
+Expressions/LeqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.i
+.PHONY : Expressions/LeqExpression.cpp.i
+
+Expressions/LeqExpression.s: Expressions/LeqExpression.cpp.s
+
+.PHONY : Expressions/LeqExpression.s
+
+# target to generate assembly for a file
+Expressions/LeqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.s
+.PHONY : Expressions/LeqExpression.cpp.s
+
+Expressions/LessExpression.o: Expressions/LessExpression.cpp.o
+
+.PHONY : Expressions/LessExpression.o
+
+# target to build an object file
+Expressions/LessExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o
+.PHONY : Expressions/LessExpression.cpp.o
+
+Expressions/LessExpression.i: Expressions/LessExpression.cpp.i
+
+.PHONY : Expressions/LessExpression.i
+
+# target to preprocess a source file
+Expressions/LessExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.i
+.PHONY : Expressions/LessExpression.cpp.i
+
+Expressions/LessExpression.s: Expressions/LessExpression.cpp.s
+
+.PHONY : Expressions/LessExpression.s
+
+# target to generate assembly for a file
+Expressions/LessExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.s
+.PHONY : Expressions/LessExpression.cpp.s
+
+Expressions/LvalueExpression.o: Expressions/LvalueExpression.cpp.o
+
+.PHONY : Expressions/LvalueExpression.o
+
+# target to build an object file
+Expressions/LvalueExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o
+.PHONY : Expressions/LvalueExpression.cpp.o
+
+Expressions/LvalueExpression.i: Expressions/LvalueExpression.cpp.i
+
+.PHONY : Expressions/LvalueExpression.i
+
+# target to preprocess a source file
+Expressions/LvalueExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.i
+.PHONY : Expressions/LvalueExpression.cpp.i
+
+Expressions/LvalueExpression.s: Expressions/LvalueExpression.cpp.s
+
+.PHONY : Expressions/LvalueExpression.s
+
+# target to generate assembly for a file
+Expressions/LvalueExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.s
+.PHONY : Expressions/LvalueExpression.cpp.s
+
+Expressions/MultExpression.o: Expressions/MultExpression.cpp.o
+
+.PHONY : Expressions/MultExpression.o
+
+# target to build an object file
+Expressions/MultExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o
+.PHONY : Expressions/MultExpression.cpp.o
+
+Expressions/MultExpression.i: Expressions/MultExpression.cpp.i
+
+.PHONY : Expressions/MultExpression.i
+
+# target to preprocess a source file
+Expressions/MultExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.i
+.PHONY : Expressions/MultExpression.cpp.i
+
+Expressions/MultExpression.s: Expressions/MultExpression.cpp.s
+
+.PHONY : Expressions/MultExpression.s
+
+# target to generate assembly for a file
+Expressions/MultExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.s
+.PHONY : Expressions/MultExpression.cpp.s
+
+Expressions/NegExpression.o: Expressions/NegExpression.cpp.o
+
+.PHONY : Expressions/NegExpression.o
+
+# target to build an object file
+Expressions/NegExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o
+.PHONY : Expressions/NegExpression.cpp.o
+
+Expressions/NegExpression.i: Expressions/NegExpression.cpp.i
+
+.PHONY : Expressions/NegExpression.i
+
+# target to preprocess a source file
+Expressions/NegExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.i
+.PHONY : Expressions/NegExpression.cpp.i
+
+Expressions/NegExpression.s: Expressions/NegExpression.cpp.s
+
+.PHONY : Expressions/NegExpression.s
+
+# target to generate assembly for a file
+Expressions/NegExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.s
+.PHONY : Expressions/NegExpression.cpp.s
+
+Expressions/NeqExpression.o: Expressions/NeqExpression.cpp.o
+
+.PHONY : Expressions/NeqExpression.o
+
+# target to build an object file
+Expressions/NeqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o
+.PHONY : Expressions/NeqExpression.cpp.o
+
+Expressions/NeqExpression.i: Expressions/NeqExpression.cpp.i
+
+.PHONY : Expressions/NeqExpression.i
+
+# target to preprocess a source file
+Expressions/NeqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.i
+.PHONY : Expressions/NeqExpression.cpp.i
+
+Expressions/NeqExpression.s: Expressions/NeqExpression.cpp.s
+
+.PHONY : Expressions/NeqExpression.s
+
+# target to generate assembly for a file
+Expressions/NeqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.s
+.PHONY : Expressions/NeqExpression.cpp.s
+
+Expressions/OrExpression.o: Expressions/OrExpression.cpp.o
+
+.PHONY : Expressions/OrExpression.o
+
+# target to build an object file
+Expressions/OrExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o
+.PHONY : Expressions/OrExpression.cpp.o
+
+Expressions/OrExpression.i: Expressions/OrExpression.cpp.i
+
+.PHONY : Expressions/OrExpression.i
+
+# target to preprocess a source file
+Expressions/OrExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.i
+.PHONY : Expressions/OrExpression.cpp.i
+
+Expressions/OrExpression.s: Expressions/OrExpression.cpp.s
+
+.PHONY : Expressions/OrExpression.s
+
+# target to generate assembly for a file
+Expressions/OrExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.s
+.PHONY : Expressions/OrExpression.cpp.s
+
+Expressions/ParenExpression.o: Expressions/ParenExpression.cpp.o
+
+.PHONY : Expressions/ParenExpression.o
+
+# target to build an object file
+Expressions/ParenExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o
+.PHONY : Expressions/ParenExpression.cpp.o
+
+Expressions/ParenExpression.i: Expressions/ParenExpression.cpp.i
+
+.PHONY : Expressions/ParenExpression.i
+
+# target to preprocess a source file
+Expressions/ParenExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.i
+.PHONY : Expressions/ParenExpression.cpp.i
+
+Expressions/ParenExpression.s: Expressions/ParenExpression.cpp.s
+
+.PHONY : Expressions/ParenExpression.s
+
+# target to generate assembly for a file
+Expressions/ParenExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.s
+.PHONY : Expressions/ParenExpression.cpp.s
+
+Expressions/RemainExpression.o: Expressions/RemainExpression.cpp.o
+
+.PHONY : Expressions/RemainExpression.o
+
+# target to build an object file
+Expressions/RemainExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o
+.PHONY : Expressions/RemainExpression.cpp.o
+
+Expressions/RemainExpression.i: Expressions/RemainExpression.cpp.i
+
+.PHONY : Expressions/RemainExpression.i
+
+# target to preprocess a source file
+Expressions/RemainExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.i
+.PHONY : Expressions/RemainExpression.cpp.i
+
+Expressions/RemainExpression.s: Expressions/RemainExpression.cpp.s
+
+.PHONY : Expressions/RemainExpression.s
+
+# target to generate assembly for a file
+Expressions/RemainExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.s
+.PHONY : Expressions/RemainExpression.cpp.s
+
+Expressions/StringExpression.o: Expressions/StringExpression.cpp.o
+
+.PHONY : Expressions/StringExpression.o
+
+# target to build an object file
+Expressions/StringExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o
+.PHONY : Expressions/StringExpression.cpp.o
+
+Expressions/StringExpression.i: Expressions/StringExpression.cpp.i
+
+.PHONY : Expressions/StringExpression.i
+
+# target to preprocess a source file
+Expressions/StringExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.i
+.PHONY : Expressions/StringExpression.cpp.i
+
+Expressions/StringExpression.s: Expressions/StringExpression.cpp.s
+
+.PHONY : Expressions/StringExpression.s
+
+# target to generate assembly for a file
+Expressions/StringExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.s
+.PHONY : Expressions/StringExpression.cpp.s
+
+Expressions/SubExpression.o: Expressions/SubExpression.cpp.o
+
+.PHONY : Expressions/SubExpression.o
+
+# target to build an object file
+Expressions/SubExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o
+.PHONY : Expressions/SubExpression.cpp.o
+
+Expressions/SubExpression.i: Expressions/SubExpression.cpp.i
+
+.PHONY : Expressions/SubExpression.i
+
+# target to preprocess a source file
+Expressions/SubExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.i
+.PHONY : Expressions/SubExpression.cpp.i
+
+Expressions/SubExpression.s: Expressions/SubExpression.cpp.s
+
+.PHONY : Expressions/SubExpression.s
+
+# target to generate assembly for a file
+Expressions/SubExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.s
+.PHONY : Expressions/SubExpression.cpp.s
+
+Expressions/ToCharExpression.o: Expressions/ToCharExpression.cpp.o
+
+.PHONY : Expressions/ToCharExpression.o
+
+# target to build an object file
+Expressions/ToCharExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o
+.PHONY : Expressions/ToCharExpression.cpp.o
+
+Expressions/ToCharExpression.i: Expressions/ToCharExpression.cpp.i
+
+.PHONY : Expressions/ToCharExpression.i
+
+# target to preprocess a source file
+Expressions/ToCharExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.i
+.PHONY : Expressions/ToCharExpression.cpp.i
+
+Expressions/ToCharExpression.s: Expressions/ToCharExpression.cpp.s
+
+.PHONY : Expressions/ToCharExpression.s
+
+# target to generate assembly for a file
+Expressions/ToCharExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.s
+.PHONY : Expressions/ToCharExpression.cpp.s
+
+Expressions/ToIntExpression.o: Expressions/ToIntExpression.cpp.o
+
+.PHONY : Expressions/ToIntExpression.o
+
+# target to build an object file
+Expressions/ToIntExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o
+.PHONY : Expressions/ToIntExpression.cpp.o
+
+Expressions/ToIntExpression.i: Expressions/ToIntExpression.cpp.i
+
+.PHONY : Expressions/ToIntExpression.i
+
+# target to preprocess a source file
+Expressions/ToIntExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.i
+.PHONY : Expressions/ToIntExpression.cpp.i
+
+Expressions/ToIntExpression.s: Expressions/ToIntExpression.cpp.s
+
+.PHONY : Expressions/ToIntExpression.s
+
+# target to generate assembly for a file
+Expressions/ToIntExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.s
+.PHONY : Expressions/ToIntExpression.cpp.s
+
+Statements/AssignStatement.o: Statements/AssignStatement.cpp.o
+
+.PHONY : Statements/AssignStatement.o
+
+# target to build an object file
+Statements/AssignStatement.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o
+.PHONY : Statements/AssignStatement.cpp.o
+
+Statements/AssignStatement.i: Statements/AssignStatement.cpp.i
+
+.PHONY : Statements/AssignStatement.i
+
+# target to preprocess a source file
+Statements/AssignStatement.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.i
+.PHONY : Statements/AssignStatement.cpp.i
+
+Statements/AssignStatement.s: Statements/AssignStatement.cpp.s
+
+.PHONY : Statements/AssignStatement.s
+
+# target to generate assembly for a file
+Statements/AssignStatement.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.s
+.PHONY : Statements/AssignStatement.cpp.s
+
+Statements/Statement.o: Statements/Statement.cpp.o
+
+.PHONY : Statements/Statement.o
+
+# target to build an object file
+Statements/Statement.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/Statement.cpp.o
+.PHONY : Statements/Statement.cpp.o
+
+Statements/Statement.i: Statements/Statement.cpp.i
+
+.PHONY : Statements/Statement.i
+
+# target to preprocess a source file
+Statements/Statement.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/Statement.cpp.i
+.PHONY : Statements/Statement.cpp.i
+
+Statements/Statement.s: Statements/Statement.cpp.s
+
+.PHONY : Statements/Statement.s
+
+# target to generate assembly for a file
+Statements/Statement.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/Statement.cpp.s
+.PHONY : Statements/Statement.cpp.s
 
 main.o: main.cpp.o
 
@@ -270,9 +918,81 @@ help:
 	@echo "... Expressions/AddExpression.o"
 	@echo "... Expressions/AddExpression.i"
 	@echo "... Expressions/AddExpression.s"
+	@echo "... Expressions/AndExpression.o"
+	@echo "... Expressions/AndExpression.i"
+	@echo "... Expressions/AndExpression.s"
+	@echo "... Expressions/BitwiseExpression.o"
+	@echo "... Expressions/BitwiseExpression.i"
+	@echo "... Expressions/BitwiseExpression.s"
+	@echo "... Expressions/CharExpression.o"
+	@echo "... Expressions/CharExpression.i"
+	@echo "... Expressions/CharExpression.s"
+	@echo "... Expressions/DivExpression.o"
+	@echo "... Expressions/DivExpression.i"
+	@echo "... Expressions/DivExpression.s"
+	@echo "... Expressions/EqExpression.o"
+	@echo "... Expressions/EqExpression.i"
+	@echo "... Expressions/EqExpression.s"
 	@echo "... Expressions/Expression.o"
 	@echo "... Expressions/Expression.i"
 	@echo "... Expressions/Expression.s"
+	@echo "... Expressions/FuncExpression.o"
+	@echo "... Expressions/FuncExpression.i"
+	@echo "... Expressions/FuncExpression.s"
+	@echo "... Expressions/GeqExpression.o"
+	@echo "... Expressions/GeqExpression.i"
+	@echo "... Expressions/GeqExpression.s"
+	@echo "... Expressions/GreaterExpression.o"
+	@echo "... Expressions/GreaterExpression.i"
+	@echo "... Expressions/GreaterExpression.s"
+	@echo "... Expressions/IntExpression.o"
+	@echo "... Expressions/IntExpression.i"
+	@echo "... Expressions/IntExpression.s"
+	@echo "... Expressions/LeqExpression.o"
+	@echo "... Expressions/LeqExpression.i"
+	@echo "... Expressions/LeqExpression.s"
+	@echo "... Expressions/LessExpression.o"
+	@echo "... Expressions/LessExpression.i"
+	@echo "... Expressions/LessExpression.s"
+	@echo "... Expressions/LvalueExpression.o"
+	@echo "... Expressions/LvalueExpression.i"
+	@echo "... Expressions/LvalueExpression.s"
+	@echo "... Expressions/MultExpression.o"
+	@echo "... Expressions/MultExpression.i"
+	@echo "... Expressions/MultExpression.s"
+	@echo "... Expressions/NegExpression.o"
+	@echo "... Expressions/NegExpression.i"
+	@echo "... Expressions/NegExpression.s"
+	@echo "... Expressions/NeqExpression.o"
+	@echo "... Expressions/NeqExpression.i"
+	@echo "... Expressions/NeqExpression.s"
+	@echo "... Expressions/OrExpression.o"
+	@echo "... Expressions/OrExpression.i"
+	@echo "... Expressions/OrExpression.s"
+	@echo "... Expressions/ParenExpression.o"
+	@echo "... Expressions/ParenExpression.i"
+	@echo "... Expressions/ParenExpression.s"
+	@echo "... Expressions/RemainExpression.o"
+	@echo "... Expressions/RemainExpression.i"
+	@echo "... Expressions/RemainExpression.s"
+	@echo "... Expressions/StringExpression.o"
+	@echo "... Expressions/StringExpression.i"
+	@echo "... Expressions/StringExpression.s"
+	@echo "... Expressions/SubExpression.o"
+	@echo "... Expressions/SubExpression.i"
+	@echo "... Expressions/SubExpression.s"
+	@echo "... Expressions/ToCharExpression.o"
+	@echo "... Expressions/ToCharExpression.i"
+	@echo "... Expressions/ToCharExpression.s"
+	@echo "... Expressions/ToIntExpression.o"
+	@echo "... Expressions/ToIntExpression.i"
+	@echo "... Expressions/ToIntExpression.s"
+	@echo "... Statements/AssignStatement.o"
+	@echo "... Statements/AssignStatement.i"
+	@echo "... Statements/AssignStatement.s"
+	@echo "... Statements/Statement.o"
+	@echo "... Statements/Statement.i"
+	@echo "... Statements/Statement.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -15,10 +15,66 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 set(cpsl_srcs
   main.cpp
-  Expressions/AddExpression.hpp
-  Expressions/AddExpression.cpp
   Expressions/Expression.cpp
   Expressions/Expression.hpp
+
+  Expressions/LvalueExpression.hpp
+  Expressions/LvalueExpression.cpp
+
+  Expressions/AndExpression.hpp
+  Expressions/AndExpression.cpp
+  Expressions/OrExpression.hpp
+  Expressions/OrExpression.cpp
+  Expressions/EqExpression.hpp
+  Expressions/EqExpression.cpp
+  Expressions/NeqExpression.hpp
+  Expressions/NeqExpression.cpp
+  Expressions/LeqExpression.hpp
+  Expressions/LeqExpression.cpp
+  Expressions/GeqExpression.hpp
+  Expressions/GeqExpression.cpp
+  Expressions/LessExpression.hpp
+  Expressions/LessExpression.cpp
+  Expressions/GreaterExpression.hpp
+  Expressions/GreaterExpression.cpp
+
+  Expressions/AddExpression.hpp
+  Expressions/AddExpression.cpp
+  Expressions/BitwiseExpression.hpp
+  Expressions/BitwiseExpression.cpp
+  Expressions/DivExpression.hpp
+  Expressions/DivExpression.cpp
+  Expressions/FuncExpression.hpp
+  Expressions/FuncExpression.cpp
+  Expressions/MultExpression.hpp
+  Expressions/MultExpression.cpp
+  Expressions/NegExpression.hpp
+  Expressions/NegExpression.cpp
+  Expressions/ParenExpression.hpp
+  Expressions/ParenExpression.cpp
+  Expressions/RemainExpression.hpp
+  Expressions/RemainExpression.cpp
+  Expressions/SubExpression.hpp
+  Expressions/SubExpression.cpp
+  Expressions/ToCharExpression.hpp
+  Expressions/ToCharExpression.cpp
+  Expressions/ToIntExpression.hpp
+  Expressions/ToIntExpression.cpp
+
+  Expressions/IntExpression.hpp
+  Expressions/IntExpression.cpp
+  Expressions/CharExpression.hpp
+  Expressions/CharExpression.cpp
+  Expressions/StringExpression.hpp
+  Expressions/StringExpression.cpp
+
+  Statements/Statement.hpp
+  Statements/Statement.cpp
+  Statements/AssignStatement.hpp
+  Statements/AssignStatement.cpp
+
+
+
   ${BISON_Parser_OUTPUTS}
   ${FLEX_Scanner_OUTPUTS}
 )

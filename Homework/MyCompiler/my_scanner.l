@@ -1,6 +1,37 @@
 %{
-#include "Expressions/AddExpression.hpp"
 #include "Expressions/Expression.hpp"
+
+#include "Expressions/LvalueExpression.hpp"
+
+#include "Expressions/AndExpression.hpp"
+#include "Expressions/OrExpression.hpp"
+#include "Expressions/EqExpression.hpp"
+#include "Expressions/NeqExpression.hpp"
+#include "Expressions/LeqExpression.hpp"
+#include "Expressions/GeqExpression.hpp"
+#include "Expressions/LessExpression.hpp"
+#include "Expressions/GreaterExpression.hpp"
+
+#include "Expressions/AddExpression.hpp"
+#include "Expressions/BitwiseExpression.hpp"
+#include "Expressions/DivExpression.hpp"
+#include "Expressions/FuncExpression.hpp"
+#include "Expressions/MultExpression.hpp"
+#include "Expressions/NegExpression.hpp"
+#include "Expressions/ParenExpression.hpp"
+#include "Expressions/RemainExpression.hpp"
+#include "Expressions/SubExpression.hpp"
+#include "Expressions/ToCharExpression.hpp"
+#include "Expressions/ToIntExpression.hpp"
+
+
+#include "Expressions/IntExpression.hpp"
+#include "Expressions/CharExpression.hpp"
+#include "Expressions/StringExpression.hpp"
+
+#include "Statements/Statement.hpp"
+#include "Statements/AssignStatement.hpp"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -94,12 +125,14 @@ write|WRITE {if(testing){std::cout << "Got To write" << std::endl;}return WRITE_
 		}
 		yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}
-0[1-7][0-7]* {std::cout << "Got To number " << yytext << std::endl;
+0[1-7][0-7]* {if(testing){std::cout << "Got To number " << yytext << std::endl;}
 		yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}
 
 
-\'([^\\\"]|\\.)\'  {if(testing){std::cout << "Got To Char " << yytext <<std::endl;}return CHAR_TOKEN;}
+\'([^\\\"]|\\.)\'  {if(testing){std::cout << "Got To Char " << yytext <<std::endl;}
+			yylval.charVal = yytext[0];
+			return CHAR_TOKEN;}
 \"([^\\\"]|\\.)*\" {if(testing){std::cout << "Got To String " << yytext <<std::endl;}return STRING_TOKEN;}
 
 [$].+\n {linenumber++;if(testing){std::cout<< "Got a Comment" << yytext << std::endl;}}

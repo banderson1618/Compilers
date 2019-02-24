@@ -113,13 +113,18 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 85 "my_parser.y" /* yacc.c:1909  */
+#line 119 "my_parser.y" /* yacc.c:1909  */
 
 	int val;
+	char charVal;
+	char* stringVal;
 	char* id;
 	Expression* expr;
+	std::vector<Expression*> *exprList;
+	Statement* statement;
+	LvalueExpression* lval;
 
-#line 123 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp" /* yacc.c:1909  */
+#line 128 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
