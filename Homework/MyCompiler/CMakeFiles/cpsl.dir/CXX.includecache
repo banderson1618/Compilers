@@ -6,33 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp
 AddExpression.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
 Expression.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.cpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.cpp
+Expression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
 iostream
 -
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/main.cpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.hpp
+
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp
 iostream
 -
 fstream
 -
 string
 -
+Misc_Classes/Program.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.hpp
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/parser.cpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.cpp
 Expressions/AddExpression.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
 Expressions/Expression.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
 ctype.h
 -
 iostream
@@ -54,9 +60,9 @@ stdlib.h
 stdio.h
 -
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/parser.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp
 
-/home/braden/Documents/Compilers/Homework/MyCompiler/scanner.cpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp
 stdio.h
 -
 string.h
@@ -68,9 +74,9 @@ stdlib.h
 inttypes.h
 -
 Expressions/AddExpression.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.hpp
 Expressions/Expression.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
 stdlib.h
 -
 stdio.h
@@ -78,7 +84,7 @@ stdio.h
 iostream
 -
 parser.hpp
-/home/braden/Documents/Compilers/Homework/MyCompiler/parser.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/parser.hpp
 unistd.h
 -
 

@@ -5,7 +5,7 @@
 
 class Expression{
 	public:
-		Expression() {}
+		Expression();
 		int type;
 };
 

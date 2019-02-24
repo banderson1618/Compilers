@@ -6,7 +6,9 @@ CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o: Expressions/AddExpression.h
 CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o: Expressions/Expression.hpp
 
 CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o: Expressions/Expression.cpp
+CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o: Expressions/Expression.hpp
 
+CMakeFiles/cpsl.dir/main.cpp.o: Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: main.cpp
 
 CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/AddExpression.hpp

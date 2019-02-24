@@ -104,7 +104,7 @@ extern int linenumber;
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 						{  }	
-		//| var_decl END_OF_FILE	{  }
+		| expr END_OF_FILE	{  }
 		;
 
 

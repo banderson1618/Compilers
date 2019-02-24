@@ -6,5 +6,5 @@ CXX_FLAGS =  -g3 -std=c++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/braden/Documents/Compilers/Homework/MyCompiler 
+CXX_INCLUDES = -I/home/braden/Documents/Homework/Compilers/Homework/MyCompiler 
 
