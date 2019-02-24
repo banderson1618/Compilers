@@ -15,6 +15,10 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 set(cpsl_srcs
   main.cpp
+  Expressions/AddExpression.hpp
+  Expressions/AddExpression.cpp
+  Expressions/Expression.cpp
+  Expressions/Expression.hpp
   ${BISON_Parser_OUTPUTS}
   ${FLEX_Scanner_OUTPUTS}
 )

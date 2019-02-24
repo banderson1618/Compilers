@@ -1,5 +1,5 @@
 #include <iostream>
 
-Expression(){
+Expression::Expression()
 	std::cout << "Something?" << std::endl;
 }
