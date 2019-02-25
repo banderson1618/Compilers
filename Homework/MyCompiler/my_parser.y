@@ -1,15 +1,49 @@
 %{
-#include "Expressions/AddExpression.hpp"
 #include "Expressions/Expression.hpp"
+
+#include "Expressions/LvalueExpression.hpp"
+
+#include "Expressions/AndExpression.hpp"
+#include "Expressions/OrExpression.hpp"
+#include "Expressions/EqExpression.hpp"
+#include "Expressions/NeqExpression.hpp"
+#include "Expressions/LeqExpression.hpp"
+#include "Expressions/GeqExpression.hpp"
+#include "Expressions/LessExpression.hpp"
+#include "Expressions/GreaterExpression.hpp"
+
+#include "Expressions/AddExpression.hpp"
+#include "Expressions/BitwiseExpression.hpp"
+#include "Expressions/DivExpression.hpp"
+#include "Expressions/FuncExpression.hpp"
+#include "Expressions/MultExpression.hpp"
+#include "Expressions/NegExpression.hpp"
+#include "Expressions/ParenExpression.hpp"
+#include "Expressions/RemainExpression.hpp"
+#include "Expressions/SubExpression.hpp"
+#include "Expressions/ToCharExpression.hpp"
+#include "Expressions/ToIntExpression.hpp"
+
+
+#include "Expressions/IntExpression.hpp"
+#include "Expressions/CharExpression.hpp"
+#include "Expressions/StringExpression.hpp"
+
+#include "Statements/Statement.hpp"
+#include "Statements/AssignStatement.hpp"
+
 #include <ctype.h>
 #include <iostream>
 #include <map>
+#include <vector>
 
 extern int yylex();
 extern int yyparse();
 extern FILE *yyin;
 void yyerror(const char *s);
 extern int linenumber;
+
+bool testingParser = true;
 %}
 
 %token END
@@ -84,18 +118,24 @@ extern int linenumber;
 %union
 {
 	int val;
+	char charVal;
+	char* stringVal;
 	char* id;
 	Expression* expr;
+	std::vector<Expression*> *exprList;
+	Statement* statement;
+	LvalueExpression* lval;
 }
 
 
-%type <val> lvalue
-%type <val> procedure_call
-%type <val> write_statement
-%type <val> read_statement
-%type <val> return_statement
 %type <id> ID_TOKEN
 %type <expr> expr
+%type <exprList> args_list
+%type <val> NUM_TOKEN
+%type <charVal> CHAR_TOKEN
+%type <stringVal> STRING_TOKEN
+%type <lval> lvalue
+%type <statement> statement assign
 
 
 %%
@@ -104,11 +144,11 @@ extern int linenumber;
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 						{  }	
-		//| var_decl END_OF_FILE	{  }
+		| statement END_OF_FILE	{  }
 		;
 
 
-lvalue 		: ID_TOKEN 				{  }
+lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression($1); }
 		| ID_TOKEN lvalue_seq	 		{  }
 		;
 
@@ -118,56 +158,81 @@ lvalue_seq	: PER_TOKEN ID_TOKEN lvalue_seq		{  }
 		;
 
 // Expressions
-expr		: lvalue 				{ }
-		| expr OR_TOKEN expr 			{ }
-		| expr AND_TOKEN expr 			{ }
-		| expr EQ_TOKEN expr 			{ }
-		| expr NEQ_TOKEN expr			{ }
-		| expr LEQ_TOKEN expr			{ }
-		| expr GEQ_TOKEN expr			{ }
-		| expr LESS_TOKEN expr			{ }
-		| expr GREATER_TOKEN expr		{ }
-		| expr ADD_TOKEN expr			{ std::cout << "Ayy" << std::endl;
+expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" << std::endl; }
+								$$ = $1;}
+		| expr OR_TOKEN expr 			{ if (testingParser) { std::cout << "Found OrExpression" << std::endl; }
+								$$ =  new OrExpression($1, $3);}
+		| expr AND_TOKEN expr 			{ if (testingParser) { std::cout << "Found AndExpression" << std::endl; }
+								$$ =  new AndExpression($1, $3);}
+		| expr EQ_TOKEN expr 			{ if (testingParser) { std::cout << "Found EqExpression" << std::endl; }
+								$$ =  new EqExpression($1, $3);}
+		| expr NEQ_TOKEN expr			{ if (testingParser) { std::cout << "Found NeqExpression" << std::endl; }
+								$$ =  new NeqExpression($1, $3);}
+		| expr LEQ_TOKEN expr			{ if (testingParser) { std::cout << "Found LeqExpression" << std::endl; }
+								$$ =  new LeqExpression($1, $3);}
+		| expr GEQ_TOKEN expr			{ if (testingParser) { std::cout << "Found GeqExpression" << std::endl; }
+								$$ =  new GeqExpression($1, $3);}
+		| expr LESS_TOKEN expr			{ if (testingParser) { std::cout << "Found LessExpression" << std::endl; }
+								$$ =  new LessExpression($1, $3);}
+		| expr GREATER_TOKEN expr		{ if (testingParser) { std::cout << "Found GreaterExpression" << std::endl; }
+								$$ =  new GreaterExpression($1, $3);}
+		| expr ADD_TOKEN expr			{ if (testingParser) { std::cout << "Found AddExpression" << std::endl; }
 								$$ =  new AddExpression($1, $3);}
-		| expr SUB_TOKEN expr %prec ADD_TOKEN	{ }
-		| expr MULT_TOKEN expr			{ }
-		| expr DIV_TOKEN expr 			{ }
-		| expr REMAIN_TOKEN expr		{ }
-		| TILDE_TOKEN expr			{ }
-		| SUB_TOKEN expr			{ }
-		| LPAREN_TOKEN expr RPAREN_TOKEN	{ }
+		| expr SUB_TOKEN expr %prec ADD_TOKEN	{ if (testingParser) { std::cout << "Found SubExpression" << std::endl; }
+								$$ = new SubExpression($1, $3);}
+		| expr MULT_TOKEN expr			{ if (testingParser) { std::cout << "Found MultExpression" << std::endl; }
+								$$ = new MultExpression($1, $3); }
+		| expr DIV_TOKEN expr 			{ if (testingParser) { std::cout << "Found DivExpression" << std::endl; }
+								$$ = new DivExpression($1, $3);}
+		| expr REMAIN_TOKEN expr		{ if (testingParser) { std::cout << "Found RemainExpression" << std::endl; }
+								$$ = new RemainExpression($1, $3);}
+		| TILDE_TOKEN expr			{ if (testingParser) { std::cout << "Found BitwiseExpression" << std::endl; }
+								$$ = new BitwiseExpression($2);}
+		| SUB_TOKEN expr			{ if (testingParser) { std::cout << "Found NegExpression" << std::endl; }
+								$$ = new NegExpression($2);}
+		| LPAREN_TOKEN expr RPAREN_TOKEN	{ if (testingParser) { std::cout << "Found ParenExpression" << std::endl; }
+								$$ = new ParenExpression($2);}
 		| ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN 
-							{ }
+							{ if (testingParser) { std::cout << "Found FuncExpression" << std::endl; }
+								$$ = new FuncExpression($1, $3);}
 		| CHR_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
-							{ }
+							{ if (testingParser) { std::cout << "Found ToCharExpression" << std::endl; }
+								$$ = new ToCharExpression($3);}
 		| ORD_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
-							{ }
+							{ if (testingParser) { std::cout << "Found ToIntExpression" << std::endl; }
+								$$ = new ToIntExpression($3);}
 		| PRED_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
-							{ }
+							{ if (testingParser) { std::cout << "Found PredExpression" << std::endl; }
+								$$ = new ToIntExpression($3);}
 		| SUCC_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
-							{ }
-		| NUM_TOKEN				{ }
-		| CHAR_TOKEN				{ }
-		| STRING_TOKEN				{ }
+							{ if (testingParser) { std::cout << "Found SuccExpression" << std::endl; }
+								$$ = new ToIntExpression($3);}
+		| NUM_TOKEN				{// if (testingParser) { std::cout << "Found IntExpression" << std::endl; }
+								$$ = new IntExpression($1);}
+		| CHAR_TOKEN				{ if (testingParser) { std::cout << "Found CharExpression" << std::endl; }
+								$$ = new CharExpression($1);}
+		| STRING_TOKEN				{ if (testingParser) { std::cout << "Found StringExpression" << std::endl; }
+								$$ = new StringExpression($1);}
 		;
-args_list	: expr comma_expr			{}
-		| /* empty */
-		;
-comma_expr	: /* empty */				{}
-		| COMMA_TOKEN expr comma_expr		{}
+// rewrite this
+args_list	: args_list expr			{$1.push_back($2);
+								$$ = $1;}
+		| args_list COMMA_TOKEN expr		{$1.push_back($3);
+								$$ = $1;}
+		| /* empty */				{$$ = new std::vector<Expression*>;}
 		;
 
 // Statements
 null_statement 	: /* empty */;
-procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }//$$ = $1($3) };
+procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }
 
 
-write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }//$$ = std::cout << $3; };
-read_statement	: READ_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }//$$ = std::cin >> $3; };
-return_statement: RETURN_TOKEN  			{ }//$$ = return;}
-		| RETURN_TOKEN expr  			{ }//$$ = return $2;}
+write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { };
+read_statement	: READ_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { };
+return_statement: RETURN_TOKEN  			{ }
+		| RETURN_TOKEN expr  			{ }
 		;
-stop_statement	: STOP_TOKEN				{ }//$$ = return 0;}
+stop_statement	: STOP_TOKEN				{ }
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
 							{  }
 		| FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr DOWNTO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
@@ -187,9 +252,10 @@ else_statement	: /* empty */
 		| ELSE_TOKEN statement_seq		{  };
 
 
-assign		: lvalue ASSIGN_TOKEN expr		{  };
+assign		: lvalue ASSIGN_TOKEN expr		{  if (testingParser) { std::cout << "Found AssignStatement" << std::endl;} 
+								$$ = new AssignStatement($1, $3); };
 
-statement	: assign				{  }
+statement	: assign				{ $$ = $1; }
 		| if_statement				{  }
 		| while_statement			{  }
 		| repeat_statement			{  }

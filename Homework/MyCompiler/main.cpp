@@ -1,12 +1,13 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Misc_Classes/Program.hpp"
 
 extern int yyparse();
 extern FILE *yyin;
+extern Program* parse_output;
 
-
-int main(int argc, char** argv){
+main(int argc, char** argv){
 	if (argc < 2){
 		std::cout << "Missing file argument" << std::endl;
 		return -1;
