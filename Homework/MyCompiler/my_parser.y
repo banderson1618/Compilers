@@ -214,11 +214,12 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 		| STRING_TOKEN				{ if (testingParser) { std::cout << "Found StringExpression" << std::endl; }
 								$$ = new StringExpression($1);}
 		;
-args_list	: expr comma_expr			{}
+// rewrite this
+args_list	: args_list expr			{$1.push_back($2);
+								$$ = $1;}
+		| args_list COMMA_TOKEN expr		{$1.push_back($3);
+								$$ = $1;}
 		| /* empty */				{$$ = new std::vector<Expression*>;}
-		;
-comma_expr	: /* empty */				{}
-		| COMMA_TOKEN expr comma_expr		{}
 		;
 
 // Statements
