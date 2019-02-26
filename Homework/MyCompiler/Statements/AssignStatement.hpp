@@ -8,6 +8,7 @@
 class AssignStatement : public Statement {
 	public:
 		AssignStatement(LvalueExpression*, Expression*);
+		void emit();
 	private:
 		LvalueExpression* _id;
 		Expression* _val;

@@ -72,8 +72,13 @@ set(cpsl_srcs
   Statements/Statement.cpp
   Statements/AssignStatement.hpp
   Statements/AssignStatement.cpp
+  Statements/ReadStatement.hpp
+  Statements/ReadStatement.cpp
+  Statements/WriteStatement.hpp
+  Statements/WriteStatement.cpp
 
-
+  Misc_Classes/Program.hpp
+  Misc_Classes/Program.cpp
 
   ${BISON_Parser_OUTPUTS}
   ${FLEX_Scanner_OUTPUTS}

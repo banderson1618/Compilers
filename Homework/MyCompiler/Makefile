@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/braden/Documents/Compilers/Homework/MyCompiler
+CMAKE_SOURCE_DIR = /home/braden/Documents/Homework/Compilers/Homework/MyCompiler
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/braden/Documents/Compilers/Homework/MyCompiler
+CMAKE_BINARY_DIR = /home/braden/Documents/Homework/Compilers/Homework/MyCompiler
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Compilers/Homework/MyCompiler/CMakeFiles /home/braden/Documents/Compilers/Homework/MyCompiler/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Compilers/Homework/MyCompiler/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -771,6 +771,33 @@ Expressions/ToIntExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.s
 .PHONY : Expressions/ToIntExpression.cpp.s
 
+Misc_Classes/Program.o: Misc_Classes/Program.cpp.o
+
+.PHONY : Misc_Classes/Program.o
+
+# target to build an object file
+Misc_Classes/Program.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o
+.PHONY : Misc_Classes/Program.cpp.o
+
+Misc_Classes/Program.i: Misc_Classes/Program.cpp.i
+
+.PHONY : Misc_Classes/Program.i
+
+# target to preprocess a source file
+Misc_Classes/Program.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.i
+.PHONY : Misc_Classes/Program.cpp.i
+
+Misc_Classes/Program.s: Misc_Classes/Program.cpp.s
+
+.PHONY : Misc_Classes/Program.s
+
+# target to generate assembly for a file
+Misc_Classes/Program.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.s
+.PHONY : Misc_Classes/Program.cpp.s
+
 Statements/AssignStatement.o: Statements/AssignStatement.cpp.o
 
 .PHONY : Statements/AssignStatement.o
@@ -798,6 +825,33 @@ Statements/AssignStatement.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.s
 .PHONY : Statements/AssignStatement.cpp.s
 
+Statements/ReadStatement.o: Statements/ReadStatement.cpp.o
+
+.PHONY : Statements/ReadStatement.o
+
+# target to build an object file
+Statements/ReadStatement.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o
+.PHONY : Statements/ReadStatement.cpp.o
+
+Statements/ReadStatement.i: Statements/ReadStatement.cpp.i
+
+.PHONY : Statements/ReadStatement.i
+
+# target to preprocess a source file
+Statements/ReadStatement.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.i
+.PHONY : Statements/ReadStatement.cpp.i
+
+Statements/ReadStatement.s: Statements/ReadStatement.cpp.s
+
+.PHONY : Statements/ReadStatement.s
+
+# target to generate assembly for a file
+Statements/ReadStatement.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.s
+.PHONY : Statements/ReadStatement.cpp.s
+
 Statements/Statement.o: Statements/Statement.cpp.o
 
 .PHONY : Statements/Statement.o
@@ -824,6 +878,33 @@ Statements/Statement.s: Statements/Statement.cpp.s
 Statements/Statement.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/Statement.cpp.s
 .PHONY : Statements/Statement.cpp.s
+
+Statements/WriteStatement.o: Statements/WriteStatement.cpp.o
+
+.PHONY : Statements/WriteStatement.o
+
+# target to build an object file
+Statements/WriteStatement.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o
+.PHONY : Statements/WriteStatement.cpp.o
+
+Statements/WriteStatement.i: Statements/WriteStatement.cpp.i
+
+.PHONY : Statements/WriteStatement.i
+
+# target to preprocess a source file
+Statements/WriteStatement.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.i
+.PHONY : Statements/WriteStatement.cpp.i
+
+Statements/WriteStatement.s: Statements/WriteStatement.cpp.s
+
+.PHONY : Statements/WriteStatement.s
+
+# target to generate assembly for a file
+Statements/WriteStatement.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.s
+.PHONY : Statements/WriteStatement.cpp.s
 
 main.o: main.cpp.o
 
@@ -987,12 +1068,21 @@ help:
 	@echo "... Expressions/ToIntExpression.o"
 	@echo "... Expressions/ToIntExpression.i"
 	@echo "... Expressions/ToIntExpression.s"
+	@echo "... Misc_Classes/Program.o"
+	@echo "... Misc_Classes/Program.i"
+	@echo "... Misc_Classes/Program.s"
 	@echo "... Statements/AssignStatement.o"
 	@echo "... Statements/AssignStatement.i"
 	@echo "... Statements/AssignStatement.s"
+	@echo "... Statements/ReadStatement.o"
+	@echo "... Statements/ReadStatement.i"
+	@echo "... Statements/ReadStatement.s"
 	@echo "... Statements/Statement.o"
 	@echo "... Statements/Statement.i"
 	@echo "... Statements/Statement.s"
+	@echo "... Statements/WriteStatement.o"
+	@echo "... Statements/WriteStatement.i"
+	@echo "... Statements/WriteStatement.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

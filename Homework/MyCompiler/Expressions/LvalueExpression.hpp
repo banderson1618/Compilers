@@ -6,7 +6,7 @@
 class LvalueExpression : public Expression{
 	public:
 		LvalueExpression(char*);
-
+		char* getID();
 	private:
 		char* _id;
 };

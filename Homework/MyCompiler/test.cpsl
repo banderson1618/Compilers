@@ -1,1 +1,4 @@
-my_id := 5
+BEGIN
+  number := 42;
+  number := 42;
+END.

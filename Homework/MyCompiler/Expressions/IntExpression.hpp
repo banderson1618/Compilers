@@ -6,7 +6,7 @@
 class IntExpression : public Expression{
 	public:
 		IntExpression(int);
-
+		int getVal();
 	private:
 		int _val;
 };

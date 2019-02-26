@@ -96,17 +96,33 @@ CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o: Expressions/Expression.hp
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o: Expressions/ToIntExpression.cpp
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o: Expressions/ToIntExpression.hpp
 
+CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: Misc_Classes/Program.cpp
+CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: Misc_Classes/Program.hpp
+CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: Statements/Statement.hpp
+
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: Statements/AssignStatement.cpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: Statements/AssignStatement.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: Statements/Statement.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: Expressions/LvalueExpression.hpp
 
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: Statements/ReadStatement.cpp
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: Statements/ReadStatement.hpp
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: Statements/Statement.hpp
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: Expressions/Expression.hpp
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: Expressions/LvalueExpression.hpp
+
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: Statements/Statement.cpp
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: Statements/Statement.hpp
 
+CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: Statements/Statement.hpp
+CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: Statements/WriteStatement.cpp
+CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: Statements/WriteStatement.hpp
+CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: Expressions/Expression.hpp
+
 CMakeFiles/cpsl.dir/main.cpp.o: Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: main.cpp
+CMakeFiles/cpsl.dir/main.cpp.o: Statements/Statement.hpp
 
 CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/AddExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/AndExpression.hpp
@@ -132,8 +148,11 @@ CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/StringExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/SubExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/ToCharExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: Expressions/ToIntExpression.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: Statements/AssignStatement.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: Statements/ReadStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: Statements/Statement.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: Statements/WriteStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: parser.cpp
 
 CMakeFiles/cpsl.dir/scanner.cpp.o: Expressions/AddExpression.hpp
@@ -161,7 +180,9 @@ CMakeFiles/cpsl.dir/scanner.cpp.o: Expressions/SubExpression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: Expressions/ToCharExpression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: Expressions/ToIntExpression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: Statements/AssignStatement.hpp
+CMakeFiles/cpsl.dir/scanner.cpp.o: Statements/ReadStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: Statements/Statement.hpp
+CMakeFiles/cpsl.dir/scanner.cpp.o: Statements/WriteStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: parser.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: scanner.cpp
 

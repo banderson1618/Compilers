@@ -3,3 +3,8 @@
 Statement::Statement(){
 
 }
+
+void Statement::emit(){
+	return;
+}
+

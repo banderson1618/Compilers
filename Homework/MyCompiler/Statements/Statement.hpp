@@ -6,7 +6,7 @@
 class Statement{
 	public:
 		Statement();
-		int type;
+		virtual void emit();
 };
 
 

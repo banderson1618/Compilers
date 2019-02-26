@@ -7,6 +7,9 @@ class Expression{
 	public:
 		Expression();
 		int type;
+		virtual int getVal();
+		virtual char getChar();
+		virtual char* getID();
 };
 
 

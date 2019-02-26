@@ -31,6 +31,8 @@
 
 #include "Statements/Statement.hpp"
 #include "Statements/AssignStatement.hpp"
+#include "Statements/ReadStatement.hpp"
+#include "Statements/WriteStatement.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>

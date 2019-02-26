@@ -31,6 +31,10 @@
 
 #include "Statements/Statement.hpp"
 #include "Statements/AssignStatement.hpp"
+#include "Statements/ReadStatement.hpp"
+#include "Statements/WriteStatement.hpp"
+
+#include "Misc_Classes/Program.hpp"
 
 #include <ctype.h>
 #include <iostream>
@@ -43,7 +47,7 @@ extern FILE *yyin;
 void yyerror(const char *s);
 extern int linenumber;
 
-bool testingParser = true;
+bool testingParser = false;
 %}
 
 %token END
@@ -123,6 +127,8 @@ bool testingParser = true;
 	char* id;
 	Expression* expr;
 	std::vector<Expression*> *exprList;
+	std::vector<Statement*> *statementList;
+	std::vector<LvalueExpression*> *lvalList;
 	Statement* statement;
 	LvalueExpression* lval;
 }
@@ -135,7 +141,9 @@ bool testingParser = true;
 %type <charVal> CHAR_TOKEN
 %type <stringVal> STRING_TOKEN
 %type <lval> lvalue
-%type <statement> statement assign
+%type <statement> statement assign read_statement write_statement
+%type <lvalList> args_list_lval
+%type <statementList> statement_seq block
 
 
 %%
@@ -143,18 +151,15 @@ bool testingParser = true;
 
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
-						{  }	
-		| statement END_OF_FILE	{  }
+							{	auto my_tree = new Program($5); 
+								my_tree->emit();}	
+		//| block END_OF_FILE	{  }
 		;
 
 
-lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression($1); }
-		| ID_TOKEN lvalue_seq	 		{  }
-		;
-
-lvalue_seq	: PER_TOKEN ID_TOKEN lvalue_seq		{  }
-		| LBRAC_TOKEN expr RBRAC_TOKEN lvalue_seq {  }
-		| /* empty */
+lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression($1); } // this should actually be pulling it from the symbol table, not making a new one
+		| lvalue PER_TOKEN ID_TOKEN 		{  }
+		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
 		;
 
 // Expressions
@@ -215,11 +220,21 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 								$$ = new StringExpression($1);}
 		;
 // rewrite this
-args_list	: args_list expr			{$1.push_back($2);
-								$$ = $1;}
-		| args_list COMMA_TOKEN expr		{$1.push_back($3);
+args_list	: expr					{	auto new_vec = new std::vector<Expression*>;
+								new_vec->push_back($1);
+								$$ = new_vec;}
+		| args_list COMMA_TOKEN expr		{$1->push_back($3);
 								$$ = $1;}
 		| /* empty */				{$$ = new std::vector<Expression*>;}
+		;
+
+
+args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
+								new_vec->push_back($1);
+								$$ = new_vec;}
+		| args_list_lval COMMA_TOKEN lvalue	{$1->push_back($3);
+								$$ = $1;}
+		| /* empty */				{$$ = new std::vector<LvalueExpression*>;}
 		;
 
 // Statements
@@ -227,8 +242,10 @@ null_statement 	: /* empty */;
 procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }
 
 
-write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { };
-read_statement	: READ_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { };
+write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { if (testingParser) { std::cout << "Found WriteStatement" << std::endl; }
+									$$ = new WriteStatement($3);};
+read_statement	: READ_TOKEN LPAREN_TOKEN args_list_lval RPAREN_TOKEN { if (testingParser) { std::cout << "Found ReadStatement" << std::endl; }
+									$$ = new ReadStatement($3);};
 return_statement: RETURN_TOKEN  			{ }
 		| RETURN_TOKEN expr  			{ }
 		;
@@ -243,13 +260,15 @@ repeat_statement: REPEAT_TOKEN statement_seq UNTIL_TOKEN expr
 while_statement	: WHILE_TOKEN expr DO_TOKEN statement_seq END_TOKEN
 							{  };
 if_statement	: IF_TOKEN expr THEN_TOKEN statement_seq elseif_list else_statement END_TOKEN
-							{  };
+							{  }
+		;
 elseif_list	: /* empty */
 		| ELSEIF_TOKEN expr THEN_TOKEN statement_seq elseif_list
 							{  }
 		;
-else_statement	: /* empty */
-		| ELSE_TOKEN statement_seq		{  };
+else_statement	: /* empty */				{  }
+		| ELSE_TOKEN statement_seq		{  }
+		;
 
 
 assign		: lvalue ASSIGN_TOKEN expr		{  if (testingParser) { std::cout << "Found AssignStatement" << std::endl;} 
@@ -262,18 +281,19 @@ statement	: assign				{ $$ = $1; }
 		| for_statement				{  }
 		| stop_statement			{  }
 		| return_statement			{  }
-		| read_statement			{  }
-		| write_statement			{  }
+		| read_statement			{ $$ = $1; }
+		| write_statement			{ $$ = $1; }
 		| procedure_call			{  }
 		| null_statement			{  }
 		;
 		
-statement_seq	: statement statement_semi		{  }	
-		| /* empty */				{  }
-		;
-
-statement_semi	: SEMICOLON_TOKEN statement statement_semi{  }
-		| /* empty */
+statement_seq	: statement				{  	auto new_vec = new std::vector<Statement*>;
+								new_vec->push_back($1);
+								$$ = new_vec;}	
+		| statement_seq SEMICOLON_TOKEN statement{ $1->push_back($3);
+								std::cout << $1->size() << std::endl;
+								$$ = $1;}
+		| /* empty */				{  $$ = new std::vector<Statement*>;}
 		;
 
 
@@ -370,7 +390,7 @@ varef		: /* empty */				{  }
 body		: const_decl type_decl var_decl block	{  }
 		;
 
-block		: BEGIN_TOKEN statement_seq END_TOKEN	{  }
+block		: BEGIN_TOKEN statement_seq END_TOKEN	{ $$ = $2; }
 		;
 
 func_proc_list	: func_decl func_proc_list		{  }
