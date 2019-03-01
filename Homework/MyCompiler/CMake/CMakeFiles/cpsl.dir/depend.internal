@@ -156,6 +156,9 @@ CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o
  /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp
  /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.hpp
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o
+ /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Type.cpp
+ /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o
  ..//Expressions/Expression.hpp
  ..//Expressions/LvalueExpression.hpp

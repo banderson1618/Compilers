@@ -852,6 +852,33 @@ Misc_Classes/SymbolTable.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.s
 .PHONY : Misc_Classes/SymbolTable.cpp.s
 
+Misc_Classes/Type.o: Misc_Classes/Type.cpp.o
+
+.PHONY : Misc_Classes/Type.o
+
+# target to build an object file
+Misc_Classes/Type.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o
+.PHONY : Misc_Classes/Type.cpp.o
+
+Misc_Classes/Type.i: Misc_Classes/Type.cpp.i
+
+.PHONY : Misc_Classes/Type.i
+
+# target to preprocess a source file
+Misc_Classes/Type.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.i
+.PHONY : Misc_Classes/Type.cpp.i
+
+Misc_Classes/Type.s: Misc_Classes/Type.cpp.s
+
+.PHONY : Misc_Classes/Type.s
+
+# target to generate assembly for a file
+Misc_Classes/Type.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.s
+.PHONY : Misc_Classes/Type.cpp.s
+
 Statements/AssignStatement.o: Statements/AssignStatement.cpp.o
 
 .PHONY : Statements/AssignStatement.o
@@ -1158,6 +1185,9 @@ help:
 	@echo "... Misc_Classes/SymbolTable.o"
 	@echo "... Misc_Classes/SymbolTable.i"
 	@echo "... Misc_Classes/SymbolTable.s"
+	@echo "... Misc_Classes/Type.o"
+	@echo "... Misc_Classes/Type.i"
+	@echo "... Misc_Classes/Type.s"
 	@echo "... Statements/AssignStatement.o"
 	@echo "... Statements/AssignStatement.i"
 	@echo "... Statements/AssignStatement.s"
