@@ -27,3 +27,5 @@ Lvalue SymbolTable::get_value(std::string id){
 	}
 	throw "Could not find variable " + id;
 }
+
+SymbolTable symbol_table;

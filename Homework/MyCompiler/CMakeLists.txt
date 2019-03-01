@@ -84,6 +84,7 @@ set(cpsl_srcs
   Misc_Classes/RegisterPool.hpp
   Misc_Classes/RegisterPool.cpp
   Misc_Classes/Type.hpp
+  Misc_Classes/Type.cpp
   Misc_Classes/SymbolTable.hpp
   Misc_Classes/SymbolTable.cpp
 
