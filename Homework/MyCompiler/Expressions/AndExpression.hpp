@@ -2,10 +2,13 @@
 #define AND_EXPRESSION_H
 
 #include "Expression.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
+#include <string>
 
 class AndExpression : public Expression{
 	public:
 		AndExpression(Expression*, Expression*);
+		std::string emit(RegisterPool*);
 
 	private:
 		Expression* _left_expr;

@@ -33,6 +33,10 @@
 #include "Statements/AssignStatement.hpp"
 #include "Statements/ReadStatement.hpp"
 #include "Statements/WriteStatement.hpp"
+#include "Statements/NullStatement.hpp"
+
+#include "Misc_Classes/Program.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>

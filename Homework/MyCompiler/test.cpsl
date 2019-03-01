@@ -1,4 +1,0 @@
-BEGIN
-  number := 42;
-  number := 42;
-END.

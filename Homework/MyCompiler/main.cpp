@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "Misc_Classes/Program.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 
 extern int yyparse();
 extern FILE *yyin;

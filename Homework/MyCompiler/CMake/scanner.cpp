@@ -1,6 +1,6 @@
-#line 2 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp"
+#line 2 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
-#line 4 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp"
+#line 4 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -643,6 +643,10 @@ char *yytext;
 #include "Statements/AssignStatement.hpp"
 #include "Statements/ReadStatement.hpp"
 #include "Statements/WriteStatement.hpp"
+#include "Statements/NullStatement.hpp"
+
+#include "Misc_Classes/Program.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -653,8 +657,8 @@ extern int yylex();
 
 int linenumber = 1;
 bool testing = false;
-#line 657 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp"
-#line 658 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp"
+#line 661 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 662 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
 #define INITIAL 0
 
@@ -871,13 +875,13 @@ YY_DECL
 		}
 
 	{
-#line 50 "my_scanner.l"
+#line 54 "my_scanner.l"
 
 
 
 
 
-#line 881 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp"
+#line 885 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -936,288 +940,288 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 55 "my_scanner.l"
+#line 59 "my_scanner.l"
 {if(testing){std::cout << "Got To array" << std::endl;}return ARRAY_TOKEN;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 56 "my_scanner.l"
+#line 60 "my_scanner.l"
 {return BEGIN_TOKEN;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 57 "my_scanner.l"
+#line 61 "my_scanner.l"
 {return CHR_TOKEN;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 58 "my_scanner.l"
+#line 62 "my_scanner.l"
 {return CONST_TOKEN;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 59 "my_scanner.l"
+#line 63 "my_scanner.l"
 {return DO_TOKEN;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 60 "my_scanner.l"
+#line 64 "my_scanner.l"
 {return DOWNTO_TOKEN;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 61 "my_scanner.l"
+#line 65 "my_scanner.l"
 {return ELSE_TOKEN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 62 "my_scanner.l"
+#line 66 "my_scanner.l"
 {return ELSEIF_TOKEN;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 63 "my_scanner.l"
+#line 67 "my_scanner.l"
 {if(testing){std::cout << "Got To END" << std::endl;}return END_TOKEN;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 64 "my_scanner.l"
+#line 68 "my_scanner.l"
 {return FOR_TOKEN;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 65 "my_scanner.l"
+#line 69 "my_scanner.l"
 {return FORWARD_TOKEN;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 66 "my_scanner.l"
+#line 70 "my_scanner.l"
 {return FUNCTION_TOKEN;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 67 "my_scanner.l"
+#line 71 "my_scanner.l"
 {return IF_TOKEN;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 68 "my_scanner.l"
+#line 72 "my_scanner.l"
 {return OF_TOKEN;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 69 "my_scanner.l"
+#line 73 "my_scanner.l"
 {return ORD_TOKEN;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 70 "my_scanner.l"
+#line 74 "my_scanner.l"
 {return PRED_TOKEN;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 71 "my_scanner.l"
+#line 75 "my_scanner.l"
 {return PROC_TOKEN;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 72 "my_scanner.l"
+#line 76 "my_scanner.l"
 {return READ_TOKEN;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 73 "my_scanner.l"
+#line 77 "my_scanner.l"
 {return RECORD_TOKEN;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 74 "my_scanner.l"
+#line 78 "my_scanner.l"
 {return REF_TOKEN;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 75 "my_scanner.l"
+#line 79 "my_scanner.l"
 {return REPEAT_TOKEN;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 76 "my_scanner.l"
+#line 80 "my_scanner.l"
 {return RETURN_TOKEN;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 77 "my_scanner.l"
+#line 81 "my_scanner.l"
 {return STOP_TOKEN;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 78 "my_scanner.l"
+#line 82 "my_scanner.l"
 {return SUCC_TOKEN;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 79 "my_scanner.l"
+#line 83 "my_scanner.l"
 {return THEN_TOKEN;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 80 "my_scanner.l"
+#line 84 "my_scanner.l"
 {return TO_TOKEN;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 81 "my_scanner.l"
+#line 85 "my_scanner.l"
 {if(testing){std::cout << "Got To type" << std::endl;}return TYPE_TOKEN;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 82 "my_scanner.l"
+#line 86 "my_scanner.l"
 {return UNTIL_TOKEN;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 83 "my_scanner.l"
+#line 87 "my_scanner.l"
 {return VAR_TOKEN;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 84 "my_scanner.l"
+#line 88 "my_scanner.l"
 {return WHILE_TOKEN;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 85 "my_scanner.l"
+#line 89 "my_scanner.l"
 {if(testing){std::cout << "Got To write" << std::endl;}return WRITE_TOKEN;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 88 "my_scanner.l"
+#line 92 "my_scanner.l"
 {if(testing){std::cout << "Got To +" << std::endl;}return ADD_TOKEN;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 89 "my_scanner.l"
+#line 93 "my_scanner.l"
 {if(testing){std::cout << "Got To -" << std::endl;}return SUB_TOKEN;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 90 "my_scanner.l"
+#line 94 "my_scanner.l"
 {if(testing){std::cout << "Got To *" << std::endl;}return MULT_TOKEN;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 91 "my_scanner.l"
+#line 95 "my_scanner.l"
 {if(testing){std::cout << "Got To /" << std::endl;}return DIV_TOKEN;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 92 "my_scanner.l"
+#line 96 "my_scanner.l"
 {if(testing){std::cout << "Got To &" << std::endl;}return AND_TOKEN;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 93 "my_scanner.l"
+#line 97 "my_scanner.l"
 {if(testing){std::cout << "Got To |" << std::endl;}return OR_TOKEN;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 94 "my_scanner.l"
+#line 98 "my_scanner.l"
 {if(testing){std::cout << "Got To ~" << std::endl;}return TILDE_TOKEN;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 95 "my_scanner.l"
+#line 99 "my_scanner.l"
 {if(testing){std::cout << "Got To =" << std::endl;}return EQ_TOKEN;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 96 "my_scanner.l"
+#line 100 "my_scanner.l"
 {if(testing){std::cout << "Got To <>" << std::endl;}return NEQ_TOKEN;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 97 "my_scanner.l"
+#line 101 "my_scanner.l"
 {if(testing){std::cout << "Got To <=" << std::endl;}return LEQ_TOKEN;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 98 "my_scanner.l"
+#line 102 "my_scanner.l"
 {if(testing){std::cout << "Got To >=" << std::endl;}return GEQ_TOKEN;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 99 "my_scanner.l"
+#line 103 "my_scanner.l"
 {if(testing){std::cout << "Got To <" << std::endl;}return LESS_TOKEN;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 100 "my_scanner.l"
+#line 104 "my_scanner.l"
 {if(testing){std::cout << "Got To >" << std::endl;}return GREATER_TOKEN;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 101 "my_scanner.l"
+#line 105 "my_scanner.l"
 {if(testing){std::cout << "Got To ." << std::endl;}return PER_TOKEN;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 102 "my_scanner.l"
+#line 106 "my_scanner.l"
 {if(testing){std::cout << "Got To ," << std::endl;}return COMMA_TOKEN;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 103 "my_scanner.l"
+#line 107 "my_scanner.l"
 {if(testing){std::cout << "Got To :" << std::endl;}return COLON_TOKEN;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 104 "my_scanner.l"
+#line 108 "my_scanner.l"
 {if(testing){std::cout << "Got To ;" << std::endl;}return SEMICOLON_TOKEN;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 105 "my_scanner.l"
+#line 109 "my_scanner.l"
 {if(testing){std::cout << "Got To (" << std::endl;}return LPAREN_TOKEN;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 106 "my_scanner.l"
+#line 110 "my_scanner.l"
 {if(testing){std::cout << "Got To )" << std::endl;}return RPAREN_TOKEN;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 107 "my_scanner.l"
+#line 111 "my_scanner.l"
 {if(testing){std::cout << "Got To [" << std::endl;}return LBRAC_TOKEN;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 108 "my_scanner.l"
+#line 112 "my_scanner.l"
 {if(testing){std::cout << "Got To ]" << std::endl;}return RBRAC_TOKEN;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 109 "my_scanner.l"
+#line 113 "my_scanner.l"
 {if(testing){std::cout << "Got To ASSIGN" << std::endl;}return ASSIGN_TOKEN;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 110 "my_scanner.l"
+#line 114 "my_scanner.l"
 {if(testing){std::cout << "Got To %" << std::endl;}return REMAIN_TOKEN;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 112 "my_scanner.l"
+#line 116 "my_scanner.l"
 {}
 	YY_BREAK
 case 56:
 /* rule 56 can match eol */
 YY_RULE_SETUP
-#line 113 "my_scanner.l"
+#line 117 "my_scanner.l"
 { linenumber++; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 115 "my_scanner.l"
+#line 119 "my_scanner.l"
 {if(testing){
 			std::cout << "Got To number " << yytext << std::endl;
 		}
@@ -1226,7 +1230,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 120 "my_scanner.l"
+#line 124 "my_scanner.l"
 {if(testing){
 			std::cout << "Got To number " << yytext << std::endl;
 		}
@@ -1235,7 +1239,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 125 "my_scanner.l"
+#line 129 "my_scanner.l"
 { if(testing){
 			std::cout << "Got To number " << yytext << std::endl;
 		}
@@ -1244,7 +1248,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 130 "my_scanner.l"
+#line 134 "my_scanner.l"
 {if(testing){std::cout << "Got To number " << yytext << std::endl;}
 		yylval.val = atoi(yytext); 
 		return NUM_TOKEN;}
@@ -1252,7 +1256,7 @@ YY_RULE_SETUP
 case 61:
 /* rule 61 can match eol */
 YY_RULE_SETUP
-#line 135 "my_scanner.l"
+#line 139 "my_scanner.l"
 {if(testing){std::cout << "Got To Char " << yytext <<std::endl;}
 			yylval.charVal = yytext[0];
 			return CHAR_TOKEN;}
@@ -1260,28 +1264,28 @@ YY_RULE_SETUP
 case 62:
 /* rule 62 can match eol */
 YY_RULE_SETUP
-#line 138 "my_scanner.l"
+#line 142 "my_scanner.l"
 {if(testing){std::cout << "Got To String " << yytext <<std::endl;}return STRING_TOKEN;}
 	YY_BREAK
 case 63:
 /* rule 63 can match eol */
 YY_RULE_SETUP
-#line 140 "my_scanner.l"
+#line 144 "my_scanner.l"
 {linenumber++;if(testing){std::cout<< "Got a Comment" << yytext << std::endl;}}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 145 "my_scanner.l"
+#line 149 "my_scanner.l"
 { 	if(testing){std::cout << "Got To ID_TOKEN " << yytext<< std::endl;}
 				yylval.id = strdup(yytext); 
 				return ID_TOKEN; }
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 151 "my_scanner.l"
+#line 155 "my_scanner.l"
 ECHO;
 	YY_BREAK
-#line 1285 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/scanner.cpp"
+#line 1289 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2286,7 +2290,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 151 "my_scanner.l"
+#line 155 "my_scanner.l"
 
 
 

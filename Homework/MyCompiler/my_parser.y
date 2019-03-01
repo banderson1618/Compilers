@@ -33,8 +33,10 @@
 #include "Statements/AssignStatement.hpp"
 #include "Statements/ReadStatement.hpp"
 #include "Statements/WriteStatement.hpp"
+#include "Statements/NullStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 
 #include <ctype.h>
 #include <iostream>
@@ -48,6 +50,8 @@ void yyerror(const char *s);
 extern int linenumber;
 
 bool testingParser = false;
+
+RegisterPool* register_pool = new RegisterPool();
 %}
 
 %token END
@@ -141,7 +145,7 @@ bool testingParser = false;
 %type <charVal> CHAR_TOKEN
 %type <stringVal> STRING_TOKEN
 %type <lval> lvalue
-%type <statement> statement assign read_statement write_statement
+%type <statement> statement assign read_statement write_statement null_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block
 
@@ -152,8 +156,8 @@ bool testingParser = false;
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 							{	auto my_tree = new Program($5); 
-								my_tree->emit();}	
-		//| block END_OF_FILE	{  }
+								my_tree->emit(register_pool);}	
+		| expr END_OF_FILE			{ $1->emit(register_pool); }
 		;
 
 
@@ -212,7 +216,7 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 		| SUCC_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
 							{ if (testingParser) { std::cout << "Found SuccExpression" << std::endl; }
 								$$ = new ToIntExpression($3);}
-		| NUM_TOKEN				{// if (testingParser) { std::cout << "Found IntExpression" << std::endl; }
+		| NUM_TOKEN				{ if (testingParser) { std::cout << "Found IntExpression" << std::endl; }
 								$$ = new IntExpression($1);}
 		| CHAR_TOKEN				{ if (testingParser) { std::cout << "Found CharExpression" << std::endl; }
 								$$ = new CharExpression($1);}
@@ -238,7 +242,7 @@ args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
 		;
 
 // Statements
-null_statement 	: /* empty */;
+null_statement 	: /* empty */				{ $$ = new NullStatement(); };
 procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }
 
 
@@ -284,14 +288,13 @@ statement	: assign				{ $$ = $1; }
 		| read_statement			{ $$ = $1; }
 		| write_statement			{ $$ = $1; }
 		| procedure_call			{  }
-		| null_statement			{  }
+		| null_statement			{ $$ = $1; }
 		;
 		
 statement_seq	: statement				{  	auto new_vec = new std::vector<Statement*>;
 								new_vec->push_back($1);
 								$$ = new_vec;}	
 		| statement_seq SEMICOLON_TOKEN statement{ $1->push_back($3);
-								std::cout << $1->size() << std::endl;
 								$$ = $1;}
 		| /* empty */				{  $$ = new std::vector<Statement*>;}
 		;

@@ -4,11 +4,12 @@
 #include "Statement.hpp"
 #include "Expressions/Expression.hpp"
 #include "Expressions/LvalueExpression.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 
 class AssignStatement : public Statement {
 	public:
 		AssignStatement(LvalueExpression*, Expression*);
-		void emit();
+		void emit(RegisterPool*);
 	private:
 		LvalueExpression* _id;
 		Expression* _val;

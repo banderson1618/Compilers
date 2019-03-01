@@ -1,5 +1,6 @@
 #include "Expression.hpp"
 #include <iostream>
+#include <string>
 
 Expression::Expression(){
 
@@ -17,3 +18,16 @@ char* Expression::getID(){
 	char foo[] = "bar";
 	return foo;
 }
+
+std::string Expression::emit(RegisterPool* register_pool){
+	std::cout << "Unimplemented emit function" << std::endl;
+	return "Unimplemented emit function";
+}
+
+Type* Expression::get_type(){
+	return _type;
+}
+
+void Expression::set_type(Type* type){
+	_type = type;
+}		
