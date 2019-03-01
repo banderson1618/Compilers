@@ -53,3 +53,13 @@ class Array{
 ​	int size()
 
 }
+
+
+
+equality:
+
+​	set less than, or
+
+
+
+add virtual destructor to Expression
