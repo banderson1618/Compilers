@@ -34,6 +34,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o"
   "CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o"
   "CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o"
+  "CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o"
   "CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o"
   "CMakeFiles/cpsl.dir/parser.cpp.o"
   "CMakeFiles/cpsl.dir/scanner.cpp.o"

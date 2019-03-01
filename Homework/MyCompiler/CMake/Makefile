@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/braden/Documents/Homework/Compilers/Homework/MyCompiler
+CMAKE_SOURCE_DIR = /home/braden/Documents/Compilers/Homework/MyCompiler
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake
+CMAKE_BINARY_DIR = /home/braden/Documents/Compilers/Homework/MyCompiler/CMake
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -852,6 +852,33 @@ Misc_Classes/SymbolTable.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.s
 .PHONY : Misc_Classes/SymbolTable.cpp.s
 
+Misc_Classes/Type.o: Misc_Classes/Type.cpp.o
+
+.PHONY : Misc_Classes/Type.o
+
+# target to build an object file
+Misc_Classes/Type.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o
+.PHONY : Misc_Classes/Type.cpp.o
+
+Misc_Classes/Type.i: Misc_Classes/Type.cpp.i
+
+.PHONY : Misc_Classes/Type.i
+
+# target to preprocess a source file
+Misc_Classes/Type.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.i
+.PHONY : Misc_Classes/Type.cpp.i
+
+Misc_Classes/Type.s: Misc_Classes/Type.cpp.s
+
+.PHONY : Misc_Classes/Type.s
+
+# target to generate assembly for a file
+Misc_Classes/Type.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.s
+.PHONY : Misc_Classes/Type.cpp.s
+
 Statements/AssignStatement.o: Statements/AssignStatement.cpp.o
 
 .PHONY : Statements/AssignStatement.o
@@ -1158,6 +1185,9 @@ help:
 	@echo "... Misc_Classes/SymbolTable.o"
 	@echo "... Misc_Classes/SymbolTable.i"
 	@echo "... Misc_Classes/SymbolTable.s"
+	@echo "... Misc_Classes/Type.o"
+	@echo "... Misc_Classes/Type.i"
+	@echo "... Misc_Classes/Type.s"
 	@echo "... Statements/AssignStatement.o"
 	@echo "... Statements/AssignStatement.i"
 	@echo "... Statements/AssignStatement.s"

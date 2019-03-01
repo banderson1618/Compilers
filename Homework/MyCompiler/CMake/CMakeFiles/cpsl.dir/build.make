@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/braden/Documents/Homework/Compilers/Homework/MyCompiler
+CMAKE_SOURCE_DIR = /home/braden/Documents/Compilers/Homework/MyCompiler
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake
+CMAKE_BINARY_DIR = /home/braden/Documents/Compilers/Homework/MyCompiler/CMake
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpsl.dir/depend.make
@@ -58,28 +58,28 @@ include CMakeFiles/cpsl.dir/progress.make
 include CMakeFiles/cpsl.dir/flags.make
 
 parser.cpp: ../my_parser.y
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[BISON][Parser] Building parser with bison 3.0.4"
-	cd /home/braden/Documents/Homework/Compilers/Homework/MyCompiler && /usr/bin/bison -d -o /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.cpp my_parser.y
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[BISON][Parser] Building parser with bison 3.0.4"
+	cd /home/braden/Documents/Compilers/Homework/MyCompiler && /usr/bin/bison -d -o /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/parser.cpp my_parser.y
 
 parser.hpp: parser.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate parser.hpp
 
 scanner.cpp: ../my_scanner.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "[FLEX][Scanner] Building scanner with flex 2.6.4"
-	cd /home/braden/Documents/Homework/Compilers/Homework/MyCompiler && /usr/bin/flex -o/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp my_scanner.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "[FLEX][Scanner] Building scanner with flex 2.6.4"
+	cd /home/braden/Documents/Compilers/Homework/MyCompiler && /usr/bin/flex -o/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp my_scanner.l
 
 CMakeFiles/cpsl.dir/main.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpsl.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/main.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpsl.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/main.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/main.cpp
 
 CMakeFiles/cpsl.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp > CMakeFiles/cpsl.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/main.cpp > CMakeFiles/cpsl.dir/main.cpp.i
 
 CMakeFiles/cpsl.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/main.cpp -o CMakeFiles/cpsl.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/main.cpp -o CMakeFiles/cpsl.dir/main.cpp.s
 
 CMakeFiles/cpsl.dir/main.cpp.o.requires:
 
@@ -94,16 +94,16 @@ CMakeFiles/cpsl.dir/main.cpp.o.provides.build: CMakeFiles/cpsl.dir/main.cpp.o
 
 CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o: ../Expressions/Expression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/Expression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/Expression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.cpp > CMakeFiles/cpsl.dir/Expressions/Expression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.cpp > CMakeFiles/cpsl.dir/Expressions/Expression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/Expression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/Expression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.cpp -o CMakeFiles/cpsl.dir/Expressions/Expression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.cpp -o CMakeFiles/cpsl.dir/Expressions/Expression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o.requires:
 
@@ -118,16 +118,16 @@ CMakeFiles/cpsl.dir/Expressions/Expression.cpp.o.provides.build: CMakeFiles/cpsl
 
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Expressions/LvalueExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LvalueExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LvalueExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LvalueExpression.cpp > CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LvalueExpression.cpp > CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LvalueExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LvalueExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o.requires:
 
@@ -142,16 +142,16 @@ CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o: ../Expressions/AndExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp > CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp > CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o.requires:
 
@@ -166,16 +166,16 @@ CMakeFiles/cpsl.dir/Expressions/AndExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o: ../Expressions/OrExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp > CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp > CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o.requires:
 
@@ -190,16 +190,16 @@ CMakeFiles/cpsl.dir/Expressions/OrExpression.cpp.o.provides.build: CMakeFiles/cp
 
 CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o: ../Expressions/EqExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o.requires:
 
@@ -214,16 +214,16 @@ CMakeFiles/cpsl.dir/Expressions/EqExpression.cpp.o.provides.build: CMakeFiles/cp
 
 CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o: ../Expressions/NeqExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o.requires:
 
@@ -238,16 +238,16 @@ CMakeFiles/cpsl.dir/Expressions/NeqExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o: ../Expressions/LeqExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o.requires:
 
@@ -262,16 +262,16 @@ CMakeFiles/cpsl.dir/Expressions/LeqExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o: ../Expressions/GeqExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp > CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o.requires:
 
@@ -286,16 +286,16 @@ CMakeFiles/cpsl.dir/Expressions/GeqExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o: ../Expressions/LessExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp > CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp > CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o.requires:
 
@@ -310,16 +310,16 @@ CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o: ../Expressions/GreaterExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp > CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp > CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o.requires:
 
@@ -334,16 +334,16 @@ CMakeFiles/cpsl.dir/Expressions/GreaterExpression.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o: ../Expressions/AddExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp > CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp > CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/AddExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o.requires:
 
@@ -358,16 +358,16 @@ CMakeFiles/cpsl.dir/Expressions/AddExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o: ../Expressions/BitwiseExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/BitwiseExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/BitwiseExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/BitwiseExpression.cpp > CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/BitwiseExpression.cpp > CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/BitwiseExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/BitwiseExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o.requires:
 
@@ -382,16 +382,16 @@ CMakeFiles/cpsl.dir/Expressions/BitwiseExpression.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o: ../Expressions/DivExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/DivExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/DivExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/DivExpression.cpp > CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/DivExpression.cpp > CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/DivExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/DivExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o.requires:
 
@@ -406,16 +406,16 @@ CMakeFiles/cpsl.dir/Expressions/DivExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o: ../Expressions/FuncExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/FuncExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/FuncExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/FuncExpression.cpp > CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/FuncExpression.cpp > CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/FuncExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/FuncExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o.requires:
 
@@ -430,16 +430,16 @@ CMakeFiles/cpsl.dir/Expressions/FuncExpression.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o: ../Expressions/MultExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/MultExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/MultExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/MultExpression.cpp > CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/MultExpression.cpp > CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/MultExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/MultExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o.requires:
 
@@ -454,16 +454,16 @@ CMakeFiles/cpsl.dir/Expressions/MultExpression.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o: ../Expressions/NegExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp > CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp > CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o.requires:
 
@@ -478,16 +478,16 @@ CMakeFiles/cpsl.dir/Expressions/NegExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o: ../Expressions/ParenExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ParenExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ParenExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ParenExpression.cpp > CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ParenExpression.cpp > CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ParenExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ParenExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o.requires:
 
@@ -502,16 +502,16 @@ CMakeFiles/cpsl.dir/Expressions/ParenExpression.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o: ../Expressions/RemainExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/RemainExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/RemainExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/RemainExpression.cpp > CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/RemainExpression.cpp > CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/RemainExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/RemainExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o.requires:
 
@@ -526,16 +526,16 @@ CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o: ../Expressions/SubExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/SubExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/SubExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/SubExpression.cpp > CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/SubExpression.cpp > CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/SubExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/SubExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o.requires:
 
@@ -550,16 +550,16 @@ CMakeFiles/cpsl.dir/Expressions/SubExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o: ../Expressions/ToCharExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp > CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp > CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o.requires:
 
@@ -574,16 +574,16 @@ CMakeFiles/cpsl.dir/Expressions/ToCharExpression.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o: ../Expressions/ToIntExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp > CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp > CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o.requires:
 
@@ -598,16 +598,16 @@ CMakeFiles/cpsl.dir/Expressions/ToIntExpression.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o: ../Expressions/IntExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/IntExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/IntExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/IntExpression.cpp > CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/IntExpression.cpp > CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/IntExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/IntExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o.requires:
 
@@ -622,16 +622,16 @@ CMakeFiles/cpsl.dir/Expressions/IntExpression.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o: ../Expressions/CharExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp > CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp > CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o.requires:
 
@@ -646,16 +646,16 @@ CMakeFiles/cpsl.dir/Expressions/CharExpression.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: ../Expressions/StringExpression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp
 
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp > CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp > CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.i
 
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp -o CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.s
 
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o.requires:
 
@@ -670,16 +670,16 @@ CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: ../Statements/Statement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/cpsl.dir/Statements/Statement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/Statement.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/cpsl.dir/Statements/Statement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/Statement.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/Statement.cpp
 
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Statements/Statement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.cpp > CMakeFiles/cpsl.dir/Statements/Statement.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/Statement.cpp > CMakeFiles/cpsl.dir/Statements/Statement.cpp.i
 
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Statements/Statement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.cpp -o CMakeFiles/cpsl.dir/Statements/Statement.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/Statement.cpp -o CMakeFiles/cpsl.dir/Statements/Statement.cpp.s
 
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o.requires:
 
@@ -694,16 +694,16 @@ CMakeFiles/cpsl.dir/Statements/Statement.cpp.o.provides.build: CMakeFiles/cpsl.d
 
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Statements/AssignStatement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/AssignStatement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/AssignStatement.cpp
 
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/AssignStatement.cpp > CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/AssignStatement.cpp > CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.i
 
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/AssignStatement.cpp -o CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/AssignStatement.cpp -o CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.s
 
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o.requires:
 
@@ -718,16 +718,16 @@ CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Statements/ReadStatement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/ReadStatement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/ReadStatement.cpp
 
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/ReadStatement.cpp > CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/ReadStatement.cpp > CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.i
 
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/ReadStatement.cpp -o CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/ReadStatement.cpp -o CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.s
 
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o.requires:
 
@@ -742,16 +742,16 @@ CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o.provides.build: CMakeFiles/cp
 
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: ../Statements/WriteStatement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp
 
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp > CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp > CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.i
 
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp -o CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp -o CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.s
 
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o.requires:
 
@@ -766,16 +766,16 @@ CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o: ../Statements/NullStatement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/NullStatement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/NullStatement.cpp
 
 CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/NullStatement.cpp > CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/NullStatement.cpp > CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.i
 
 CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/NullStatement.cpp -o CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/NullStatement.cpp -o CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.s
 
 CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o.requires:
 
@@ -790,16 +790,16 @@ CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o.provides.build: CMakeFiles/cp
 
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: ../Misc_Classes/Program.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp > CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp > CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.i
 
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.s
 
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o.requires:
 
@@ -814,16 +814,16 @@ CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o.provides.build: CMakeFiles/cpsl.d
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: ../Misc_Classes/RegisterPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp > CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp > CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.i
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.s
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o.requires:
 
@@ -836,18 +836,42 @@ CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o.provides: CMakeFiles/cpsl.di
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o.provides.build: CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o
 
 
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o: CMakeFiles/cpsl.dir/flags.make
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o: ../Misc_Classes/Type.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Type.cpp
+
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Type.cpp > CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.i
+
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/Type.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.s
+
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.requires:
+
+.PHONY : CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.requires
+
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.provides: CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.provides.build
+.PHONY : CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.provides
+
+CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.provides.build: CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o
+
+
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/SymbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp > CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp > CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.i
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.s
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o.requires:
 
@@ -862,16 +886,16 @@ CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o.provides.build: CMakeFiles/cp
 
 CMakeFiles/cpsl.dir/parser.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/parser.cpp.o: parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/cpsl.dir/parser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/parser.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/cpsl.dir/parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/parser.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/parser.cpp
 
 CMakeFiles/cpsl.dir/parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.cpp > CMakeFiles/cpsl.dir/parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/parser.cpp > CMakeFiles/cpsl.dir/parser.cpp.i
 
 CMakeFiles/cpsl.dir/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.cpp -o CMakeFiles/cpsl.dir/parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/parser.cpp -o CMakeFiles/cpsl.dir/parser.cpp.s
 
 CMakeFiles/cpsl.dir/parser.cpp.o.requires:
 
@@ -887,16 +911,16 @@ CMakeFiles/cpsl.dir/parser.cpp.o.provides.build: CMakeFiles/cpsl.dir/parser.cpp.
 CMakeFiles/cpsl.dir/scanner.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/scanner.cpp.o: scanner.cpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: parser.hpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/cpsl.dir/scanner.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/scanner.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/cpsl.dir/scanner.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/scanner.cpp.o -c /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp
 
 CMakeFiles/cpsl.dir/scanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/scanner.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp > CMakeFiles/cpsl.dir/scanner.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp > CMakeFiles/cpsl.dir/scanner.cpp.i
 
 CMakeFiles/cpsl.dir/scanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/scanner.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp -o CMakeFiles/cpsl.dir/scanner.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp -o CMakeFiles/cpsl.dir/scanner.cpp.s
 
 CMakeFiles/cpsl.dir/scanner.cpp.o.requires:
 
@@ -943,6 +967,7 @@ cpsl_OBJECTS = \
 "CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o" \
+"CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o" \
 "CMakeFiles/cpsl.dir/parser.cpp.o" \
 "CMakeFiles/cpsl.dir/scanner.cpp.o"
@@ -982,13 +1007,14 @@ cpsl: CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o
+cpsl: CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o
 cpsl: CMakeFiles/cpsl.dir/parser.cpp.o
 cpsl: CMakeFiles/cpsl.dir/scanner.cpp.o
 cpsl: CMakeFiles/cpsl.dir/build.make
 cpsl: /usr/lib/x86_64-linux-gnu/libfl.so
 cpsl: CMakeFiles/cpsl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking CXX executable cpsl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Linking CXX executable cpsl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cpsl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1028,6 +1054,7 @@ CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o.requires
+CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/parser.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/scanner.cpp.o.requires
@@ -1041,6 +1068,6 @@ CMakeFiles/cpsl.dir/clean:
 CMakeFiles/cpsl.dir/depend: parser.cpp
 CMakeFiles/cpsl.dir/depend: parser.hpp
 CMakeFiles/cpsl.dir/depend: scanner.cpp
-	cd /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/braden/Documents/Homework/Compilers/Homework/MyCompiler /home/braden/Documents/Homework/Compilers/Homework/MyCompiler /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles/cpsl.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/braden/Documents/Compilers/Homework/MyCompiler/CMake && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/braden/Documents/Compilers/Homework/MyCompiler /home/braden/Documents/Compilers/Homework/MyCompiler /home/braden/Documents/Compilers/Homework/MyCompiler/CMake /home/braden/Documents/Compilers/Homework/MyCompiler/CMake /home/braden/Documents/Compilers/Homework/MyCompiler/CMake/CMakeFiles/cpsl.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cpsl.dir/depend
 

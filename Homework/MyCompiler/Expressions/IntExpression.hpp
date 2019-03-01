@@ -1,7 +1,9 @@
 #ifndef INT_EXPRESSION_H
 #define INT_EXPRESSION_H
 
+
 #include "Expression.hpp"
+#include "Misc_Classes/Type.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
 #include <string>
 

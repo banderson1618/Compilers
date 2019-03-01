@@ -24,10 +24,3 @@ std::string Expression::emit(RegisterPool* register_pool){
 	return "Unimplemented emit function";
 }
 
-Type* Expression::get_type(){
-	return _type;
-}
-
-void Expression::set_type(Type* type){
-	_type = type;
-}		

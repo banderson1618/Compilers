@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-extern IntType* int_type;
+extern PrimitiveType* int_type;
 
 IntExpression::IntExpression(int val){
 	_val = val;
@@ -15,7 +15,7 @@ int IntExpression::getVal(){
 }
 
 std::string IntExpression::emit(RegisterPool* register_pool){
-	//this->set_type(int_type);
+//	type = int_type;
 	std::string ret_reg = register_pool->get_register();
 	std::cout << "li " << ret_reg << ", " << _val << std::endl;
 	

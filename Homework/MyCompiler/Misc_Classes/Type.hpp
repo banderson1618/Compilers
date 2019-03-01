@@ -7,20 +7,11 @@ class Type{
 };
 
 
-class IntType : public Type{
+class PrimitiveType : public Type{
 	public:
-		IntType() = default;
+		PrimitiveType();
 		int size() override {return 4;}
 };
 
-//extern IntType* int_type = new IntType();
-
-class BoolType : public Type{
-	public:
-		BoolType() = default;
-		int size() override {return 4;}
-};
-
-//extern BoolType* bool_type = new BoolType();
 
 #endif

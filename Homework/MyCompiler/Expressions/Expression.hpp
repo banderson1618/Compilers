@@ -8,14 +8,11 @@
 class Expression{
 	public:
 		Expression();
-		Type* get_type();
-		void set_type(Type*);
 		virtual int getVal();
 		virtual char getChar();
 		virtual char* getID();
 		virtual std::string emit(RegisterPool*);
-	private:
-		Type* _type;
+		Type* type;
 };
 
 

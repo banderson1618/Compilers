@@ -23,6 +23,5 @@ class SymbolTable{
 		int next_offset;
 };
 
-//SymbolTable symbol_table;
 #endif
 
