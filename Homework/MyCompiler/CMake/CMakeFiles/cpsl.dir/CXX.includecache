@@ -91,6 +91,8 @@ string
 ..//Expressions/IntExpression.hpp
 Expression.hpp
 ../Expressions/Expression.hpp
+Misc_Classes/Type.hpp
+../Expressions/Misc_Classes/Type.hpp
 Misc_Classes/RegisterPool.hpp
 ../Expressions/Misc_Classes/RegisterPool.hpp
 string
@@ -625,6 +627,8 @@ iostream
 /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/IntExpression.hpp
 Expression.hpp
 /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 Misc_Classes/RegisterPool.hpp
 /home/braden/Documents/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/RegisterPool.hpp
 string
@@ -901,6 +905,8 @@ iostream
 -
 string
 -
+Misc_Classes/Type.hpp
+/home/braden/Documents/Compilers/Homework/MyCompiler/Statements/Misc_Classes/Type.hpp
 
 /home/braden/Documents/Compilers/Homework/MyCompiler/Statements/AssignStatement.hpp
 Statement.hpp
