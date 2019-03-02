@@ -3,16 +3,16 @@
 
 #include "Expression.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
+#include "Misc_Classes/SymbolTable.hpp"
 #include <string>
 
 class LvalueExpression : public Expression{
 	public:
-		LvalueExpression(char*);
-		char* getID();
+		LvalueExpression(Lvalue*);
 		std::string emit(RegisterPool*);
 
 	private:
-		char* _id;
+		Lvalue* _lval;
 };
 
 #endif

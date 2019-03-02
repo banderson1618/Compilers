@@ -8,7 +8,7 @@ WriteStatement::WriteStatement(std::vector<Expression*>* args){
 }
 
 void WriteStatement::emit(){
-	std::cout << "I am a write statement" << std::endl;
+	//std::cout << "I am a write statement" << std::endl;
 }
 
 

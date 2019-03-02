@@ -37,21 +37,36 @@
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
+#include "Misc_Classes/SymbolTable.hpp"
+#include "Misc_Classes/TypesTable.hpp"
 
 #include <ctype.h>
 #include <iostream>
 #include <map>
 #include <vector>
+#include <string>
 
 extern int yylex();
 extern int yyparse();
 extern FILE *yyin;
+extern SymbolTable symbol_table;
+extern TypesTable types_table;
+
 void yyerror(const char *s);
 extern int linenumber;
 
 bool testingParser = false;
 
 RegisterPool* register_pool = new RegisterPool();
+
+
+void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
+	for(int i = 0; i < ids->size(); i++){
+		std::string str((*ids)[i]);
+		symbol_table.add_value(str, type);
+	}
+}
+
 %}
 
 %token END
@@ -132,13 +147,15 @@ RegisterPool* register_pool = new RegisterPool();
 	Expression* expr;
 	std::vector<Expression*> *exprList;
 	std::vector<Statement*> *statementList;
-	std::vector<LvalueExpression*> *lvalList;
+	std::vector<Lvalue*> *lvalList;
+	std::vector<char*> *string_list;
 	Statement* statement;
-	LvalueExpression* lval;
+	Lvalue* lval;
+	Type* type;
 }
 
 
-%type <id> ID_TOKEN
+%type <stringVal> ID_TOKEN
 %type <expr> expr
 %type <exprList> args_list
 %type <val> NUM_TOKEN
@@ -148,6 +165,8 @@ RegisterPool* register_pool = new RegisterPool();
 %type <statement> statement assign read_statement write_statement null_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block
+%type <string_list> ident_list
+%type <type> type simple_type
 
 
 %%
@@ -157,18 +176,23 @@ RegisterPool* register_pool = new RegisterPool();
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 							{	auto my_tree = new Program($5); 
 								my_tree->emit(register_pool);}	
-		| expr END_OF_FILE			{ $1->emit(register_pool); }
+		| statement END_OF_FILE			{ $1->emit(register_pool); }
 		;
 
 
-lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression($1); } // this should actually be pulling it from the symbol table, not making a new one
+lvalue 		: ID_TOKEN 				{ std::string str($1);
+								Lvalue base = symbol_table.get_value(str);
+								Lvalue* ret_val;
+								ret_val->offset = base.offset;
+								ret_val->type = base.type;							
+								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
 		;
 
 // Expressions
 expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" << std::endl; }
-								$$ = $1;}
+								$$ = new LvalueExpression($1);}
 		| expr OR_TOKEN expr 			{ if (testingParser) { std::cout << "Found OrExpression" << std::endl; }
 								$$ =  new OrExpression($1, $3);}
 		| expr AND_TOKEN expr 			{ if (testingParser) { std::cout << "Found AndExpression" << std::endl; }
@@ -233,12 +257,12 @@ args_list	: expr					{	auto new_vec = new std::vector<Expression*>;
 		;
 
 
-args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
+args_list_lval	: lvalue				{	auto new_vec = new std::vector<Lvalue*>;
 								new_vec->push_back($1);
 								$$ = new_vec;}
 		| args_list_lval COMMA_TOKEN lvalue	{$1->push_back($3);
 								$$ = $1;}
-		| /* empty */				{$$ = new std::vector<LvalueExpression*>;}
+		| /* empty */				{$$ = new std::vector<Lvalue*>;}
 		;
 
 // Statements
@@ -319,11 +343,12 @@ type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{  }
 type_list	: type_item type_list			{  }
 		| /* empty */				{  }
 		;
-type		: simple_type				{  }
+type		: simple_type				{ $$ = $1; }
 		| record_type				{  }
 		| array_type				{  }
 		;
-simple_type	: ID_TOKEN				{  }
+simple_type	: ID_TOKEN				{ std::string str($1);
+								$$ = types_table.get_value(str); }
 		;
 record_type	: RECORD_TOKEN rec_list END_TOKEN	{  }
 		;
@@ -336,23 +361,27 @@ rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 array_type	: ARRAY_TOKEN array_args OF_TOKEN type	{  }
 		;
 array_args	: LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN	{  }
-		;		
+		;	
 
-ident_list	: ID_TOKEN id_list			{  }
-		;
-id_list		: COMMA_TOKEN ID_TOKEN id_list		{  }
-		| /* empty */				{  }
+ident_list	: ID_TOKEN				{ 
+								auto new_vec = new std::vector<char*> ;
+								new_vec->push_back($1);
+								$$ = new_vec;}
+		| ident_list COMMA_TOKEN ID_TOKEN	{ $1->push_back($3);
+								$$ = $1; }
 		;
 
 
 // Variable Declaration
-var_decl	: VAR_TOKEN var_item var_list		{  }
+var_decl	: VAR_TOKEN var_list			{  }
 		| /* empty */				{  }
 		;
-var_list	: var_item var_list			{  }
-		| /* empty */				{  }
+var_list	: var_list var_item 			{  }
+		| var_item				{  }
 		;
-var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	{  }	
+var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	{ add_vars_to_symbol_table($1, $3); }
+		| /* empty */
+		;	
 
 // Procedure and Function Declaration
 proc_decl	: proc_start  FORWARD_TOKEN SEMICOLON_TOKEN
@@ -406,7 +435,7 @@ func_proc_list	: func_decl func_proc_list		{  }
 
 
 void yyerror(const char* s){
-	std::cout << "Parsing error on line " << linenumber << ".\n Message: " << s << std::endl;
+	std::cerr << "Parsing error on line " << linenumber << ".\n Message: " << s << std::endl;
 	exit(-1);
 }
 

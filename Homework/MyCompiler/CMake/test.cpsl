@@ -1,3 +1,6 @@
-begin
-  a := 5;
-end.
+VAR 
+  number : integer;
+BEGIN
+  number := 42;
+  write(number);
+END.

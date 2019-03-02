@@ -1,15 +1,15 @@
 #include "LvalueExpression.hpp"
+#include "Misc_Classes/SymbolTable.hpp"
 #include <string>
 #include <iostream>
 
-LvalueExpression::LvalueExpression(char* id){
-	_id = id;
+extern SymbolTable symbol_table;
+
+LvalueExpression::LvalueExpression(Lvalue* lval){
+	_lval = lval;
 }
 
 
-char* LvalueExpression::getID(){
-	return _id;
-}
 
 std::string LvalueExpression::emit(RegisterPool* register_pool){
 	std::string ret_reg = register_pool->get_register();

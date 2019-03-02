@@ -6,7 +6,7 @@ Statement::Statement(){
 }
 
 void Statement::emit(RegisterPool* register_pool){
-	std::cout << "I am an unimplemented statement" << std::endl;
+	std::cout << "This shouldn't print" << std::endl;
 	return;
 }
 

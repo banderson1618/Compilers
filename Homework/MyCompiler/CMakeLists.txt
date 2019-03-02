@@ -87,6 +87,8 @@ set(cpsl_srcs
   Misc_Classes/Type.cpp
   Misc_Classes/SymbolTable.hpp
   Misc_Classes/SymbolTable.cpp
+  Misc_Classes/TypesTable.hpp
+  Misc_Classes/TypesTable.cpp
 
 
   ${BISON_Parser_OUTPUTS}

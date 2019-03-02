@@ -10,15 +10,11 @@
 extern SymbolTable symbol_table;
 extern PrimitiveType* int_type;
 
-AssignStatement::AssignStatement(LvalueExpression* id, Expression* val){
+AssignStatement::AssignStatement(Lvalue* id, Expression* val){
 	_id = id;
 	_val = val;
 }
 
-void AssignStatement::emit(RegisterPool* register_pool){
-	std::cout << "Int size: " << int_type->size() << std::endl;
-	symbol_table.add_value("my_id");
-	Lvalue my_lval = symbol_table.get_value("my_id");
-	std::cout << my_lval.offset << std::endl;	
-	std::cout << "I am an assign statement" << std::endl;
+void AssignStatement::emit(RegisterPool* register_pool){	
+	//std::cout << "I am an assign statement" << std::endl;
 }

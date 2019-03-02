@@ -1,10 +1,23 @@
 #include "Type.hpp"
-#include <iostream>
 
-PrimitiveType::PrimitiveType(){
-	std::cout << "Making primitive type" << std::endl;
+
+Type::Type(){
+
 }
 
-PrimitiveType* int_type = new PrimitiveType();
-PrimitiveType* bool_type = new PrimitiveType();
-PrimitiveType* char_type = new PrimitiveType();
+int Type::size(){
+	return 0;
+}
+
+PrimitiveType::PrimitiveType(){
+
+}
+
+int PrimitiveType::size(){
+	return 4;
+}
+
+
+PrimitiveType* int_type;
+PrimitiveType* bool_type;
+PrimitiveType* char_type;

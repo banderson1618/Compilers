@@ -15,7 +15,7 @@ int IntExpression::getVal(){
 }
 
 std::string IntExpression::emit(RegisterPool* register_pool){
-//	type = int_type;
+	type = int_type;
 	std::string ret_reg = register_pool->get_register();
 	std::cout << "li " << ret_reg << ", " << _val << std::endl;
 	

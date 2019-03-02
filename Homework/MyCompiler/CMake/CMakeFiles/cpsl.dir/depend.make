@@ -79,6 +79,8 @@ CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o: ../Expressions/LessExpress
 CMakeFiles/cpsl.dir/Expressions/LessExpression.cpp.o: ../Expressions/LessExpression.hpp
 
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Misc_Classes/SymbolTable.hpp
+CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/Expressions/LvalueExpression.cpp.o: ../Expressions/LvalueExpression.cpp
@@ -155,9 +157,14 @@ CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: ../Misc_Classes/RegisterPoo
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/SymbolTable.cpp
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/SymbolTable.hpp
+CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/Type.hpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o: ../Misc_Classes/Type.cpp
 CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o: ../Misc_Classes/Type.hpp
+
+CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o: ../Misc_Classes/Type.hpp
+CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o: ../Misc_Classes/TypesTable.cpp
+CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o: ../Misc_Classes/TypesTable.hpp
 
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Expressions/LvalueExpression.hpp
@@ -165,6 +172,7 @@ CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Misc_Classes/RegisterPo
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Misc_Classes/SymbolTable.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Expressions/Expression.hpp
+CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Statements/AssignStatement.cpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Statements/AssignStatement.hpp
 CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o: ../Statements/Statement.hpp
@@ -176,8 +184,10 @@ CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o: ../Statements/Statement.hpp
 
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Expressions/LvalueExpression.hpp
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Misc_Classes/SymbolTable.hpp
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Expressions/Expression.hpp
+CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Statements/ReadStatement.cpp
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Statements/ReadStatement.hpp
 CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o: ../Statements/Statement.hpp
@@ -196,6 +206,9 @@ CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: ../Statements/WriteStatemen
 CMakeFiles/cpsl.dir/main.cpp.o: ../Statements/Statement.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/SymbolTable.hpp
+CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/Type.hpp
+CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/TypesTable.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../main.cpp
 
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/AddExpression.hpp
@@ -224,7 +237,9 @@ CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/ToCharExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/ToIntExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/SymbolTable.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/Type.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/TypesTable.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/AssignStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/NullStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/ReadStatement.hpp
@@ -232,6 +247,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/Statement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/WriteStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/Statement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: parser.cpp
 
@@ -261,6 +277,7 @@ CMakeFiles/cpsl.dir/scanner.cpp.o: ../Expressions/ToCharExpression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Expressions/ToIntExpression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/SymbolTable.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/AssignStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/NullStatement.hpp
@@ -269,6 +286,7 @@ CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/Statement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/WriteStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/Statement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: parser.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: scanner.cpp

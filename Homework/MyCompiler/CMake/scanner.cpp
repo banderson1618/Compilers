@@ -1,6 +1,6 @@
-#line 2 "/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 2 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
-#line 4 "/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 4 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -657,8 +657,8 @@ extern int yylex();
 
 int linenumber = 1;
 bool testing = false;
-#line 661 "/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
-#line 662 "/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 661 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 662 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
 #define INITIAL 0
 
@@ -881,7 +881,7 @@ YY_DECL
 
 
 
-#line 885 "/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 885 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1285,7 +1285,7 @@ YY_RULE_SETUP
 #line 155 "my_scanner.l"
 ECHO;
 	YY_BREAK
-#line 1289 "/home/braden/Documents/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
+#line 1289 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
