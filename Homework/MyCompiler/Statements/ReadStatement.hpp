@@ -3,13 +3,14 @@
 
 #include "Statement.hpp"
 #include "Expressions/LvalueExpression.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 #include "Misc_Classes/SymbolTable.hpp"
 #include <vector>
 
 class ReadStatement : public Statement {
 	public:
 		ReadStatement(std::vector<Lvalue*>*);
-		void emit();		
+		void emit(RegisterPool*);		
 	private:
 		std::vector<Lvalue*>* _args;
 };

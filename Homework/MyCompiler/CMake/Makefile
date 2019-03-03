@@ -825,6 +825,33 @@ Misc_Classes/RegisterPool.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.s
 .PHONY : Misc_Classes/RegisterPool.cpp.s
 
+Misc_Classes/StringTable.o: Misc_Classes/StringTable.cpp.o
+
+.PHONY : Misc_Classes/StringTable.o
+
+# target to build an object file
+Misc_Classes/StringTable.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o
+.PHONY : Misc_Classes/StringTable.cpp.o
+
+Misc_Classes/StringTable.i: Misc_Classes/StringTable.cpp.i
+
+.PHONY : Misc_Classes/StringTable.i
+
+# target to preprocess a source file
+Misc_Classes/StringTable.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.i
+.PHONY : Misc_Classes/StringTable.cpp.i
+
+Misc_Classes/StringTable.s: Misc_Classes/StringTable.cpp.s
+
+.PHONY : Misc_Classes/StringTable.s
+
+# target to generate assembly for a file
+Misc_Classes/StringTable.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.s
+.PHONY : Misc_Classes/StringTable.cpp.s
+
 Misc_Classes/SymbolTable.o: Misc_Classes/SymbolTable.cpp.o
 
 .PHONY : Misc_Classes/SymbolTable.o
@@ -1013,6 +1040,33 @@ Statements/Statement.s: Statements/Statement.cpp.s
 Statements/Statement.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/Statement.cpp.s
 .PHONY : Statements/Statement.cpp.s
+
+Statements/StopStatement.o: Statements/StopStatement.cpp.o
+
+.PHONY : Statements/StopStatement.o
+
+# target to build an object file
+Statements/StopStatement.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o
+.PHONY : Statements/StopStatement.cpp.o
+
+Statements/StopStatement.i: Statements/StopStatement.cpp.i
+
+.PHONY : Statements/StopStatement.i
+
+# target to preprocess a source file
+Statements/StopStatement.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.i
+.PHONY : Statements/StopStatement.cpp.i
+
+Statements/StopStatement.s: Statements/StopStatement.cpp.s
+
+.PHONY : Statements/StopStatement.s
+
+# target to generate assembly for a file
+Statements/StopStatement.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.s
+.PHONY : Statements/StopStatement.cpp.s
 
 Statements/WriteStatement.o: Statements/WriteStatement.cpp.o
 
@@ -1209,6 +1263,9 @@ help:
 	@echo "... Misc_Classes/RegisterPool.o"
 	@echo "... Misc_Classes/RegisterPool.i"
 	@echo "... Misc_Classes/RegisterPool.s"
+	@echo "... Misc_Classes/StringTable.o"
+	@echo "... Misc_Classes/StringTable.i"
+	@echo "... Misc_Classes/StringTable.s"
 	@echo "... Misc_Classes/SymbolTable.o"
 	@echo "... Misc_Classes/SymbolTable.i"
 	@echo "... Misc_Classes/SymbolTable.s"
@@ -1230,6 +1287,9 @@ help:
 	@echo "... Statements/Statement.o"
 	@echo "... Statements/Statement.i"
 	@echo "... Statements/Statement.s"
+	@echo "... Statements/StopStatement.o"
+	@echo "... Statements/StopStatement.i"
+	@echo "... Statements/StopStatement.s"
 	@echo "... Statements/WriteStatement.o"
 	@echo "... Statements/WriteStatement.i"
 	@echo "... Statements/WriteStatement.s"

@@ -78,6 +78,8 @@ set(cpsl_srcs
   Statements/WriteStatement.cpp
   Statements/NullStatement.hpp
   Statements/NullStatement.cpp
+  Statements/StopStatement.hpp
+  Statements/StopStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp
@@ -89,6 +91,8 @@ set(cpsl_srcs
   Misc_Classes/SymbolTable.cpp
   Misc_Classes/TypesTable.hpp
   Misc_Classes/TypesTable.cpp
+  Misc_Classes/StringTable.hpp
+  Misc_Classes/StringTable.cpp
 
 
   ${BISON_Parser_OUTPUTS}

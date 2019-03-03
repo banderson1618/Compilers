@@ -123,6 +123,7 @@ CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o: ../Expressions/RemainExp
 CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o: ../Expressions/RemainExpression.hpp
 
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: ../Misc_Classes/StringTable.hpp
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o: ../Expressions/StringExpression.cpp
@@ -154,6 +155,9 @@ CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: ../Misc_Classes/RegisterPool.hpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: ../Misc_Classes/RegisterPool.cpp
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: ../Misc_Classes/RegisterPool.hpp
+
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o: ../Misc_Classes/StringTable.cpp
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o: ../Misc_Classes/StringTable.hpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/SymbolTable.cpp
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/SymbolTable.hpp
@@ -196,6 +200,11 @@ CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: ../Misc_Classes/RegisterPool.hpp
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: ../Statements/Statement.cpp
 CMakeFiles/cpsl.dir/Statements/Statement.cpp.o: ../Statements/Statement.hpp
 
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o: ../Statements/Statement.hpp
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o: ../Statements/StopStatement.cpp
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o: ../Statements/StopStatement.hpp
+
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: ../Misc_Classes/RegisterPool.hpp
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: ../Misc_Classes/Type.hpp
@@ -206,6 +215,7 @@ CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o: ../Statements/WriteStatemen
 CMakeFiles/cpsl.dir/main.cpp.o: ../Statements/Statement.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/StringTable.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/SymbolTable.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/main.cpp.o: ../Misc_Classes/TypesTable.hpp
@@ -237,6 +247,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/ToCharExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/ToIntExpression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/Program.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/StringTable.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/SymbolTable.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/Type.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/TypesTable.hpp
@@ -244,6 +255,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/AssignStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/NullStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/ReadStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/Statement.hpp
+CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/StopStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Statements/WriteStatement.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/parser.cpp.o: ../Misc_Classes/RegisterPool.hpp
@@ -283,6 +295,7 @@ CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/AssignStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/NullStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/ReadStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/Statement.hpp
+CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/StopStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Statements/WriteStatement.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Expressions/Expression.hpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: ../Misc_Classes/RegisterPool.hpp

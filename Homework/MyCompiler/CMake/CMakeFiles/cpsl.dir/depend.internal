@@ -124,6 +124,7 @@ CMakeFiles/cpsl.dir/Expressions/RemainExpression.cpp.o
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/RemainExpression.hpp
 CMakeFiles/cpsl.dir/Expressions/StringExpression.cpp.o
  ..//Misc_Classes/RegisterPool.hpp
+ ..//Misc_Classes/StringTable.hpp
  ..//Misc_Classes/Type.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Expression.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp
@@ -155,6 +156,9 @@ CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.hpp
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o
+ /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.cpp
+ /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.hpp
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.hpp
@@ -196,6 +200,11 @@ CMakeFiles/cpsl.dir/Statements/Statement.cpp.o
  ..//Misc_Classes/RegisterPool.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.cpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.hpp
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o
+ ..//Misc_Classes/RegisterPool.hpp
+ /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.hpp
+ /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.cpp
+ /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.hpp
 CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o
  ..//Expressions/Expression.hpp
  ..//Misc_Classes/RegisterPool.hpp
@@ -207,6 +216,7 @@ CMakeFiles/cpsl.dir/main.cpp.o
  ..//Statements/Statement.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.hpp
+ /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Type.hpp
  /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/TypesTable.hpp
@@ -238,6 +248,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o
  ..//Expressions/ToIntExpression.hpp
  ..//Misc_Classes/Program.hpp
  ..//Misc_Classes/RegisterPool.hpp
+ ..//Misc_Classes/StringTable.hpp
  ..//Misc_Classes/SymbolTable.hpp
  ..//Misc_Classes/Type.hpp
  ..//Misc_Classes/TypesTable.hpp
@@ -245,6 +256,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o
  ..//Statements/NullStatement.hpp
  ..//Statements/ReadStatement.hpp
  ..//Statements/Statement.hpp
+ ..//Statements/StopStatement.hpp
  ..//Statements/WriteStatement.hpp
  ../Expressions/Expression.hpp
  ../Misc_Classes/RegisterPool.hpp
@@ -284,6 +296,7 @@ CMakeFiles/cpsl.dir/scanner.cpp.o
  ..//Statements/NullStatement.hpp
  ..//Statements/ReadStatement.hpp
  ..//Statements/Statement.hpp
+ ..//Statements/StopStatement.hpp
  ..//Statements/WriteStatement.hpp
  ../Expressions/Expression.hpp
  ../Misc_Classes/RegisterPool.hpp

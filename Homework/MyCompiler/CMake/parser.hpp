@@ -113,10 +113,9 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 142 "my_parser.y" /* yacc.c:1909  */
+#line 147 "my_parser.y" /* yacc.c:1909  */
 
 	int val;
-	char charVal;
 	char* stringVal;
 	char* id;
 	Expression* expr;
@@ -128,7 +127,7 @@ union YYSTYPE
 	Lvalue* lval;
 	Type* type;
 
-#line 132 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.hpp" /* yacc.c:1909  */
+#line 131 "/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

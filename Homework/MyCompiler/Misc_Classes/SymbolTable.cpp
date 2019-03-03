@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iostream>
 
 SymbolTable::SymbolTable(){
 	std::map<std::string, Lvalue> first_table;
@@ -26,6 +27,7 @@ Lvalue SymbolTable::get_value(std::string id){
 			return ret_val->second;
 		}
 	}
+	std::cout << "Got here?" << std::endl;
 	throw "Could not find variable " + id;
 }
 

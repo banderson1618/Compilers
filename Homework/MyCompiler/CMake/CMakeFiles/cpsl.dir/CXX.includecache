@@ -218,6 +218,14 @@ vector
 string
 -
 
+..//Misc_Classes/StringTable.hpp
+vector
+-
+map
+-
+string
+-
+
 ..//Misc_Classes/SymbolTable.hpp
 Type.hpp
 ../Misc_Classes/Type.hpp
@@ -269,6 +277,12 @@ vector
 -
 
 ..//Statements/Statement.hpp
+Misc_Classes/RegisterPool.hpp
+../Statements/Misc_Classes/RegisterPool.hpp
+
+..//Statements/StopStatement.hpp
+Statement.hpp
+../Statements/Statement.hpp
 Misc_Classes/RegisterPool.hpp
 ../Statements/Misc_Classes/RegisterPool.hpp
 
@@ -361,6 +375,8 @@ Statements/WriteStatement.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Statements/WriteStatement.hpp
 Statements/NullStatement.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Statements/NullStatement.hpp
+Statements/StopStatement.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Statements/StopStatement.hpp
 Misc_Classes/Program.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Misc_Classes/Program.hpp
 Misc_Classes/RegisterPool.hpp
@@ -369,6 +385,8 @@ Misc_Classes/SymbolTable.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Misc_Classes/SymbolTable.hpp
 Misc_Classes/TypesTable.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Misc_Classes/TypesTable.hpp
+Misc_Classes/StringTable.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Misc_Classes/StringTable.hpp
 ctype.h
 -
 iostream
@@ -465,6 +483,8 @@ Statements/WriteStatement.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Statements/WriteStatement.hpp
 Statements/NullStatement.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Statements/NullStatement.hpp
+Statements/StopStatement.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Statements/StopStatement.hpp
 Misc_Classes/Program.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/Misc_Classes/Program.hpp
 Misc_Classes/RegisterPool.hpp
@@ -501,6 +521,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AndExpression.cpp
 AndExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/AndExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -533,6 +555,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/CharExpression.cpp
 CharExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/CharExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -565,6 +589,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/EqExpression.cpp
 EqExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/EqExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -615,6 +641,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GeqExpression.cpp
 GeqExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GeqExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -631,6 +659,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.cpp
 GreaterExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/GreaterExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -667,6 +697,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LeqExpression.cpp
 LeqExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LeqExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -683,6 +715,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LessExpression.cpp
 LessExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/LessExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -735,6 +769,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NegExpression.cpp
 NegExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NegExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -751,6 +787,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NeqExpression.cpp
 NeqExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/NeqExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -767,6 +805,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/OrExpression.cpp
 OrExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/OrExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -815,6 +855,10 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/StringExpression.cpp
 StringExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/StringExpression.hpp
+Misc_Classes/StringTable.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/StringTable.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -847,6 +891,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.cpp
 ToCharExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToCharExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -863,6 +909,8 @@ string
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.cpp
 ToIntExpression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/ToIntExpression.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Expressions/Misc_Classes/Type.hpp
 string
 -
 iostream
@@ -902,6 +950,26 @@ iostream
 
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.hpp
 vector
+-
+string
+-
+
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.cpp
+StringTable.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.hpp
+string
+-
+map
+-
+vector
+-
+iostream
+-
+
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.hpp
+vector
+-
+map
 -
 string
 -
@@ -1005,6 +1073,8 @@ Misc_Classes/SymbolTable.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/SymbolTable.hpp
 Misc_Classes/RegisterPool.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/RegisterPool.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/Type.hpp
 vector
 -
 iostream
@@ -1032,6 +1102,22 @@ iostream
 Misc_Classes/RegisterPool.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/RegisterPool.hpp
 
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.cpp
+StopStatement.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.hpp
+Misc_Classes/RegisterPool.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/RegisterPool.hpp
+iostream
+-
+string
+-
+
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.hpp
+Statement.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Statement.hpp
+Misc_Classes/RegisterPool.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/RegisterPool.hpp
+
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/WriteStatement.cpp
 WriteStatement.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/WriteStatement.hpp
@@ -1039,6 +1125,10 @@ Expressions/Expression.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Expressions/Expression.hpp
 Misc_Classes/RegisterPool.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/RegisterPool.hpp
+Misc_Classes/Type.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/Misc_Classes/Type.hpp
+string
+-
 vector
 -
 iostream
@@ -1069,6 +1159,8 @@ Misc_Classes/SymbolTable.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.hpp
 Misc_Classes/TypesTable.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/TypesTable.hpp
+Misc_Classes/StringTable.hpp
+/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.hpp
 Misc_Classes/Type.hpp
 /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Type.hpp
 

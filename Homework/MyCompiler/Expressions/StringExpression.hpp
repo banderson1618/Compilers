@@ -12,6 +12,7 @@ class StringExpression : public Expression{
 
 	private:
 		char* _val;
+		std::string str_val;
 };
 
 #endif

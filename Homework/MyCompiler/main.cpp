@@ -5,6 +5,7 @@
 #include "Misc_Classes/RegisterPool.hpp"
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/TypesTable.hpp"
+#include "Misc_Classes/StringTable.hpp"
 #include "Misc_Classes/Type.hpp"
 
 extern int yyparse();
@@ -12,6 +13,11 @@ extern FILE *yyin;
 
 extern SymbolTable symbol_table;
 extern TypesTable types_table;
+extern StringTable string_table;
+
+extern int label_num;
+
+extern PrimitiveType* string_type;
 extern PrimitiveType* int_type;
 extern PrimitiveType* char_type;
 extern PrimitiveType* bool_type;
@@ -26,25 +32,24 @@ void set_predefined_types(TypesTable &types_table){
 void set_predefined_values(SymbolTable &symbol_table){
 	symbol_table.add_value("true", bool_type);
 	std::cout << "li $t0, 1\t# Saving True as 1" << std::endl;
-	std::cout << "sw $t0, 0($gp)" << std::endl;
+	std::cout << "sw $t0, 0($sp)" << std::endl;
 	symbol_table.add_value("false", bool_type);
 	std::cout << "li $t0, 0\t# Saving False as 0" << std::endl;
-	std::cout << "sw $t0, 4($gp)" << std::endl;
-}
-
-void cout_to_file(std::string output_name){
-	std::ofstream out(output_name);
-	auto *coutbuf = std::cout.rdbuf();
-	std::cout.rdbuf(out.rdbuf());
+	std::cout << "sw $t0, 4($sp)" << std::endl;
+	std::cout << "\n\n";
 }
 
 
 main(int argc, char** argv){
 	symbol_table = SymbolTable();
 	types_table = TypesTable();
+	string_table = StringTable();
 	int_type = new PrimitiveType();
 	char_type = new PrimitiveType();
 	bool_type = new PrimitiveType();
+	string_type = new PrimitiveType();
+
+	label_num = 0;
 		
 	if (argc < 2){
 		std::cout << "Missing file argument" << std::endl;
@@ -69,15 +74,22 @@ main(int argc, char** argv){
 
 	yyin = myfile;
 
-	//cout_to_file(output_name);
+	std::ofstream out(output_name);
+	auto *coutbuf = std::cout.rdbuf();
+	std::cout.rdbuf(out.rdbuf());
 
 	// doing this here so it gets in the file
 	set_predefined_types(types_table);
 	set_predefined_values(symbol_table);
+	try{
+		yyparse();
+	}
+	catch(const char* e){
+		std::cerr << "ERROR FOUND: " << e << std::endl;
+		return -1;
+	}
 
-	yyparse();
-
-	//std::cout.rdbuf(coutbuf);
+	std::cout.rdbuf(coutbuf);
 }
 
 

@@ -4,7 +4,7 @@
 class Type{
 	public:
 		Type();
-		virtual int size();
+		virtual int size() = 0;
 };
 
 

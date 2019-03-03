@@ -788,9 +788,33 @@ CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o.provides: CMakeFiles/cpsl.dir
 CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o.provides.build: CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o
 
 
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o: CMakeFiles/cpsl.dir/flags.make
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o: ../Statements/StopStatement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.cpp
+
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.cpp > CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.i
+
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Statements/StopStatement.cpp -o CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.s
+
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.requires:
+
+.PHONY : CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.requires
+
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.provides: CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.provides.build
+.PHONY : CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.provides
+
+CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.provides.build: CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o
+
+
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o: ../Misc_Classes/Program.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Program.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.i: cmake_force
@@ -814,7 +838,7 @@ CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o.provides.build: CMakeFiles/cpsl.d
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o: ../Misc_Classes/RegisterPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/RegisterPool.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.i: cmake_force
@@ -838,7 +862,7 @@ CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o: ../Misc_Classes/Type.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/Type.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.i: cmake_force
@@ -862,7 +886,7 @@ CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.provides.build: CMakeFiles/cpsl.dir/
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o: ../Misc_Classes/SymbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/SymbolTable.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.i: cmake_force
@@ -886,7 +910,7 @@ CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o.provides.build: CMakeFiles/cp
 
 CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o: ../Misc_Classes/TypesTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/TypesTable.cpp
 
 CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.i: cmake_force
@@ -908,9 +932,33 @@ CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o.provides: CMakeFiles/cpsl.dir/
 CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o.provides.build: CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o
 
 
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o: CMakeFiles/cpsl.dir/flags.make
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o: ../Misc_Classes/StringTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.cpp
+
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.cpp > CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.i
+
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/Misc_Classes/StringTable.cpp -o CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.s
+
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.requires:
+
+.PHONY : CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.requires
+
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.provides: CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.provides.build
+.PHONY : CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.provides
+
+CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.provides.build: CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o
+
+
 CMakeFiles/cpsl.dir/parser.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/parser.cpp.o: parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/cpsl.dir/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/cpsl.dir/parser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/parser.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/parser.cpp
 
 CMakeFiles/cpsl.dir/parser.cpp.i: cmake_force
@@ -935,7 +983,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o.provides.build: CMakeFiles/cpsl.dir/parser.cpp.
 CMakeFiles/cpsl.dir/scanner.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/scanner.cpp.o: scanner.cpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: parser.hpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/cpsl.dir/scanner.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/cpsl.dir/scanner.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/scanner.cpp.o -c /home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/scanner.cpp
 
 CMakeFiles/cpsl.dir/scanner.cpp.i: cmake_force
@@ -989,11 +1037,13 @@ cpsl_OBJECTS = \
 "CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o" \
 "CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o" \
 "CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o" \
+"CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o" \
 "CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o" \
+"CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o" \
 "CMakeFiles/cpsl.dir/parser.cpp.o" \
 "CMakeFiles/cpsl.dir/scanner.cpp.o"
 
@@ -1030,17 +1080,19 @@ cpsl: CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o
+cpsl: CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o
+cpsl: CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o
 cpsl: CMakeFiles/cpsl.dir/parser.cpp.o
 cpsl: CMakeFiles/cpsl.dir/scanner.cpp.o
 cpsl: CMakeFiles/cpsl.dir/build.make
 cpsl: /usr/lib/x86_64-linux-gnu/libfl.so
 cpsl: CMakeFiles/cpsl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX executable cpsl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/braden/Documents/Homework/Compilers/Homework/MyCompiler/CMake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Linking CXX executable cpsl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cpsl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1078,11 +1130,13 @@ CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/AssignStatement.cpp
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/ReadStatement.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/WriteStatement.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/NullStatement.cpp.o.requires
+CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Statements/StopStatement.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/Program.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/RegisterPool.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/Type.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/SymbolTable.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/TypesTable.cpp.o.requires
+CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Misc_Classes/StringTable.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/parser.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/scanner.cpp.o.requires
 

@@ -34,11 +34,13 @@
 #include "Statements/ReadStatement.hpp"
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
+#include "Statements/StopStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/TypesTable.hpp"
+#include "Misc_Classes/StringTable.hpp"
 
 #include <ctype.h>
 #include <iostream>
@@ -51,6 +53,7 @@ extern int yyparse();
 extern FILE *yyin;
 extern SymbolTable symbol_table;
 extern TypesTable types_table;
+extern StringTable string_table;
 
 void yyerror(const char *s);
 extern int linenumber;
@@ -130,6 +133,7 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 %token STRING_TOKEN
 %token END_OF_FILE 0
 
+
 %right OR_TOKEN
 %right AND_TOKEN
 %left TILDE_TOKEN
@@ -138,10 +142,10 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 %left MULT_TOKEN DIV_TOKEN REMAIN_TOKEN
 %right SUB_TOKEN
 
+
 %union
 {
 	int val;
-	char charVal;
 	char* stringVal;
 	char* id;
 	Expression* expr;
@@ -159,10 +163,9 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 %type <expr> expr
 %type <exprList> args_list
 %type <val> NUM_TOKEN
-%type <charVal> CHAR_TOKEN
-%type <stringVal> STRING_TOKEN
+%type <stringVal> STRING_TOKEN CHAR_TOKEN
 %type <lval> lvalue
-%type <statement> statement assign read_statement write_statement null_statement
+%type <statement> statement assign read_statement write_statement null_statement stop_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block
 %type <string_list> ident_list
@@ -175,16 +178,17 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 							{	auto my_tree = new Program($5); 
-								my_tree->emit(register_pool);}	
-		| statement END_OF_FILE			{ $1->emit(register_pool); }
+								my_tree->emit(register_pool);
+								string_table.write_strings();}	
+		| expr END_OF_FILE			{ 	$1->emit(register_pool); }
 		;
 
 
-lvalue 		: ID_TOKEN 				{ std::string str($1);
+lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								Lvalue base = symbol_table.get_value(str);
-								Lvalue* ret_val;
+								Lvalue* ret_val = new Lvalue;
 								ret_val->offset = base.offset;
-								ret_val->type = base.type;							
+								ret_val->type = base.type;						
 								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
@@ -243,7 +247,14 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 		| NUM_TOKEN				{ if (testingParser) { std::cout << "Found IntExpression" << std::endl; }
 								$$ = new IntExpression($1);}
 		| CHAR_TOKEN				{ if (testingParser) { std::cout << "Found CharExpression" << std::endl; }
-								$$ = new CharExpression($1);}
+								char new_char;
+								if($1[1] == '\\' && $1[2] == 'n'){
+									new_char = '\n';
+								}
+								else{
+									new_char = $1[1];
+								}
+								$$ = new CharExpression(new_char);}
 		| STRING_TOKEN				{ if (testingParser) { std::cout << "Found StringExpression" << std::endl; }
 								$$ = new StringExpression($1);}
 		;
@@ -277,7 +288,7 @@ read_statement	: READ_TOKEN LPAREN_TOKEN args_list_lval RPAREN_TOKEN { if (testi
 return_statement: RETURN_TOKEN  			{ }
 		| RETURN_TOKEN expr  			{ }
 		;
-stop_statement	: STOP_TOKEN				{ }
+stop_statement	: STOP_TOKEN				{ $$ = new StopStatement();}
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
 							{  }
 		| FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr DOWNTO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
@@ -307,7 +318,7 @@ statement	: assign				{ $$ = $1; }
 		| while_statement			{  }
 		| repeat_statement			{  }
 		| for_statement				{  }
-		| stop_statement			{  }
+		| stop_statement			{ $$ = $1; }
 		| return_statement			{  }
 		| read_statement			{ $$ = $1; }
 		| write_statement			{ $$ = $1; }
