@@ -89,6 +89,13 @@ void add_const_to_table(char* id, Expression* val){
 	}
 }
 
+void add_type_to_table(char* id, Type* new_type){
+	std::string str_id(id);
+	if (new_type == int_type || new_type == string_type || new_type == char_type || new_type == bool_type){
+		types_table.add_value(id, new_type);
+	}
+}
+
 %}
 
 %token END
@@ -366,13 +373,13 @@ eq_list		: eq_item 				{  }
 		;
 
 // Type Declarations
-type_decl	: TYPE_TOKEN type_item type_list	{  }
+type_decl	: TYPE_TOKEN type_list			{  }
 		| /* empty */				{  }
 		;
-type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{  }
+type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{ add_type_to_table($1, $3); }
 		;
-type_list	: type_item type_list			{  }
-		| /* empty */				{  }
+type_list	: type_list type_item			{  }
+		| type_item				{  }
 		;
 type		: simple_type				{ $$ = $1; }
 		| record_type				{  }

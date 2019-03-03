@@ -19,14 +19,6 @@ AssignStatement::AssignStatement(Lvalue* id, Expression* val){
 
 void AssignStatement::emit(RegisterPool* register_pool){
 	std::string reg_to_save = _val->emit(register_pool);
-
-	if (_val->type != int_type){
-		std::cout << "Expression is not integer" << std::endl;
-	}
-
-	if (_id->type != int_type){
-		std::cout << "Lvalue is not integer" << std::endl;
-	}
 	if (_val->type != _id->type){
 		throw "Type Error in assign statement";
 	}
