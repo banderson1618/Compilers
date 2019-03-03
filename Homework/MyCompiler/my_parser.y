@@ -55,6 +55,11 @@ extern SymbolTable symbol_table;
 extern TypesTable types_table;
 extern StringTable string_table;
 
+extern PrimitiveType* int_type;
+extern PrimitiveType* char_type;
+extern PrimitiveType* bool_type;
+extern PrimitiveType* string_type;
+
 void yyerror(const char *s);
 extern int linenumber;
 
@@ -67,6 +72,20 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 	for(int i = 0; i < ids->size(); i++){
 		std::string str((*ids)[i]);
 		symbol_table.add_value(str, type);
+	}
+}
+
+void add_const_to_table(char* id, Expression* val){
+	std::string expr_reg = val->emit(register_pool); // string label if it's a string, register with value otherwise
+	std::string str_id(id);
+
+	if (val->type == string_type){
+		symbol_table.add_value(str_id, string_type, expr_reg);
+	}
+	else{
+		symbol_table.add_value(str_id, val->type);
+		Lvalue lval = symbol_table.get_value(str_id);
+		std::cout << "\tsw\t" << expr_reg << ", " << lval.offset << ",($sp)\t\t#Saving constant" << std::endl;
 	}
 }
 
@@ -188,7 +207,8 @@ lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								Lvalue base = symbol_table.get_value(str);
 								Lvalue* ret_val = new Lvalue;
 								ret_val->offset = base.offset;
-								ret_val->type = base.type;						
+								ret_val->type = base.type;
+								ret_val->string_label = base.string_label;						
 								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
@@ -336,13 +356,13 @@ statement_seq	: statement				{  	auto new_vec = new std::vector<Statement*>;
 
 
 // Constant declaration
-const_decl	: CONST_TOKEN eq_item eq_list		{  }
+const_decl	: CONST_TOKEN eq_list			{  }
 		| /* empty */				{  }
 		;
-eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{  }
+eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{ add_const_to_table($1, $3); }
 		;
-eq_list		: eq_item eq_list			{  }
-		| /* empty */				{  }
+eq_list		: eq_item 				{  }
+		| eq_list eq_item			{  }
 		;
 
 // Type Declarations

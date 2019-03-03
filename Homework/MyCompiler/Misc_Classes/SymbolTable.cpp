@@ -19,6 +19,13 @@ void SymbolTable::add_value(std::string id, Type* type){
 	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
 }
 
+void SymbolTable::add_value(std::string id, Type* type, std::string str_label){
+	Lvalue new_lval;
+	new_lval.type = type;
+	new_lval.string_label = str_label;
+	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
+}
+
 
 Lvalue SymbolTable::get_value(std::string id){
 	for(int i = tables.size() - 1; i >= 0; i--){

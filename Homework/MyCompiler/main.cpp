@@ -26,6 +26,7 @@ void set_predefined_types(TypesTable &types_table){
 	types_table.add_value("integer", int_type);
 	types_table.add_value("char", char_type);
 	types_table.add_value("bool", bool_type);
+	types_table.add_value("string", string_type);
 	types_table.enter_scope();
 }
 
@@ -88,7 +89,6 @@ main(int argc, char** argv){
 		std::cerr << "ERROR FOUND: " << e << std::endl;
 		return -1;
 	}
-
 	std::cout.rdbuf(coutbuf);
 }
 
