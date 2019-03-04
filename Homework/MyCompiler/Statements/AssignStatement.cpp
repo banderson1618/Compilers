@@ -7,18 +7,21 @@
 #include <string>
 #include "Misc_Classes/Type.hpp"
 
+extern PrimitiveType* int_type;
+
 extern SymbolTable symbol_table;
 extern PrimitiveType* int_type;
 
-AssignStatement::AssignStatement(LvalueExpression* id, Expression* val){
+AssignStatement::AssignStatement(Lvalue* id, Expression* val){
 	_id = id;
 	_val = val;
 }
 
 void AssignStatement::emit(RegisterPool* register_pool){
-	std::cout << "Int size: " << int_type->size() << std::endl;
-	symbol_table.add_value("my_id");
-	Lvalue my_lval = symbol_table.get_value("my_id");
-	std::cout << my_lval.offset << std::endl;	
-	std::cout << "I am an assign statement" << std::endl;
+	std::string reg_to_save = _val->emit(register_pool);
+	if (_val->type != _id->type){
+		throw "Type Error in assign statement";
+	}
+	std::cout << "\tsw\t" << reg_to_save << ", " << _id->offset << "($sp)\t#Assign Statement" << std::endl;
+	register_pool->return_register(reg_to_save);
 }

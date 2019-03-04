@@ -1,12 +1,13 @@
-#ifndef NULL_STATEMENT_H
-#define NULL_STATEMENT_H
+#ifndef STOP_STATEMENT_H
+#define STOP_STATEMENT_H
 
 #include "Statement.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
 
-class NullStatement : public Statement {
+
+class StopStatement : public Statement {
 	public:
-		NullStatement();
+		StopStatement();
 		void emit(RegisterPool*);
 };
 

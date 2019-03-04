@@ -1,13 +1,15 @@
 #include "ToIntExpression.hpp"
+#include "Misc_Classes/Type.hpp"
 #include <string>
 #include <iostream>
+extern PrimitiveType* int_type;
 
 ToIntExpression::ToIntExpression(Expression *prime_expr){
 	_prime_expr = prime_expr;
 }
 
 std::string ToIntExpression::emit(RegisterPool* register_pool){
-	std::string ret_reg = register_pool->get_register();
-	
-	return ret_reg;
+	type = int_type;
+	std::string prime_result = _prime_expr->emit(register_pool);	
+	return prime_result;
 }

@@ -34,6 +34,7 @@
 #include "Statements/ReadStatement.hpp"
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
+#include "Statements/StopStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -137,9 +138,11 @@ write|WRITE {if(testing){std::cout << "Got To write" << std::endl;}return WRITE_
 
 
 \'([^\\\"]|\\.)\'  {if(testing){std::cout << "Got To Char " << yytext <<std::endl;}
-			yylval.charVal = yytext[0];
+			yylval.stringVal = yytext;
 			return CHAR_TOKEN;}
-\"([^\\\"]|\\.)*\" {if(testing){std::cout << "Got To String " << yytext <<std::endl;}return STRING_TOKEN;}
+\"([^\\\"]|\\.)*\" {if(testing){std::cout << "Got To String " << yytext <<std::endl;}
+			yylval.stringVal = yytext;
+			return STRING_TOKEN;}
 
 [$].+\n {linenumber++;if(testing){std::cout<< "Got a Comment" << yytext << std::endl;}}
 

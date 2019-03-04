@@ -7,7 +7,8 @@ ParenExpression::ParenExpression(Expression *prime_expr){
 }
 
 std::string ParenExpression::emit(RegisterPool* register_pool){
-	std::string ret_reg = register_pool->get_register();
+	std::string prime_result = _prime_expr->emit(register_pool);
+	type = _prime_expr->type;
 	
-	return ret_reg;
+	return prime_result;
 }

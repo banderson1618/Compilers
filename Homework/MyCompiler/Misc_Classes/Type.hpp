@@ -3,14 +3,15 @@
 
 class Type{
 	public:
-		virtual int size();
+		Type();
+		virtual int size() = 0;
 };
 
 
 class PrimitiveType : public Type{
 	public:
 		PrimitiveType();
-		int size() override {return 4;}
+		int size();
 };
 
 

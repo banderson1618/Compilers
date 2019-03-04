@@ -9,10 +9,10 @@ RegisterPool::RegisterPool(){
 
 void RegisterPool::init_registers(){
 	for (int i = 0; i < 8; i++){
-		registers.push_back("s" + std::to_string(7 - i));
+		registers.push_back("$s" + std::to_string(7 - i));
 	}
 	for (int i = 0; i < 8; i++){
-		registers.push_back("t" + std::to_string(7 - i));
+		registers.push_back("$t" + std::to_string(7 - i));
 	}
 }
 

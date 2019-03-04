@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iostream>
 
 SymbolTable::SymbolTable(){
 	std::map<std::string, Lvalue> first_table;
@@ -10,10 +11,18 @@ SymbolTable::SymbolTable(){
 	next_offset = 0;
 }
 
-void SymbolTable::add_value(std::string id){
+void SymbolTable::add_value(std::string id, Type* type){
 	Lvalue new_lval;
 	new_lval.offset = next_offset;
-	next_offset += 4; // later, we'll have to change this based on type
+	new_lval.type = type;
+	next_offset += type->size(); 
+	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
+}
+
+void SymbolTable::add_value(std::string id, Type* type, std::string str_label){
+	Lvalue new_lval;
+	new_lval.type = type;
+	new_lval.string_label = str_label;
 	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
 }
 
@@ -25,7 +34,17 @@ Lvalue SymbolTable::get_value(std::string id){
 			return ret_val->second;
 		}
 	}
+	std::cout << "Got here?" << std::endl;
 	throw "Could not find variable " + id;
+}
+
+void SymbolTable::enter_scope(){
+	std::map<std::string, Lvalue> next_table;
+	tables.push_back(next_table);
+}
+
+void SymbolTable::exit_scope(){
+	tables.pop_back();
 }
 
 SymbolTable symbol_table;
