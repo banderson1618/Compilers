@@ -6,7 +6,7 @@
 class Statement{
 	public:
 		Statement();
-		virtual void emit(RegisterPool*);
+		virtual void emit();
 };
 
 

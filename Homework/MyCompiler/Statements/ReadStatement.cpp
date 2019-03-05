@@ -14,7 +14,7 @@ ReadStatement::ReadStatement(std::vector<Lvalue*>* args){
 	_args = args;
 }
 
-void ReadStatement::emit(RegisterPool* register_pool){
+void ReadStatement::emit(){
 	for (int i = 0; i < _args->size(); i++){
 		Lvalue* lval = (*_args)[i];
 		if (lval->type == char_type){

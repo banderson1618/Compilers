@@ -8,7 +8,7 @@
 class ToCharExpression : public Expression{
 	public:
 		ToCharExpression(Expression*);
-		std::string emit(RegisterPool*);
+		ExpressionResult emit();
 
 	private:
 		Expression* _prime_expr;

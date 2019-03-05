@@ -5,6 +5,6 @@
 NullStatement::NullStatement(){
 }
 
-void NullStatement::emit(RegisterPool* register_pool){
+void NullStatement::emit(){
 	//std::cout << "I am an null statement" << std::endl;
 }

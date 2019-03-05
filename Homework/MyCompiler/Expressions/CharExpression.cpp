@@ -9,10 +9,12 @@ CharExpression::CharExpression(char val){
 	_val = val;
 }
 
-std::string CharExpression::emit(RegisterPool* register_pool){
-	std::string ret_reg = register_pool->get_register();
-	int int_val = int(_val);
+ExpressionResult CharExpression::emit(){
 	type = char_type;
-	std::cout << "\tli\t" << ret_reg << ", " << int_val << "\t#Char expression" << std::endl;
-	return ret_reg;
+
+	ExpressionResult ret_result;
+	ret_result.result_type = const_char;
+	int int_val = int(_val);
+	ret_result.const_val = int_val;
+	return ret_result;
 }

@@ -5,7 +5,7 @@ Statement::Statement(){
 
 }
 
-void Statement::emit(RegisterPool* register_pool){
+void Statement::emit(){
 	std::cout << "This shouldn't print" << std::endl;
 	return;
 }

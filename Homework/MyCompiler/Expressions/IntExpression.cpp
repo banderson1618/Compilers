@@ -1,23 +1,22 @@
 #include "IntExpression.hpp"
 #include "Misc_Classes/Type.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 #include <string>
 #include <iostream>
 
 extern PrimitiveType* int_type;
+extern RegisterPool register_pool;
 
 IntExpression::IntExpression(int val){
 	_val = val;
 }
 
-
-int IntExpression::getVal(){
-	return _val;
-}
-
-std::string IntExpression::emit(RegisterPool* register_pool){
+ExpressionResult IntExpression::emit(){
 	type = int_type;
-	std::string ret_reg = register_pool->get_register();
-	std::cout << "\tli\t" << ret_reg << ", " << _val << "\t\t#Int expression" << std::endl;
 	
-	return ret_reg;
+	ExpressionResult ret_result;
+	ret_result.result_type = const_int;
+	ret_result.const_val = _val;
+
+	return ret_result;
 }

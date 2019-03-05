@@ -10,7 +10,7 @@
 class AssignStatement : public Statement {
 	public:
 		AssignStatement(Lvalue*, Expression*);
-		void emit(RegisterPool*);
+		void emit();
 	private:
 		Lvalue* _id;
 		Expression* _val;

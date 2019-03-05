@@ -1,11 +1,13 @@
 #include "LvalueExpression.hpp"
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/Type.hpp"
+#include "Misc_Classes/RegisterPool.hpp"
 #include <string>
 #include <iostream>
 
 extern SymbolTable symbol_table;
 extern PrimitiveType* string_type;
+extern RegisterPool register_pool;
 
 LvalueExpression::LvalueExpression(Lvalue* lval){
 	_lval = lval;
@@ -13,15 +15,17 @@ LvalueExpression::LvalueExpression(Lvalue* lval){
 
 
 
-std::string LvalueExpression::emit(RegisterPool* register_pool){
+ExpressionResult LvalueExpression::emit(){	
+	ExpressionResult ret_result;
 	type = _lval->type;
 	if (_lval->type == string_type){
-		return _lval->string_label;
+		ret_result.result_type = reg;
+		ret_result._register = _lval->string_label;
+		return ret_result;
 	}
 	else{
-		std::string ret_reg = register_pool->get_register();
-		std::cout << "\tlw\t" << ret_reg << ", " << _lval->offset << "($sp)\t#lvalue being retrieved" << std::endl;
-		type = _lval->type;
-		return ret_reg;
+		ret_result.result_type = lval;
+		ret_result.lval = _lval;
+		return ret_result;
 	}
 }

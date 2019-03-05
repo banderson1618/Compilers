@@ -32,3 +32,5 @@ void RegisterPool::return_register(std::string returned_register){
 int RegisterPool::num_registers(){
 	return registers.size();
 }
+
+RegisterPool register_pool;

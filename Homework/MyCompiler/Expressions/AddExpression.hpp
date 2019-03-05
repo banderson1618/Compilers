@@ -8,7 +8,7 @@
 class AddExpression : public Expression{
 	public:
 		AddExpression(Expression*, Expression*);
-		std::string emit(RegisterPool*);
+		ExpressionResult emit();
 
 	private:
 		Expression* _left_expr;

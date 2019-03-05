@@ -8,7 +8,7 @@
 class AndExpression : public Expression{
 	public:
 		AndExpression(Expression*, Expression*);
-		std::string emit(RegisterPool*);
+		ExpressionResult emit();
 
 	private:
 		Expression* _left_expr;

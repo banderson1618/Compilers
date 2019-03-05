@@ -19,8 +19,9 @@ char* Expression::getID(){
 	return foo;
 }
 
-std::string Expression::emit(RegisterPool* register_pool){
+ExpressionResult Expression::emit(){
 	std::cout << "Unimplemented emit function" << std::endl;
-	return "Unimplemented emit function";
+	ExpressionResult empty;
+	return empty;
 }
 

@@ -10,7 +10,7 @@
 class ReadStatement : public Statement {
 	public:
 		ReadStatement(std::vector<Lvalue*>*);
-		void emit(RegisterPool*);		
+		void emit();		
 	private:
 		std::vector<Lvalue*>* _args;
 };
