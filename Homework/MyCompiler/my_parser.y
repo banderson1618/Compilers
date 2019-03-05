@@ -41,6 +41,7 @@
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/TypesTable.hpp"
 #include "Misc_Classes/StringTable.hpp"
+#include "Misc_Classes/UsefulFunctions.hpp"
 
 #include <ctype.h>
 #include <iostream>
@@ -54,6 +55,7 @@ extern FILE *yyin;
 extern SymbolTable symbol_table;
 extern TypesTable types_table;
 extern StringTable string_table;
+extern RegisterPool register_pool;
 
 extern PrimitiveType* int_type;
 extern PrimitiveType* char_type;
@@ -65,9 +67,6 @@ extern int linenumber;
 
 bool testingParser = false;
 
-RegisterPool* register_pool = new RegisterPool();
-
-
 void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 	for(int i = 0; i < ids->size(); i++){
 		std::string str((*ids)[i]);
@@ -75,10 +74,10 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 	}
 }
 
-void add_const_to_table(char* id, Expression* val){
-	std::string expr_reg = val->emit(register_pool); // string label if it's a string, register with value otherwise
-	std::string str_id(id);
 
+void add_const_to_table(char* id, Expression* val){
+	std::string expr_reg = get_reg_from_result(val->emit()); // string label if it's a string, register with value otherwise
+	std::string str_id(id);
 	if (val->type == string_type){
 		symbol_table.add_value(str_id, string_type, expr_reg);
 	}
@@ -88,6 +87,7 @@ void add_const_to_table(char* id, Expression* val){
 		std::cout << "\tsw\t" << expr_reg << ", " << lval.offset << ",($sp)\t\t#Saving constant" << std::endl;
 	}
 }
+
 
 void add_type_to_table(char* id, Type* new_type){
 	std::string str_id(id);
@@ -204,9 +204,9 @@ void add_type_to_table(char* id, Type* new_type){
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 							{	auto my_tree = new Program($5); 
-								my_tree->emit(register_pool);
+								my_tree->emit();
 								string_table.write_strings();}	
-		| expr END_OF_FILE			{ 	$1->emit(register_pool); }
+		| expr END_OF_FILE			{ 	$1->emit(); }
 		;
 
 
@@ -215,7 +215,7 @@ lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								Lvalue* ret_val = new Lvalue;
 								ret_val->offset = base.offset;
 								ret_val->type = base.type;
-								ret_val->string_label = base.string_label;						
+								ret_val->string_label = base.string_label; base.type;							
 								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
@@ -371,7 +371,6 @@ eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{ add_const_to_table($1, $3); }
 eq_list		: eq_item 				{  }
 		| eq_list eq_item			{  }
 		;
-
 // Type Declarations
 type_decl	: TYPE_TOKEN type_list			{  }
 		| /* empty */				{  }
@@ -400,7 +399,6 @@ array_type	: ARRAY_TOKEN array_args OF_TOKEN type	{  }
 		;
 array_args	: LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN	{  }
 		;	
-
 ident_list	: ID_TOKEN				{ 
 								auto new_vec = new std::vector<char*> ;
 								new_vec->push_back($1);
@@ -408,8 +406,6 @@ ident_list	: ID_TOKEN				{
 		| ident_list COMMA_TOKEN ID_TOKEN	{ $1->push_back($3);
 								$$ = $1; }
 		;
-
-
 // Variable Declaration
 var_decl	: VAR_TOKEN var_list			{  }
 		| /* empty */				{  }
@@ -420,6 +416,7 @@ var_list	: var_list var_item 			{  }
 var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	{ add_vars_to_symbol_table($1, $3); }
 		| /* empty */
 		;	
+
 
 // Procedure and Function Declaration
 proc_decl	: proc_start  FORWARD_TOKEN SEMICOLON_TOKEN

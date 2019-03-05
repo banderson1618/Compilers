@@ -93,6 +93,8 @@ set(cpsl_srcs
   Misc_Classes/TypesTable.cpp
   Misc_Classes/StringTable.hpp
   Misc_Classes/StringTable.cpp
+  Misc_Classes/UsefulFunctions.hpp
+  Misc_Classes/UsefulFunctions.cpp
 
 
   ${BISON_Parser_OUTPUTS}

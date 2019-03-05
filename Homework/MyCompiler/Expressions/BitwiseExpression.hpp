@@ -2,13 +2,12 @@
 #define BITWISE_EXPRESSION_H
 
 #include "Expression.hpp"
-#include "Misc_Classes/RegisterPool.hpp"
 #include <string>
 
 class BitwiseExpression : public Expression{
 	public:
 		BitwiseExpression(Expression*);
-		std::string emit(RegisterPool*);
+		ExpressionResult emit();
 
 	private:
 		Expression* _prime_expr;

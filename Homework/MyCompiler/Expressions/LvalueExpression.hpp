@@ -9,7 +9,7 @@
 class LvalueExpression : public Expression{
 	public:
 		LvalueExpression(Lvalue*);
-		std::string emit(RegisterPool*);
+		ExpressionResult emit();
 
 	private:
 		Lvalue* _lval;

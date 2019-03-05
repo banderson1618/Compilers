@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iostream>
 
 TypesTable::TypesTable(){
 	std::map<std::string, Type*> first_table;
@@ -21,7 +22,8 @@ Type* TypesTable::get_value(std::string id){
 			return ret_val->second;
 		}
 	}
-	throw "Could not find variable " + id;
+	std::cout << id << std::endl;
+	throw "Could not find type";
 }
 
 void TypesTable::enter_scope(){

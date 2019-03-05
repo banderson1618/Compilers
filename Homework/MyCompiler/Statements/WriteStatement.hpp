@@ -3,13 +3,12 @@
 
 #include "Statement.hpp"
 #include "Expressions/Expression.hpp"
-#include "Misc_Classes/RegisterPool.hpp"
 #include <vector>
 
 class WriteStatement : public Statement {
 	public:
 		WriteStatement(std::vector<Expression*>*);
-		void emit(RegisterPool*);
+		void emit();
 	private:
 		std::vector<Expression*>* _args;
 };

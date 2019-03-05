@@ -7,7 +7,7 @@
 class NullStatement : public Statement {
 	public:
 		NullStatement();
-		void emit(RegisterPool*);
+		void emit();
 };
 
 

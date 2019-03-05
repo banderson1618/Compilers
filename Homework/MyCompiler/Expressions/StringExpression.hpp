@@ -2,13 +2,12 @@
 #define STRING_EXPRESSION_H
 
 #include "Expression.hpp"
-#include "Misc_Classes/RegisterPool.hpp"
 #include <string>
 
 class StringExpression : public Expression{
 	public:
 		StringExpression(char*);
-		std::string emit(RegisterPool*);
+		ExpressionResult emit();
 
 	private:
 		char* _val;

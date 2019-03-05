@@ -14,6 +14,7 @@ extern FILE *yyin;
 extern SymbolTable symbol_table;
 extern TypesTable types_table;
 extern StringTable string_table;
+extern RegisterPool register_pool;
 
 extern int label_num;
 
@@ -25,32 +26,18 @@ extern PrimitiveType* bool_type;
 void set_predefined_types(TypesTable &types_table){
 	types_table.add_value("integer", int_type);
 	types_table.add_value("char", char_type);
-	types_table.add_value("boolean", bool_type);
+	types_table.add_value("bool", bool_type);
 	types_table.add_value("string", string_type);
-	types_table.add_value("INTEGER", int_type);
-	types_table.add_value("CHAR", char_type);
-	types_table.add_value("BOOLEAN", bool_type);
-	types_table.add_value("STRING", string_type);
 	types_table.enter_scope();
 }
 
 void set_predefined_values(SymbolTable &symbol_table){
 	symbol_table.add_value("true", bool_type);
-	std::cout << "li $t0, 1\t# Saving true as 1" << std::endl;
+	std::cout << "li $t0, 1\t# Saving True as 1" << std::endl;
 	std::cout << "sw $t0, 0($sp)" << std::endl;
-
 	symbol_table.add_value("false", bool_type);
-	std::cout << "li $t0, 0\t# Saving false as 0" << std::endl;
+	std::cout << "li $t0, 0\t# Saving False as 0" << std::endl;
 	std::cout << "sw $t0, 4($sp)" << std::endl;
-
-	symbol_table.add_value("TRUE", bool_type);
-	std::cout << "li $t0, 1\t# Saving TRUE as 1" << std::endl;
-	std::cout << "sw $t0, 8($sp)" << std::endl;
-
-	symbol_table.add_value("FALSE", bool_type);
-	std::cout << "li $t0, 0\t# Saving FALSE as 0" << std::endl;
-	std::cout << "sw $t0, 12($sp)" << std::endl;
-
 	std::cout << "\n\n";
 }
 
@@ -59,6 +46,7 @@ main(int argc, char** argv){
 	symbol_table = SymbolTable();
 	types_table = TypesTable();
 	string_table = StringTable();
+	register_pool = RegisterPool();
 	int_type = new PrimitiveType();
 	char_type = new PrimitiveType();
 	bool_type = new PrimitiveType();
