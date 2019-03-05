@@ -214,7 +214,8 @@ lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								Lvalue base = symbol_table.get_value(str);
 								Lvalue* ret_val = new Lvalue;
 								ret_val->offset = base.offset;
-								ret_val->type = base.type;						
+								ret_val->type = base.type;
+								ret_val->string_label = base.string_label; base.type;							
 								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
