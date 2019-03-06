@@ -115,20 +115,13 @@ RecordType* make_record_type(RecList* rec_list){
 	return new RecordType(rec_list->id_lists, rec_list->type_list);
 }
 
-std::vector<std::string>* get_str_vec_from_chars_vec(std::vector<char*>* given_ids){
-	auto ret_vec = new std::vector<std::string>;
+std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_ids){
+	std::vector<std::string> ret_vec;
 	for(int i = 0; i < given_ids->size(); i++){
 		char* char_val = (*given_ids)[i];
-		std::cout << 3 << std::endl;
 		std::string str_val(char_val);
-		std::cout << 4 << std::endl;
-		ret_vec->push_back(str_val);
-		std::cout << 5 << std::endl;
+		ret_vec.push_back(str_val);
 	}
-	
-	std::cout << (*ret_vec)[0] << std::endl;
-	std::cout << (*ret_vec)[1] << std::endl;
-	std::cout << (*ret_vec)[2] << std::endl;
 	return ret_vec;
 }
 
@@ -453,9 +446,9 @@ rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 								std::cout << "1" << std::endl;
 								auto temp = get_str_vec_from_chars_vec($1);
 								std::cout << "1.6" << std::endl;
-								std::cout << (*temp)[0] << std::endl;
-								std::cout << "2" << std::endl;
-								_rec_item->id_list = temp;
+								std::cout << temp[0] << std::endl;
+								std::cout << "2.5" << std::endl;
+								_rec_item->id_list = &temp;
 								std::cout << "3" << std::endl;
 								_rec_item->type = $3;
 								$$ = _rec_item;
