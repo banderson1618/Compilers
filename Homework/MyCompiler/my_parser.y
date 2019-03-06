@@ -43,6 +43,10 @@
 #include "Misc_Classes/StringTable.hpp"
 #include "Misc_Classes/UsefulFunctions.hpp"
 
+#include "Misc_Classes/Type.hpp"
+#include "Misc_Classes/ArrayType.hpp"
+#include "Misc_Classes/RecordType.hpp"
+
 #include <ctype.h>
 #include <iostream>
 #include <map>
@@ -94,6 +98,38 @@ void add_type_to_table(char* id, Type* new_type){
 	if (new_type == int_type || new_type == string_type || new_type == char_type || new_type == bool_type){
 		types_table.add_value(id, new_type);
 	}
+}
+
+ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound){
+	ExpressionResult lower_bound_result = lower_bound->emit();
+	ExpressionResult upper_bound_result = upper_bound->emit();
+
+	std::string lower_bound_reg = get_reg_from_result(lower_bound_result);
+	std::string upper_bound_reg = get_reg_from_result(upper_bound_result);
+
+	// TODO: Figure out how to make a non-constant 
+	return new ArrayType(5, 10, int_type);
+}
+
+RecordType* make_record_type(RecList* rec_list){
+	return new RecordType(rec_list->id_lists, rec_list->type_list);
+}
+
+std::vector<std::string>* get_str_vec_from_chars_vec(std::vector<char*>* given_ids){
+	auto ret_vec = new std::vector<std::string>;
+	for(int i = 0; i < given_ids->size(); i++){
+		char* char_val = (*given_ids)[i];
+		std::cout << 3 << std::endl;
+		std::string str_val(char_val);
+		std::cout << 4 << std::endl;
+		ret_vec->push_back(str_val);
+		std::cout << 5 << std::endl;
+	}
+	
+	std::cout << (*ret_vec)[0] << std::endl;
+	std::cout << (*ret_vec)[1] << std::endl;
+	std::cout << (*ret_vec)[2] << std::endl;
+	return ret_vec;
 }
 
 %}
@@ -182,6 +218,10 @@ void add_type_to_table(char* id, Type* new_type){
 	Statement* statement;
 	Lvalue* lval;
 	Type* type;
+	ArrayType* arr_type;
+	RecordType* rec_type;
+	RecItem* rec_item;
+	RecList* rec_list;
 }
 
 
@@ -196,6 +236,10 @@ void add_type_to_table(char* id, Type* new_type){
 %type <statementList> statement_seq block
 %type <string_list> ident_list
 %type <type> type simple_type
+%type <arr_type> array_type
+%type <rec_type> record_type
+%type <rec_item> rec_item
+%type <rec_list> rec_list
 
 
 %%
@@ -215,7 +259,7 @@ lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								Lvalue* ret_val = new Lvalue;
 								ret_val->offset = base.offset;
 								ret_val->type = base.type;
-								ret_val->string_label = base.string_label; base.type;							
+								ret_val->string_label = base.string_label;
 								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
@@ -387,18 +431,40 @@ type		: simple_type				{ $$ = $1; }
 simple_type	: ID_TOKEN				{ std::string str($1);
 								$$ = types_table.get_value(str); }
 		;
-record_type	: RECORD_TOKEN rec_list END_TOKEN	{  }
+record_type	: RECORD_TOKEN rec_list END_TOKEN	{ $$ = make_record_type($2); }
 		;
-rec_list	: rec_item rec_list			{  }
-		| /* empty */				{  }
+rec_list	: rec_list rec_item 			{ 
+								$1->type_list->push_back($2->type);
+								$1->id_lists->push_back($2->id_list);
+								$$ = $1;
+							}
+		| rec_item				{
+								RecList* _rec_list;
+								_rec_list->type_list = new std::vector<Type*>;
+								_rec_list->id_lists = new std::vector<std::vector<std::string>*>;
+								_rec_list->type_list->push_back($1->type);
+								_rec_list->id_lists->push_back($1->id_list);
+								$$ = _rec_list;
+							}
 		;
 rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
-							{  }
+							{ 
+								RecItem* _rec_item;
+								std::cout << "1" << std::endl;
+								auto temp = get_str_vec_from_chars_vec($1);
+								std::cout << "1.6" << std::endl;
+								std::cout << (*temp)[0] << std::endl;
+								std::cout << "2" << std::endl;
+								_rec_item->id_list = temp;
+								std::cout << "3" << std::endl;
+								_rec_item->type = $3;
+								$$ = _rec_item;
+							}
 		;
-array_type	: ARRAY_TOKEN array_args OF_TOKEN type	{  }
+array_type	: ARRAY_TOKEN LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN OF_TOKEN type
+							{ $$ = make_array_type($3, $5); }
 		;
-array_args	: LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN	{  }
-		;	
+
 ident_list	: ID_TOKEN				{ 
 								auto new_vec = new std::vector<char*> ;
 								new_vec->push_back($1);

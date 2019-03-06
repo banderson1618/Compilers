@@ -38,6 +38,8 @@
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
+#include "Misc_Classes/ArrayType.hpp"
+#include "Misc_Classes/RecordType.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>
