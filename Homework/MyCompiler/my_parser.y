@@ -433,23 +433,23 @@ rec_list	: rec_list rec_item 			{
 							}
 		| rec_item				{
 								RecList* _rec_list;
+								std::cout << "1" << std::endl;
 								_rec_list->type_list = new std::vector<Type*>;
+								std::cout << "2" << std::endl;
 								_rec_list->id_lists = new std::vector<std::vector<std::string>*>;
+								std::cout << "3" << std::endl;
 								_rec_list->type_list->push_back($1->type);
+								std::cout << "4" << std::endl;
 								_rec_list->id_lists->push_back($1->id_list);
+								std::cout << "5" << std::endl;
 								$$ = _rec_list;
 							}
 		;
 rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 							{ 
 								RecItem* _rec_item;
-								std::cout << "1" << std::endl;
 								auto temp = get_str_vec_from_chars_vec($1);
-								std::cout << "1.6" << std::endl;
-								std::cout << temp[0] << std::endl;
-								std::cout << "2.5" << std::endl;
 								_rec_item->id_list = &temp;
-								std::cout << "3" << std::endl;
 								_rec_item->type = $3;
 								$$ = _rec_item;
 							}
