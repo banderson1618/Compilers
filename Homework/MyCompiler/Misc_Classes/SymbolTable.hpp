@@ -11,6 +11,8 @@ struct Lvalue {
 	int offset;
 	Type* type;
 	std::string string_label;
+	bool is_const;
+	int const_val;
 };
 
 class SymbolTable{
@@ -19,6 +21,7 @@ class SymbolTable{
 
 		void add_value(std::string, Type*);
 		void add_value(std::string, Type*, std::string); // for adding string values, basically
+		void add_const_val(std::string, Type*, int);
 		Lvalue get_value(std::string);
 
 		void enter_scope();

@@ -36,3 +36,8 @@ std::string get_reg_from_result(ExpressionResult result){
 }
 
 
+bool is_const(ExpressionResult result){
+	return result.result_type == const_int || result.result_type == const_char;
+}
+
+

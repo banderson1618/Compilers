@@ -11,4 +11,6 @@ std::string load_int(int);
 
 std::string get_reg_from_result(ExpressionResult);
 
+bool is_const(ExpressionResult);
+
 #endif

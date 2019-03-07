@@ -8,7 +8,7 @@
 
 class RecordType : public Type{
 	public:
-		RecordType(std::vector<std::vector<std::string>*>*, std::vector<Type*>*);
+		RecordType(std::vector<std::vector<std::string>>, std::vector<Type*>);
 		Lvalue get_value(std::string);
 		int size();
 	private:
@@ -19,13 +19,8 @@ class RecordType : public Type{
 
 
 struct RecItem{
-	std::vector<std::string>* id_list;
+	std::vector<std::string> id_list;
 	Type* type;
-};
-
-struct RecList{
-	std::vector<Type*>* type_list;
-	std::vector<std::vector<std::string>*>* id_lists;
 };
 
 

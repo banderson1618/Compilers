@@ -15,6 +15,7 @@ void SymbolTable::add_value(std::string id, Type* type){
 	Lvalue new_lval;
 	new_lval.offset = next_offset;
 	new_lval.type = type;
+	new_lval.is_const = false;
 	next_offset += type->size(); 
 	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
 }
@@ -23,6 +24,18 @@ void SymbolTable::add_value(std::string id, Type* type, std::string str_label){
 	Lvalue new_lval;
 	new_lval.type = type;
 	new_lval.string_label = str_label;
+	new_lval.is_const = false;
+	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
+}
+
+
+void SymbolTable::add_const_val(std::string id, Type* type, int const_val){
+	Lvalue new_lval;
+	new_lval.offset = next_offset;
+	new_lval.type = type;
+	new_lval.is_const = true;
+	new_lval.const_val = const_val;
+	next_offset += type->size(); 
 	tables.back().insert(std::pair<std::string, Lvalue>(id, new_lval));
 }
 

@@ -32,13 +32,10 @@ void set_predefined_types(TypesTable &types_table){
 }
 
 void set_predefined_values(SymbolTable &symbol_table){
-	symbol_table.add_value("true", bool_type);
-	std::cout << "li $t0, 1\t# Saving True as 1" << std::endl;
-	std::cout << "sw $t0, 0($sp)" << std::endl;
-	symbol_table.add_value("false", bool_type);
-	std::cout << "li $t0, 0\t# Saving False as 0" << std::endl;
-	std::cout << "sw $t0, 4($sp)" << std::endl;
-	std::cout << "\n\n";
+	symbol_table.add_const_val("true", bool_type, 1);
+	symbol_table.add_const_val("false", bool_type, 0);
+	symbol_table.add_const_val("TRUE", bool_type, 1);
+	symbol_table.add_const_val("FALSE", bool_type, 0);
 }
 
 

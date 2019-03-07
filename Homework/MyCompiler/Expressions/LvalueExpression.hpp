@@ -12,6 +12,8 @@ class LvalueExpression : public Expression{
 		ExpressionResult emit();
 
 	private:
+		ExpressionResult make_const_lval();
+		ExpressionResult make_var_lval();
 		Lvalue* _lval;
 };
 

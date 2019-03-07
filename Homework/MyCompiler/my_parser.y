@@ -80,15 +80,13 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 
 
 void add_const_to_table(char* id, Expression* val){
-	std::string expr_reg = get_reg_from_result(val->emit()); // string label if it's a string, register with value otherwise
+	ExpressionResult expr_result = val->emit(); // string label if it's a string, register with value otherwise
 	std::string str_id(id);
 	if (val->type == string_type){
-		symbol_table.add_value(str_id, string_type, expr_reg);
+		symbol_table.add_value(str_id, string_type, expr_result._register);
 	}
 	else{
-		symbol_table.add_value(str_id, val->type);
-		Lvalue lval = symbol_table.get_value(str_id);
-		std::cout << "\tsw\t" << expr_reg << ", " << lval.offset << ",($sp)\t\t#Saving constant" << std::endl;
+		symbol_table.add_const_val(str_id, val->type, expr_result.const_val);
 	}
 }
 
@@ -104,15 +102,24 @@ ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound){
 	ExpressionResult lower_bound_result = lower_bound->emit();
 	ExpressionResult upper_bound_result = upper_bound->emit();
 
-	std::string lower_bound_reg = get_reg_from_result(lower_bound_result);
-	std::string upper_bound_reg = get_reg_from_result(upper_bound_result);
+	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";	
 
 	// TODO: Figure out how to make a non-constant 
-	return new ArrayType(5, 10, int_type);
+	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, int_type);
 }
 
-RecordType* make_record_type(RecList* rec_list){
-	return new RecordType(rec_list->id_lists, rec_list->type_list);
+RecordType* make_record_type(std::vector<RecItem*>* rec_list){
+	std::vector<std::vector<std::string>> id_lists;
+	std::vector<Type*> type_list;
+	for (int i = 0; i < rec_list->size();i++){
+		auto curr_rec_item = (*rec_list)[i];
+		id_lists.push_back(curr_rec_item->id_list);
+		type_list.push_back(curr_rec_item->type);
+	}
+	auto id_list = id_lists[0];
+	std::string temp_string = id_list[0];
+	std::cout << "example: " << temp_string << std::endl;
+	return new RecordType(id_lists, type_list);
 }
 
 std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_ids){
@@ -212,9 +219,9 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 	Lvalue* lval;
 	Type* type;
 	ArrayType* arr_type;
-	RecordType* rec_type;
+	RecordType* rec_type; 
 	RecItem* rec_item;
-	RecList* rec_list;
+	std::vector<RecItem*>* rec_list;
 }
 
 
@@ -253,6 +260,8 @@ lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								ret_val->offset = base.offset;
 								ret_val->type = base.type;
 								ret_val->string_label = base.string_label;
+								ret_val->is_const = base.is_const;
+								ret_val->const_val = base.const_val;
 								$$ = ret_val; } 
 		| lvalue PER_TOKEN ID_TOKEN 		{  }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
@@ -427,29 +436,28 @@ simple_type	: ID_TOKEN				{ std::string str($1);
 record_type	: RECORD_TOKEN rec_list END_TOKEN	{ $$ = make_record_type($2); }
 		;
 rec_list	: rec_list rec_item 			{ 
-								$1->type_list->push_back($2->type);
-								$1->id_lists->push_back($2->id_list);
+								$1->push_back($2);
 								$$ = $1;
 							}
-		| rec_item				{
-								RecList* _rec_list;
-								std::cout << "1" << std::endl;
-								_rec_list->type_list = new std::vector<Type*>;
-								std::cout << "2" << std::endl;
-								_rec_list->id_lists = new std::vector<std::vector<std::string>*>;
-								std::cout << "3" << std::endl;
-								_rec_list->type_list->push_back($1->type);
-								std::cout << "4" << std::endl;
-								_rec_list->id_lists->push_back($1->id_list);
-								std::cout << "5" << std::endl;
-								$$ = _rec_list;
+		| rec_item				{	
+								// but when we get here, it breaks when we try to access it
+								std::cout << "Printing first item in ID list in rec_list:" << std::endl;
+								std::cout << "Size" << $1->id_list[0] << std::endl;
+								auto rec_list = new std::vector<RecItem*>;
+								rec_list->push_back($1);
+								$$ = rec_list;
 							}
 		;
 rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
-							{ 
-								RecItem* _rec_item;
-								auto temp = get_str_vec_from_chars_vec($1);
-								_rec_item->id_list = &temp;
+							{ 	
+								RecItem rec_base;
+								RecItem* _rec_item = &rec_base;
+								_rec_item->id_list = get_str_vec_from_chars_vec($1);
+
+								// here, id_list seems to have everything we want
+								std::cout << "Printing first item in ID list in rec_item:" << std::endl;
+								std::cout << _rec_item->id_list[0] << std::endl;
+
 								_rec_item->type = $3;
 								$$ = _rec_item;
 							}
