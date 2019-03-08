@@ -1,14 +1,15 @@
 var
- p : record x,y,z : integer; end;
+ p : record x,y,z : integer; my_bool boolean end;
  x,y,z : integer;
 
 begin
  x:= 1;
  y:= 2;
  z:= 3;
- p.x := x * y;
- p.y := y * z;
- p.z := z * x;
+ p.x := 5;
+ p.y := 10;
+ p.z := 9;
+ p.my_bool := true;
 
- write(p.x,p.y,p.z);
+ write(p.x * x,'\n',p.y * y,'\n',p.z * z, '\n', p.my_bool);
 end.

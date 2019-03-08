@@ -118,7 +118,6 @@ RecordType* make_record_type(std::vector<RecItem*>* rec_list){
 	}
 	auto id_list = id_lists[0];
 	std::string temp_string = id_list[0];
-	std::cout << "example: " << temp_string << std::endl;
 	return new RecordType(id_lists, type_list);
 }
 
@@ -130,6 +129,17 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 		ret_vec.push_back(str_val);
 	}
 	return ret_vec;
+}
+
+
+Lvalue* copy_lval(Lvalue lval){
+	Lvalue* ret_val = new Lvalue;
+	ret_val->offset = lval.offset;
+	ret_val->type = lval.type;
+	ret_val->string_label = lval.string_label;
+	ret_val->is_const = lval.is_const;
+	ret_val->const_val = lval.const_val;
+	return ret_val;
 }
 
 %}
@@ -256,14 +266,12 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 
 lvalue 		: ID_TOKEN 				{ 	std::string str($1);
 								Lvalue base = symbol_table.get_value(str);
-								Lvalue* ret_val = new Lvalue;
-								ret_val->offset = base.offset;
-								ret_val->type = base.type;
-								ret_val->string_label = base.string_label;
-								ret_val->is_const = base.is_const;
-								ret_val->const_val = base.const_val;
-								$$ = ret_val; } 
-		| lvalue PER_TOKEN ID_TOKEN 		{  }
+								$$ = copy_lval(base); } 
+		| lvalue PER_TOKEN ID_TOKEN 		{ 	
+								RecordType* rec_type = dynamic_cast<RecordType*>($1->type);
+								Lvalue base = rec_type->get_value($3);
+								$$ = copy_lval(base);
+							}
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
 		;
 
@@ -440,9 +448,6 @@ rec_list	: rec_list rec_item 			{
 								$$ = $1;
 							}
 		| rec_item				{	
-								// but when we get here, it breaks when we try to access it
-								std::cout << "Printing first item in ID list in rec_list:" << std::endl;
-								std::cout << "Size" << $1->id_list[0] << std::endl;
 								auto rec_list = new std::vector<RecItem*>;
 								rec_list->push_back($1);
 								$$ = rec_list;
@@ -450,14 +455,8 @@ rec_list	: rec_list rec_item 			{
 		;
 rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 							{ 	
-								RecItem rec_base;
-								RecItem* _rec_item = &rec_base;
+								RecItem* _rec_item = new RecItem;
 								_rec_item->id_list = get_str_vec_from_chars_vec($1);
-
-								// here, id_list seems to have everything we want
-								std::cout << "Printing first item in ID list in rec_item:" << std::endl;
-								std::cout << _rec_item->id_list[0] << std::endl;
-
 								_rec_item->type = $3;
 								$$ = _rec_item;
 							}
