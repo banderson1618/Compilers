@@ -1,4 +1,5 @@
 #include "ReadStatement.hpp"
+#include "Expressions/Expression.hpp"
 #include "Expressions/LvalueExpression.hpp"
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -10,13 +11,15 @@
 extern PrimitiveType* int_type;
 extern PrimitiveType* char_type;
 
-ReadStatement::ReadStatement(std::vector<Lvalue*>* args){
+ReadStatement::ReadStatement(std::vector<LvalueExpression*>* args){
 	_args = args;
 }
 
 void ReadStatement::emit(){
 	for (int i = 0; i < _args->size(); i++){
-		Lvalue* lval = (*_args)[i];
+		LvalueExpression* lval_expr = (*_args)[i];
+		ExpressionResult lval_result = lval_expr->emit();
+		Lvalue* lval = lval_result.lval;
 		if (lval->type == char_type){
 			std::cout << "\tli\t$v0, 12" << "\t#Read Character" << std::endl;
 		}

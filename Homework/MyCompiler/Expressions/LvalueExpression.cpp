@@ -14,19 +14,40 @@ extern RegisterPool register_pool;
 
 LvalueExpression::LvalueExpression(Lvalue* lval){
 	_lval = lval;
+	_lval_expr = NULL;
+	_expr = NULL;
+}
+
+LvalueExpression::LvalueExpression(LvalueExpression* lval_expr, Expression* expr){
+	_lval_expr = lval_expr;
+	_expr = expr;
+	_lval = NULL;
+}
+
+Type* LvalueExpression::get_type(){
+	return _lval->type;
 }
 
 
 
 ExpressionResult LvalueExpression::emit(){
 	type = _lval->type;
-	if (_lval->is_const){
-		
-		return make_const_lval();
+	if (_lval != NULL){
+		if (_lval->is_const){		
+			return make_const_lval();
+		}
+		else{
+			return make_var_lval();
+		}
 	}
 	else{
-		return make_var_lval();
-	}
+		return make_array_lval();
+	}	
+}
+
+ExpressionResult LvalueExpression::make_array_lval(){
+	ExpressionResult ret_result;
+	return ret_result;
 }
 
 

@@ -26,7 +26,7 @@ extern PrimitiveType* bool_type;
 void set_predefined_types(TypesTable &types_table){
 	types_table.add_value("integer", int_type);
 	types_table.add_value("char", char_type);
-	types_table.add_value("bool", bool_type);
+	types_table.add_value("boolean", bool_type);
 	types_table.add_value("string", string_type);
 	types_table.enter_scope();
 }

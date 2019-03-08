@@ -9,10 +9,10 @@
 
 class AssignStatement : public Statement {
 	public:
-		AssignStatement(Lvalue*, Expression*);
+		AssignStatement(LvalueExpression*, Expression*);
 		void emit();
 	private:
-		Lvalue* _id;
+		LvalueExpression* _id;
 		Expression* _val;
 };
 

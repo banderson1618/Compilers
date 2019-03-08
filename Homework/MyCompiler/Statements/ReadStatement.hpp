@@ -9,10 +9,10 @@
 
 class ReadStatement : public Statement {
 	public:
-		ReadStatement(std::vector<Lvalue*>*);
+		ReadStatement(std::vector<LvalueExpression*>*);
 		void emit();		
 	private:
-		std::vector<Lvalue*>* _args;
+		std::vector<LvalueExpression*>* _args;
 };
 
 

@@ -221,12 +221,12 @@ Lvalue* copy_lval(Lvalue lval){
 	char* stringVal;
 	char* id;
 	Expression* expr;
+	LvalueExpression* lval;
 	std::vector<Expression*> *exprList;
 	std::vector<Statement*> *statementList;
-	std::vector<Lvalue*> *lvalList;
+	std::vector<LvalueExpression*> *lvalList;
 	std::vector<char*> *string_list;
 	Statement* statement;
-	Lvalue* lval;
 	Type* type;
 	ArrayType* arr_type;
 	RecordType* rec_type; 
@@ -237,10 +237,10 @@ Lvalue* copy_lval(Lvalue lval){
 
 %type <stringVal> ID_TOKEN
 %type <expr> expr
+%type <lval> lvalue
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <lval> lvalue
 %type <statement> statement assign read_statement write_statement null_statement stop_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block
@@ -264,20 +264,23 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 		;
 
 
-lvalue 		: ID_TOKEN 				{ 	std::string str($1);
-								Lvalue base = symbol_table.get_value(str);
-								$$ = copy_lval(base); } 
+lvalue 		: ID_TOKEN 				{ 	std::string str_id($1);
+								Lvalue base = symbol_table.get_value(str_id);
+								$$ = new LvalueExpression(copy_lval(base)); } 
 		| lvalue PER_TOKEN ID_TOKEN 		{ 	
-								RecordType* rec_type = dynamic_cast<RecordType*>($1->type);
-								Lvalue base = rec_type->get_value($3);
-								$$ = copy_lval(base);
+								std::string str_id($3);
+								RecordType* rec_type = dynamic_cast<RecordType*>($1->get_type());
+								Lvalue base = rec_type->get_value(str_id);
+								$$ = new LvalueExpression(copy_lval(base));
 							}
-		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{  }
+		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{ 
+								$$ = new LvalueExpression($1, $3);
+							}
 		;
 
 // Expressions
 expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" << std::endl; }
-								$$ = new LvalueExpression($1);}
+								$$ = $1;}
 		| expr OR_TOKEN expr 			{ if (testingParser) { std::cout << "Found OrExpression" << std::endl; }
 								$$ =  new OrExpression($1, $3);}
 		| expr AND_TOKEN expr 			{ if (testingParser) { std::cout << "Found AndExpression" << std::endl; }
@@ -349,12 +352,12 @@ args_list	: expr					{	auto new_vec = new std::vector<Expression*>;
 		;
 
 
-args_list_lval	: lvalue				{	auto new_vec = new std::vector<Lvalue*>;
+args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
 								new_vec->push_back($1);
 								$$ = new_vec;}
 		| args_list_lval COMMA_TOKEN lvalue	{$1->push_back($3);
 								$$ = $1;}
-		| /* empty */				{$$ = new std::vector<Lvalue*>;}
+		| /* empty */				{$$ = new std::vector<LvalueExpression*>;}
 		;
 
 // Statements

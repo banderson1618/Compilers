@@ -14,16 +14,18 @@ extern SymbolTable symbol_table;
 extern RegisterPool register_pool;
 extern PrimitiveType* int_type;
 
-AssignStatement::AssignStatement(Lvalue* id, Expression* val){
+AssignStatement::AssignStatement(LvalueExpression* id, Expression* val){
 	_id = id;
 	_val = val;
 }
 
 void AssignStatement::emit(){
+	ExpressionResult id_result = _id->emit();
+	Lvalue* lval = id_result.lval;
 	std::string reg_to_save = get_reg_from_result(_val->emit());
-	if (_val->type != _id->type){
+	if (_val->type != lval->type){
 		throw "Type Error in assign statement";
 	}
-	std::cout << "\tsw\t" << reg_to_save << ", " << _id->offset << "($sp)\t#Assign Statement" << std::endl;
+	std::cout << "\tsw\t" << reg_to_save << ", " << lval->offset << "($sp)\t#Assign Statement" << std::endl;
 	register_pool.return_register(reg_to_save);
 }
