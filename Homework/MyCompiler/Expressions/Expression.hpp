@@ -7,13 +7,19 @@
 #include "Misc_Classes/Type.hpp"
 #include <string>
 
-enum ResultType {const_int, const_char, lval, reg};
+class Expression;
+class LvalueExpression;
+
+enum ResultType {const_int, const_char, lval, arr_lval, reg};
 
 struct ExpressionResult {
 	ResultType result_type;
 	Lvalue* lval;
 	int const_val;
 	std::string _register;
+	Expression* index;
+	LvalueExpression* lval_expr;
+	Type* type;
 };
 
 class Expression{

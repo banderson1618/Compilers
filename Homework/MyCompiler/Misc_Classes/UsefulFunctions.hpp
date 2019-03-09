@@ -9,6 +9,8 @@ std::string load_character(int);
 
 std::string load_int(int);
 
+std::string get_array_offset_reg(ExpressionResult);
+
 std::string get_reg_from_result(ExpressionResult);
 
 bool is_const(ExpressionResult);

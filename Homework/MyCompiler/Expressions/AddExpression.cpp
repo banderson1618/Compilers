@@ -13,7 +13,7 @@ AddExpression::AddExpression(Expression *left_expr, Expression *right_expr){
 	_right_expr = right_expr;
 }
 
-ExpressionResult const_fold(ExpressionResult left_result, ExpressionResult right_result){
+ExpressionResult const_fold_add(ExpressionResult left_result, ExpressionResult right_result){
 	ExpressionResult ret_result;
 	if(left_result.result_type == const_char || right_result.result_type == const_char){
 		ret_result.result_type = const_char;
@@ -35,7 +35,7 @@ ExpressionResult AddExpression::emit(){
 	type = _left_expr->type;
 
 	if (is_const(left_result) && is_const(right_result)){
-		return const_fold(left_result, right_result);
+		return const_fold_add(left_result, right_result);
 	}	
 
 	std::string ret_reg = register_pool.get_register();

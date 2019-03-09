@@ -1,8 +1,0 @@
-const
- int = 5;
-var
-  number : integer;
-BEGIN
-  number := 5 + int + int + 2;
-  write(number);
-END.

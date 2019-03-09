@@ -1,7 +1,9 @@
 #include "LvalueExpression.hpp"
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/Type.hpp"
+#include "Misc_Classes/ArrayType.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
+#include "Misc_Classes/UsefulFunctions.hpp"
 #include <string>
 #include <iostream>
 
@@ -14,24 +16,25 @@ extern RegisterPool register_pool;
 
 LvalueExpression::LvalueExpression(Lvalue* lval){
 	_lval = lval;
+	type = _lval->type;
 	_lval_expr = NULL;
 	_expr = NULL;
 }
 
 LvalueExpression::LvalueExpression(LvalueExpression* lval_expr, Expression* expr){
 	_lval_expr = lval_expr;
+	type = dynamic_cast<ArrayType*>(lval_expr->type)->get_elem_type();
 	_expr = expr;
 	_lval = NULL;
 }
 
 Type* LvalueExpression::get_type(){
-	return _lval->type;
+	return type;
 }
 
 
 
 ExpressionResult LvalueExpression::emit(){
-	type = _lval->type;
 	if (_lval != NULL){
 		if (_lval->is_const){		
 			return make_const_lval();
@@ -47,6 +50,12 @@ ExpressionResult LvalueExpression::emit(){
 
 ExpressionResult LvalueExpression::make_array_lval(){
 	ExpressionResult ret_result;
+
+	ret_result.type = this->type;
+	ret_result.result_type = arr_lval;
+	ret_result.lval_expr = _lval_expr;
+	ret_result.index = _expr;
+
 	return ret_result;
 }
 

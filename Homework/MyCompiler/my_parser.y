@@ -93,19 +93,16 @@ void add_const_to_table(char* id, Expression* val){
 
 void add_type_to_table(char* id, Type* new_type){
 	std::string str_id(id);
-	if (new_type == int_type || new_type == string_type || new_type == char_type || new_type == bool_type){
-		types_table.add_value(id, new_type);
-	}
+	types_table.add_value(id, new_type);
 }
 
-ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound){
+ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound, Type* type){
 	ExpressionResult lower_bound_result = lower_bound->emit();
 	ExpressionResult upper_bound_result = upper_bound->emit();
 
-	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";	
+	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";
 
-	// TODO: Figure out how to make a non-constant 
-	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, int_type);
+	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, type);
 }
 
 RecordType* make_record_type(std::vector<RecItem*>* rec_list){
@@ -438,8 +435,8 @@ type_list	: type_list type_item			{  }
 		| type_item				{  }
 		;
 type		: simple_type				{ $$ = $1; }
-		| record_type				{  }
-		| array_type				{  }
+		| record_type				{ $$ = $1; }
+		| array_type				{ $$ = $1; }
 		;
 simple_type	: ID_TOKEN				{ std::string str($1);
 								$$ = types_table.get_value(str); }
@@ -465,7 +462,7 @@ rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 							}
 		;
 array_type	: ARRAY_TOKEN LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN OF_TOKEN type
-							{ $$ = make_array_type($3, $5); }
+							{ $$ = make_array_type($3, $5, $8); }
 		;
 
 ident_list	: ID_TOKEN				{ 

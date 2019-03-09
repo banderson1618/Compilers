@@ -12,6 +12,9 @@ class AssignStatement : public Statement {
 		AssignStatement(LvalueExpression*, Expression*);
 		void emit();
 	private:
+		void assign_array(ExpressionResult);
+		void assign_single_val(ExpressionResult);
+		void copy_big_data_single_val(Lvalue*);
 		LvalueExpression* _id;
 		Expression* _val;
 };
