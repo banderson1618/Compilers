@@ -36,6 +36,7 @@
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
 #include "Statements/StopStatement.hpp"
+#include "Statements/IfStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"

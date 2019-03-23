@@ -1,10 +1,7 @@
 VAR 
   bool : boolean;
 BEGIN
-  bool := true;
-  write("The answer is ",bool,"\n");
-  bool := succ(bool);
-  write("The answer is ",bool,"\n");
-  bool := succ(bool);
-  write("The answer is ",bool,"\n");
+  write("2>3",2>3,"\n");
+  write("3>3",3>3,"\n");
+  write("4>3",4>3,"\n");
 END.

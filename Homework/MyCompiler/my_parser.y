@@ -37,7 +37,10 @@
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
 #include "Statements/StopStatement.hpp"
+#include "Statements/RepeatStatement.hpp"
 #include "Statements/WhileStatement.hpp"
+#include "Statements/IfBlockStatement.hpp"
+#include "Statements/IfStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -226,6 +229,7 @@ Lvalue* copy_lval(Lvalue lval){
 	std::vector<Statement*> *statementList;
 	std::vector<LvalueExpression*> *lvalList;
 	std::vector<char*> *string_list;
+	std::vector<IfStatement*>* if_list;
 	Statement* statement;
 	Type* type;
 	ArrayType* arr_type;
@@ -241,15 +245,16 @@ Lvalue* copy_lval(Lvalue lval){
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <statement> statement assign read_statement write_statement null_statement stop_statement while_statement
+%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement
 %type <lvalList> args_list_lval
-%type <statementList> statement_seq block
+%type <statementList> statement_seq block else_statement
 %type <string_list> ident_list
 %type <type> type simple_type
 %type <arr_type> array_type
 %type <rec_type> record_type
 %type <rec_item> rec_item
 %type <rec_list> rec_list
+%type <if_list> elseif_list
 
 
 %%
@@ -378,18 +383,28 @@ for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN stat
 							{  }
 		;
 repeat_statement: REPEAT_TOKEN statement_seq UNTIL_TOKEN expr
-							{  };
+							{ $$ = new RepeatStatement($2, $4); };
 while_statement	: WHILE_TOKEN expr DO_TOKEN statement_seq END_TOKEN
 							{ $$ = new WhileStatement($4, $2); };
 if_statement	: IF_TOKEN expr THEN_TOKEN statement_seq elseif_list else_statement END_TOKEN
-							{  }
+							{ $$ = new IfBlockStatement(new IfStatement($4, $2),
+											$5, $6); }
 		;
-elseif_list	: /* empty */
-		| ELSEIF_TOKEN expr THEN_TOKEN statement_seq elseif_list
-							{  }
+elseif_list	: /* empty */				{ $$ = new std::vector<IfStatement*>; }
+		| elseif_list ELSEIF_TOKEN expr THEN_TOKEN statement_seq 
+							{ 
+								$1->push_back(new IfStatement($5, $3));
+								$$ = $1;
+							}
+		| ELSEIF_TOKEN expr THEN_TOKEN statement_seq 
+							{ 
+								auto ret_vec = new std::vector<IfStatement*>;
+								ret_vec->push_back(new IfStatement($4, $2));
+								$$ = ret_vec;
+							}
 		;
-else_statement	: /* empty */				{  }
-		| ELSE_TOKEN statement_seq		{  }
+else_statement	: /* empty */				{ $$ = NULL; }
+		| ELSE_TOKEN statement_seq		{ $$ = $2; }
 		;
 
 
@@ -397,9 +412,9 @@ assign		: lvalue ASSIGN_TOKEN expr		{  if (testingParser) { std::cout << "Found 
 								$$ = new AssignStatement($1, $3); };
 
 statement	: assign				{ $$ = $1; }
-		| if_statement				{  }
-		| while_statement			{  }
-		| repeat_statement			{  }
+		| if_statement				{ $$ = $1; }
+		| while_statement			{ $$ = $1; }
+		| repeat_statement			{ $$ = $1; }
 		| for_statement				{  }
 		| stop_statement			{ $$ = $1; }
 		| return_statement			{  }

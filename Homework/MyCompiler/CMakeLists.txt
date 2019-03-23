@@ -84,8 +84,14 @@ set(cpsl_srcs
   Statements/NullStatement.cpp
   Statements/StopStatement.hpp
   Statements/StopStatement.cpp
+  Statements/RepeatStatement.hpp
+  Statements/RepeatStatement.cpp
   Statements/WhileStatement.hpp
   Statements/WhileStatement.cpp
+  Statements/IfStatement.hpp
+  Statements/IfStatement.cpp
+  Statements/IfBlockStatement.hpp
+  Statements/IfBlockStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp
