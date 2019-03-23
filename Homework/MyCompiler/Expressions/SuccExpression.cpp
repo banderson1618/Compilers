@@ -43,10 +43,14 @@ ExpressionResult SuccExpression::emit(){
 	else{
 		label_num++;
 		std::string label = "label" + std::to_string(label_num);
+
 		std::cout << "\tli " << ret_reg << ", 1\t\t#Pred Bool Expression" << std::endl;
 		std::cout << "\tbeq " << expr_reg << ", $zero, " << label << "\t\t#Pred Bool Expression" << std::endl;
-		std::cout << label << ":" << std::endl;
+		register_pool.return_register(expr_reg);
 		std::cout << "\tli " << ret_reg << ", 0\t\t#Pred Bool Expression" << std::endl;
+		std::cout << label << ":" << std::endl;
+		ret_result.result_type = reg;
+		ret_result._register = ret_reg;	
 	}
 	return ret_result;
 	

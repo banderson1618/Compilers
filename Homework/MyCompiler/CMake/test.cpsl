@@ -3,6 +3,8 @@ VAR
 BEGIN
   bool := true;
   write("The answer is ",bool,"\n");
-  bool := pred(bool);
+  bool := succ(bool);
+  write("The answer is ",bool,"\n");
+  bool := succ(bool);
   write("The answer is ",bool,"\n");
 END.
