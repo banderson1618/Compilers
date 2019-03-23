@@ -74,9 +74,9 @@ main(int argc, char** argv){
 
 	yyin = myfile;
 
-	std::ofstream out(output_name);
-	auto *coutbuf = std::cout.rdbuf();
-	std::cout.rdbuf(out.rdbuf());
+	//std::ofstream out(output_name);
+	//auto *coutbuf = std::cout.rdbuf();
+	//std::cout.rdbuf(out.rdbuf());
 
 	// doing this here so it gets in the file
 	set_predefined_types(types_table);
@@ -88,7 +88,7 @@ main(int argc, char** argv){
 		std::cerr << "ERROR FOUND: " << e << std::endl;
 		return -1;
 	}
-	std::cout.rdbuf(coutbuf);
+	//std::cout.rdbuf(coutbuf);
 }
 
 

@@ -47,8 +47,7 @@ Lvalue SymbolTable::get_value(std::string id){
 			return ret_val->second;
 		}
 	}
-	std::cout << id << std::endl;
-	throw "Could not find variable " + id;
+	throw "Could not find variable in symbol table";
 }
 
 void SymbolTable::enter_scope(){

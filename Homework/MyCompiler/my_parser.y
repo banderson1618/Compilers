@@ -41,6 +41,7 @@
 #include "Statements/WhileStatement.hpp"
 #include "Statements/IfBlockStatement.hpp"
 #include "Statements/IfStatement.hpp"
+#include "Statements/ForStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -245,7 +246,7 @@ Lvalue* copy_lval(Lvalue lval){
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement
+%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement for_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block else_statement
 %type <string_list> ident_list
@@ -269,7 +270,8 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 		;
 
 
-lvalue 		: ID_TOKEN 				{ 	std::string str_id($1);
+lvalue 		: ID_TOKEN 				{ 	std::cout << "Found LValue" << std::endl;
+								std::string str_id($1);
 								Lvalue base = symbol_table.get_value(str_id);
 								$$ = new LvalueExpression(copy_lval(base)); } 
 		| lvalue PER_TOKEN ID_TOKEN 		{ 	
@@ -378,9 +380,10 @@ return_statement: RETURN_TOKEN  			{ }
 		;
 stop_statement	: STOP_TOKEN				{ $$ = new StopStatement();}
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{  }
+							{ $$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::TO); }
 		| FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr DOWNTO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{  }
+							{ std::cout << "Found for statement" << std::endl;
+								$$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::DOWNTO); }
 		;
 repeat_statement: REPEAT_TOKEN statement_seq UNTIL_TOKEN expr
 							{ $$ = new RepeatStatement($2, $4); };
@@ -415,7 +418,7 @@ statement	: assign				{ $$ = $1; }
 		| if_statement				{ $$ = $1; }
 		| while_statement			{ $$ = $1; }
 		| repeat_statement			{ $$ = $1; }
-		| for_statement				{  }
+		| for_statement				{ $$ = $1; }
 		| stop_statement			{ $$ = $1; }
 		| return_statement			{  }
 		| read_statement			{ $$ = $1; }

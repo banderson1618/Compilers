@@ -92,6 +92,8 @@ set(cpsl_srcs
   Statements/IfStatement.cpp
   Statements/IfBlockStatement.hpp
   Statements/IfBlockStatement.cpp
+  Statements/ForStatement.hpp
+  Statements/ForStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp
