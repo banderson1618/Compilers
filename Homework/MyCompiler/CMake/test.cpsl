@@ -1,0 +1,8 @@
+VAR 
+  bool : boolean;
+BEGIN
+  bool := true;
+  write("The answer is ",bool,"\n");
+  bool := pred(bool);
+  write("The answer is ",bool,"\n");
+END.

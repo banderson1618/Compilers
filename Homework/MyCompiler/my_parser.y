@@ -13,6 +13,8 @@
 #include "Expressions/GreaterExpression.hpp"
 
 #include "Expressions/AddExpression.hpp"
+#include "Expressions/SuccExpression.hpp"
+#include "Expressions/PredExpression.hpp"
 #include "Expressions/BitwiseExpression.hpp"
 #include "Expressions/DivExpression.hpp"
 #include "Expressions/FuncExpression.hpp"
@@ -35,6 +37,7 @@
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
 #include "Statements/StopStatement.hpp"
+#include "Statements/WhileStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -238,7 +241,7 @@ Lvalue* copy_lval(Lvalue lval){
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <statement> statement assign read_statement write_statement null_statement stop_statement
+%type <statement> statement assign read_statement write_statement null_statement stop_statement while_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block
 %type <string_list> ident_list
@@ -321,10 +324,9 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 								$$ = new ToIntExpression($3);}
 		| PRED_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
 							{ if (testingParser) { std::cout << "Found PredExpression" << std::endl; }
-								$$ = new ToIntExpression($3);}
+								$$ = new PredExpression($3);}
 		| SUCC_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
-							{ if (testingParser) { std::cout << "Found SuccExpression" << std::endl; }
-								$$ = new ToIntExpression($3);}
+							{ $$ = new SuccExpression($3);}
 		| NUM_TOKEN				{ if (testingParser) { std::cout << "Found IntExpression" << std::endl; }
 								$$ = new IntExpression($1);}
 		| CHAR_TOKEN				{ if (testingParser) { std::cout << "Found CharExpression" << std::endl; }
@@ -378,7 +380,7 @@ for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN stat
 repeat_statement: REPEAT_TOKEN statement_seq UNTIL_TOKEN expr
 							{  };
 while_statement	: WHILE_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{  };
+							{ $$ = new WhileStatement($4, $2); };
 if_statement	: IF_TOKEN expr THEN_TOKEN statement_seq elseif_list else_statement END_TOKEN
 							{  }
 		;

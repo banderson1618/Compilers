@@ -37,6 +37,10 @@ set(cpsl_srcs
   Expressions/LessExpression.cpp
   Expressions/GreaterExpression.hpp
   Expressions/GreaterExpression.cpp
+  Expressions/SuccExpression.hpp
+  Expressions/SuccExpression.cpp
+  Expressions/PredExpression.hpp
+  Expressions/PredExpression.cpp
 
   Expressions/AddExpression.hpp
   Expressions/AddExpression.cpp
@@ -80,6 +84,8 @@ set(cpsl_srcs
   Statements/NullStatement.cpp
   Statements/StopStatement.hpp
   Statements/StopStatement.cpp
+  Statements/WhileStatement.hpp
+  Statements/WhileStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp

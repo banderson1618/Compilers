@@ -13,6 +13,7 @@
 #include "Expressions/GreaterExpression.hpp"
 
 #include "Expressions/AddExpression.hpp"
+#include "Expressions/SuccExpression.hpp"
 #include "Expressions/BitwiseExpression.hpp"
 #include "Expressions/DivExpression.hpp"
 #include "Expressions/FuncExpression.hpp"

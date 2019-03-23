@@ -15,7 +15,7 @@ void Program::emit(){
 	for(int i = 0; i < _block_statements->size(); i++){
 		(*_block_statements)[i]->emit();
 	}
-	std::cout << "\tli\t$v0, 10" << std::endl;
+	std::cout << "\tli\t$v0, 10\t\t#End of program" << std::endl;
 	std::cout << "\tsyscall" << std::endl;
 	std::cout << ".data" << std::endl;
 }
