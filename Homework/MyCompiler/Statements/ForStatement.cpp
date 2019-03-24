@@ -18,7 +18,7 @@ extern PrimitiveType* int_type;
 ForStatement::ForStatement(std::string _for_var_id, Expression* _init_var_val, Expression* _bool_expr, std::vector<Statement*>* _statement_seq, ForRunOptions to_or_downto){
 	for_var_id = _for_var_id;
 	for_var_init_val = _init_var_val;
-	symbol_table.add_value
+	
 	switch (to_or_downto){
 		case DOWNTO:{
 			is_downto = true;
@@ -40,6 +40,7 @@ ForStatement::ForStatement(std::string _for_var_id, Expression* _init_var_val, E
 
 void ForStatement::emit(){
 	std::cout << "Something" << std::endl;
+	symbol_table.add_value(for_var_id, int_type); //TODO: Make this dynamic with whatever the expression type is
 	std::string head_label = "for_head_" + std::to_string(for_label_num);
 	std::string end_label = "for_end_" + std::to_string(for_label_num);
 	for_label_num++;

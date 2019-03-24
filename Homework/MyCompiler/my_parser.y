@@ -87,7 +87,7 @@ void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 
 
 void add_const_to_table(char* id, Expression* val){
-	ExpressionResult expr_result = val->emit(); // string label if it's a string, register with value otherwise
+	ExpressionResult expr_result = val->emit();
 	std::string str_id(id);
 	if (val->type == string_type){
 		symbol_table.add_value(str_id, string_type, expr_result._register);
@@ -136,15 +136,6 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 }
 
 
-Lvalue* copy_lval(Lvalue lval){
-	Lvalue* ret_val = new Lvalue;
-	ret_val->offset = lval.offset;
-	ret_val->type = lval.type;
-	ret_val->string_label = lval.string_label;
-	ret_val->is_const = lval.is_const;
-	ret_val->const_val = lval.const_val;
-	return ret_val;
-}
 
 %}
 
@@ -270,19 +261,9 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 		;
 
 
-lvalue 		: ID_TOKEN 				{ 	std::cout << "Found LValue" << std::endl;
-								std::string str_id($1);
-								Lvalue base = symbol_table.get_value(str_id);
-								$$ = new LvalueExpression(copy_lval(base)); } 
-		| lvalue PER_TOKEN ID_TOKEN 		{ 	
-								std::string str_id($3);
-								RecordType* rec_type = dynamic_cast<RecordType*>($1->get_type());
-								Lvalue base = rec_type->get_value(str_id);
-								$$ = new LvalueExpression(copy_lval(base));
-							}
-		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{ 
-								$$ = new LvalueExpression($1, $3);
-							}
+lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression(std::string($1));}
+		| lvalue PER_TOKEN ID_TOKEN 		{ $$ = new LvalueExpression($1, std::string($3)); }
+		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{ $$ = new LvalueExpression($1, $3); }
 		;
 
 // Expressions

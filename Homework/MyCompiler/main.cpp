@@ -36,6 +36,7 @@ void set_predefined_values(SymbolTable &symbol_table){
 	symbol_table.add_const_val("false", bool_type, 0);
 	symbol_table.add_const_val("TRUE", bool_type, 1);
 	symbol_table.add_const_val("FALSE", bool_type, 0);
+	symbol_table.enter_scope();
 }
 
 
@@ -74,9 +75,9 @@ main(int argc, char** argv){
 
 	yyin = myfile;
 
-	//std::ofstream out(output_name);
-	//auto *coutbuf = std::cout.rdbuf();
-	//std::cout.rdbuf(out.rdbuf());
+	std::ofstream out(output_name);
+	auto *coutbuf = std::cout.rdbuf();
+	std::cout.rdbuf(out.rdbuf());
 
 	// doing this here so it gets in the file
 	set_predefined_types(types_table);
@@ -88,7 +89,7 @@ main(int argc, char** argv){
 		std::cerr << "ERROR FOUND: " << e << std::endl;
 		return -1;
 	}
-	//std::cout.rdbuf(coutbuf);
+	std::cout.rdbuf(coutbuf);
 }
 
 
