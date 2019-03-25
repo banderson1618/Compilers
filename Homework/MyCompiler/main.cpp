@@ -28,6 +28,10 @@ void set_predefined_types(TypesTable &types_table){
 	types_table.add_value("char", char_type);
 	types_table.add_value("boolean", bool_type);
 	types_table.add_value("string", string_type);
+	types_table.add_value("INTEGER", int_type);
+	types_table.add_value("CHAR", char_type);
+	types_table.add_value("BOOLEAN", bool_type);
+	types_table.add_value("STRING", string_type);
 	types_table.enter_scope();
 }
 

@@ -15,6 +15,10 @@ class ForStatement : public Statement {
 		ForStatement(std::string, Expression*, Expression*, std::vector<Statement*>*, ForRunOptions);
 		void emit();
 	private:
+
+		void decr_for_var();
+		void incr_for_var();
+		std::string get_bool_reg();
 		std::string for_var_id;
 		Expression* for_var_init_val;		
 		Expression* bool_expr;

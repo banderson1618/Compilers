@@ -363,8 +363,7 @@ stop_statement	: STOP_TOKEN				{ $$ = new StopStatement();}
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
 							{ $$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::TO); }
 		| FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr DOWNTO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{ std::cout << "Found for statement" << std::endl;
-								$$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::DOWNTO); }
+							{ $$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::DOWNTO); }
 		;
 repeat_statement: REPEAT_TOKEN statement_seq UNTIL_TOKEN expr
 							{ $$ = new RepeatStatement($2, $4); };
