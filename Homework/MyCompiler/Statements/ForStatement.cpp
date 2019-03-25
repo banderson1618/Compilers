@@ -94,18 +94,13 @@ void ForStatement::emit(){
 	for_label_num++;
 
 	symbol_table.enter_scope();
-	std::cout << "#assigning init values" << std::endl;
 	assign_init_val(for_var_id, for_var_init_val);
-	std::cout << "#finished assigning init values" << std::endl;
 
 	std::cout << head_label << ":" << std::endl;
 	
-	
-	std::cout << "#checking the for loop var values" << std::endl;
 	std::string bool_reg = get_bool_reg();
 	std::cout << "\tbeq\t" << bool_reg << ", $zero, " << end_label << "\t\t#If false, end for loop" << std::endl;
 	register_pool.return_register(bool_reg);
-	std::cout << "#finished checking the for loop var values" << std::endl;	
 
 	for(int i = 0; i < statement_seq->size(); i++){
 		(*statement_seq)[i]->emit();

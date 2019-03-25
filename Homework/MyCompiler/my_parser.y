@@ -322,6 +322,9 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 								if($1[1] == '\\' && $1[2] == 'n'){
 									new_char = '\n';
 								}
+								else if($1[1] == '\\' && $1[2] == 't'){
+									new_char = '\t';
+								}
 								else{
 									new_char = $1[1];
 								}

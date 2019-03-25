@@ -1,7 +1,0 @@
-VAR 
-  bool : boolean;
-BEGIN
-  write("2>3",2>3,"\n");
-  write("3>3",3>3,"\n");
-  write("4>3",4>3,"\n");
-END.
