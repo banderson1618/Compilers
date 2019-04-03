@@ -81,7 +81,7 @@ bool testingParser = false;
 void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
 	for(int i = 0; i < ids->size(); i++){
 		std::string str((*ids)[i]);
-		symbol_table.add_value(str, type);
+		symbol_table.add_value(str, "$gp", type);
 	}
 }
 
@@ -255,8 +255,7 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
 							{	auto my_tree = new Program($5); 
-								my_tree->emit();
-								string_table.write_strings();}	
+								my_tree->emit();}	
 		| expr END_OF_FILE			{ 	$1->emit(); }
 		;
 

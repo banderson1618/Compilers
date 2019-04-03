@@ -25,7 +25,7 @@ std::string load_character(int char_val){
 
 std::string load_lval(Lvalue* lval){
 	std::string ret_reg = register_pool.get_register();
-	std::cout << "\tlw\t" << ret_reg << ", " << lval->offset << "($sp)\t#lvalue being retrieved" << std::endl;
+	std::cout << "\tlw\t" << ret_reg << ", " << lval->offset << "(" << lval->base_reg << ")\t#lvalue being retrieved" << std::endl;
 	return ret_reg;
 }
 
@@ -45,7 +45,7 @@ std::string get_final_offset_reg(ExpressionResult lval_result, ExpressionResult 
 
 	std::cout << "\tadd\t" << expr_reg << ", " << expr_reg << ", " << base_lval->offset << "\t\t# This is now the offset in absolute terms into memory" << std::endl; 
 
-	std::cout << "\tadd\t" << expr_reg << ", " << expr_reg << ", $sp\t\t#This is now the offset into the global memory location" << std::endl; 
+	std::cout << "\tadd\t" << expr_reg << ", " << expr_reg << ", " << base_lval->base_reg << "\t\t#This is now the offset into the global memory location" << std::endl; 
 	return expr_reg;
 }
 

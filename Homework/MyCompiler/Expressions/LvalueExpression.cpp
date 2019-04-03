@@ -50,6 +50,7 @@ Lvalue* copy_lval(Lvalue lval){
 	ret_val->string_label = lval.string_label;
 	ret_val->is_const = lval.is_const;
 	ret_val->const_val = lval.const_val;
+	ret_val->base_reg = lval.base_reg;
 	return ret_val;
 }
 

@@ -40,14 +40,20 @@ ForStatement::ForStatement(std::string _for_var_id, Expression* _init_var_val, E
 	bool_expr = _bool_expr;
 }
 
+std::string get_init_base_reg(){
+	return "$gp";
+}
+
+
 void assign_init_val(std::string for_var_id, Expression* for_var_init_val){
 	ExpressionResult init_val_result = for_var_init_val->emit();
 
 	if(for_var_init_val->type != int_type && for_var_init_val->type != char_type){
 		throw "For count variable must be int or char";
 	}
+	std::string for_var_base_reg = get_init_base_reg();
 
-	symbol_table.add_value(for_var_id, for_var_init_val->type); //TODO: Make this dynamic with whatever the expression type is
+	symbol_table.add_value(for_var_id, for_var_base_reg, for_var_init_val->type); //TODO: Make this dynamic with whatever the expression type is
 	
 	
 	auto lval_expr = new LvalueExpression(for_var_id);
@@ -55,7 +61,7 @@ void assign_init_val(std::string for_var_id, Expression* for_var_init_val){
 	Lvalue* lval = lval_result.lval;
 
 	std::string for_var_reg = get_reg_from_result(init_val_result);
-	std::cout << "\tsw\t" << for_var_reg << ", " << lval->offset << "($sp)\t#Assign Statement" << std::endl;
+	std::cout << "\tsw\t" << for_var_reg << ", " << lval->offset << "(" << for_var_base_reg << ")\t#Assign Statement" << std::endl;
 
 	register_pool.return_register(for_var_reg);	
 }

@@ -54,36 +54,8 @@ main(int argc, char** argv){
 	bool_type = new PrimitiveType();
 	string_type = new PrimitiveType();
 
-	label_num = 0;
-		
-	if (argc < 2){
-		std::cout << "Missing file argument" << std::endl;
-		return -1;
-	}
+	label_num = 0;	
 
-	
-
-	std::string output_name;
-	if (argc >= 3){
-		output_name = argv[2];
-	}
-	else{
-		output_name = "out.asm";
-	}
-	
-	FILE *myfile = fopen(argv[1], "r");
-	if(!myfile){
-		std::cout << "Can't open file" << std::endl;
-		return -1;
-	}
-
-	yyin = myfile;
-
-	std::ofstream out(output_name);
-	auto *coutbuf = std::cout.rdbuf();
-	std::cout.rdbuf(out.rdbuf());
-
-	// doing this here so it gets in the file
 	set_predefined_types(types_table);
 	set_predefined_values(symbol_table);
 	try{
@@ -93,7 +65,6 @@ main(int argc, char** argv){
 		std::cerr << "ERROR FOUND: " << e << std::endl;
 		return -1;
 	}
-	std::cout.rdbuf(coutbuf);
 }
 
 

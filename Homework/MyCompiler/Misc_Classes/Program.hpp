@@ -9,6 +9,7 @@ class Program{
 		Program(std::vector<Statement*>*);
 		void emit();
 	private:
+		void emit_function_declarations();
 		std::vector<Statement*>* _block_statements;
 
 };

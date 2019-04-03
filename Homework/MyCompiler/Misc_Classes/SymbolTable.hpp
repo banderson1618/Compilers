@@ -13,15 +13,17 @@ struct Lvalue {
 	std::string string_label;
 	bool is_const;
 	int const_val;
+	std::string base_reg;
 };
 
 class SymbolTable{
 	public:
 		SymbolTable();
 
-		void add_value(std::string, Type*);
+		void add_value(std::string, std::string, Type*);
 		void add_value(std::string, Type*, std::string); // for adding string values, basically
 		void add_const_val(std::string, Type*, int);
+
 		Lvalue get_value(std::string);
 
 		void enter_scope();
