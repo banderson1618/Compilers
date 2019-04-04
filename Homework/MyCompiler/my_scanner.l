@@ -42,6 +42,10 @@
 #include "Misc_Classes/RegisterPool.hpp"
 #include "Misc_Classes/ArrayType.hpp"
 #include "Misc_Classes/RecordType.hpp"
+#include "Misc_Classes/Body.hpp"
+#include "Misc_Classes/FunctionDeclaration.hpp"
+
+#include "Misc_Classes/UsefulFunctions.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>

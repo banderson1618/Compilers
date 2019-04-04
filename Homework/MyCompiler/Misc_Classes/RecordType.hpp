@@ -1,10 +1,12 @@
 #ifndef RECORD_TYPE_H
 #define RECORD_TYPE_H
 
+#include "UsefulFunctions.hpp"
 #include "Type.hpp"
 #include "SymbolTable.hpp"
 #include <vector>
 
+struct TypeCreator;
 
 class RecordType : public Type{
 	public:
@@ -20,7 +22,7 @@ class RecordType : public Type{
 
 struct RecItem{
 	std::vector<std::string> id_list;
-	Type* type;
+	TypeCreator* type_creator;
 };
 
 

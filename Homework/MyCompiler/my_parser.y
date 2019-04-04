@@ -53,6 +53,11 @@
 #include "Misc_Classes/Type.hpp"
 #include "Misc_Classes/ArrayType.hpp"
 #include "Misc_Classes/RecordType.hpp"
+#include "Misc_Classes/Body.hpp"
+#include "Misc_Classes/FunctionDeclaration.hpp"
+
+
+#include "Misc_Classes/UsefulFunctions.hpp"
 
 #include <ctype.h>
 #include <iostream>
@@ -77,53 +82,6 @@ void yyerror(const char *s);
 extern int linenumber;
 
 bool testingParser = false;
-
-void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
-	for(int i = 0; i < ids->size(); i++){
-		std::string str((*ids)[i]);
-		symbol_table.add_value(str, "$gp", type);
-	}
-}
-
-
-void add_const_to_table(char* id, Expression* val){
-	ExpressionResult expr_result = val->emit();
-	std::string str_id(id);
-	if (val->type == string_type){
-		symbol_table.add_value(str_id, string_type, expr_result._register);
-	}
-	else{
-		symbol_table.add_const_val(str_id, val->type, expr_result.const_val);
-	}
-}
-
-
-void add_type_to_table(char* id, Type* new_type){
-	std::string str_id(id);
-	types_table.add_value(id, new_type);
-}
-
-ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound, Type* type){
-	ExpressionResult lower_bound_result = lower_bound->emit();
-	ExpressionResult upper_bound_result = upper_bound->emit();
-
-	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";
-
-	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, type);
-}
-
-RecordType* make_record_type(std::vector<RecItem*>* rec_list){
-	std::vector<std::vector<std::string>> id_lists;
-	std::vector<Type*> type_list;
-	for (int i = 0; i < rec_list->size();i++){
-		auto curr_rec_item = (*rec_list)[i];
-		id_lists.push_back(curr_rec_item->id_list);
-		type_list.push_back(curr_rec_item->type);
-	}
-	auto id_list = id_lists[0];
-	std::string temp_string = id_list[0];
-	return new RecordType(id_lists, type_list);
-}
 
 std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_ids){
 	std::vector<std::string> ret_vec;
@@ -223,11 +181,21 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 	std::vector<char*> *string_list;
 	std::vector<IfStatement*>* if_list;
 	Statement* statement;
-	Type* type;
-	ArrayType* arr_type;
-	RecordType* rec_type; 
+	TypeCreator* type;
 	RecItem* rec_item;
 	std::vector<RecItem*>* rec_list;
+	ConstDecl* const_decl;
+	std::vector<ConstDecl*>* const_list;
+	TypeDecl* type_decl;
+	std::vector<TypeDecl*>* type_list;
+	VarDecl* var_decl;
+	std::vector<VarDecl*>* var_list;
+	Param* param;
+	std::vector<Param*>* param_list;
+	FunctionDeclaration* func_decl;
+	std::vector<FunctionDeclaration*>* func_decl_list;
+	VarRef* var_ref;
+	Body* body;
 }
 
 
@@ -241,12 +209,22 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block else_statement
 %type <string_list> ident_list
-%type <type> type simple_type
-%type <arr_type> array_type
-%type <rec_type> record_type
+%type <type> type simple_type array_type record_type
 %type <rec_item> rec_item
 %type <rec_list> rec_list
 %type <if_list> elseif_list
+%type <const_list> const_decl eq_list
+%type <const_decl> eq_item
+%type <type_list> type_decl type_list
+%type <type_decl> type_item
+%type <var_list> var_decl var_list
+%type <var_decl> var_item
+%type <param> param
+%type <param_list> params_list formal_params proc_args proc_start func_start
+%type <func_decl> func_decl proc_decl
+%type <func_decl_list> func_proc_list
+%type <var_ref> varef
+%type <body> body
 
 
 %%
@@ -254,9 +232,10 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
-							{	auto my_tree = new Program($5); 
-								my_tree->emit();}	
-		| expr END_OF_FILE			{ 	$1->emit(); }
+							{	
+								auto my_tree = new Program($1, $2, $3, $4, $5); 
+								my_tree->emit();
+							}	
 		;
 
 
@@ -419,31 +398,51 @@ statement_seq	: statement				{  	auto new_vec = new std::vector<Statement*>;
 
 
 // Constant declaration
-const_decl	: CONST_TOKEN eq_list			{  }
-		| /* empty */				{  }
+const_decl	: CONST_TOKEN eq_list			{ $$ = $2; }
+		| /* empty */				{ $$ = new std::vector<ConstDecl*>; }
 		;
-eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{ add_const_to_table($1, $3); }
+eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{ auto my_const_decl = new ConstDecl;
+								my_const_decl->id = std::string($1);
+								my_const_decl->expr = $3;
+								$$ = my_const_decl; }
 		;
-eq_list		: eq_item 				{  }
-		| eq_list eq_item			{  }
+eq_list		: eq_item 				{ auto my_list = new std::vector<ConstDecl*>;
+								my_list->push_back($1);
+								$$ = my_list; }
+		| eq_list eq_item			{ $1->push_back($2);
+								$$ = $1; }
 		;
 // Type Declarations
-type_decl	: TYPE_TOKEN type_list			{  }
-		| /* empty */				{  }
+type_decl	: TYPE_TOKEN type_list			{ $$ = $2; }
+		| /* empty */				{ $$ = new std::vector<TypeDecl*>;}
 		;
-type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{ add_type_to_table($1, $3); }
+type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{ auto my_type_decl = new TypeDecl;
+								my_type_decl->id = std::string($1);
+								my_type_decl->type_creator = $3;
+								$$ = my_type_decl; }
 		;
-type_list	: type_list type_item			{  }
-		| type_item				{  }
+type_list	: type_list type_item			{ $1->push_back($2);
+								$$ = $1; }
+		| type_item				{ auto my_type_list = new std::vector<TypeDecl*>;
+								my_type_list->push_back($1);
+								$$ = my_type_list; }
 		;
 type		: simple_type				{ $$ = $1; }
 		| record_type				{ $$ = $1; }
 		| array_type				{ $$ = $1; }
 		;
-simple_type	: ID_TOKEN				{ std::string str($1);
-								$$ = types_table.get_value(str); }
+simple_type	: ID_TOKEN				{ 
+								TypeCreator* type_creator = new TypeCreator;
+								type_creator->type_type = TypeType::simple;
+								type_creator->base_id = std::string($1);
+								$$ = type_creator; }
 		;
-record_type	: RECORD_TOKEN rec_list END_TOKEN	{ $$ = make_record_type($2); }
+record_type	: RECORD_TOKEN rec_list END_TOKEN	{ 
+								TypeCreator* type_creator = new TypeCreator;
+								type_creator->type_type = TypeType::record;
+								type_creator->rec_list = $2;
+								$$ = type_creator;
+							}
 		;
 rec_list	: rec_list rec_item 			{ 
 								$1->push_back($2);
@@ -459,12 +458,19 @@ rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 							{ 	
 								RecItem* _rec_item = new RecItem;
 								_rec_item->id_list = get_str_vec_from_chars_vec($1);
-								_rec_item->type = $3;
+								_rec_item->type_creator = $3;
 								$$ = _rec_item;
 							}
 		;
 array_type	: ARRAY_TOKEN LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN OF_TOKEN type
-							{ $$ = make_array_type($3, $5, $8); }
+							{ 
+								TypeCreator* _type_creator = new TypeCreator;
+								_type_creator->type_type = TypeType::array;
+								_type_creator->first_expr = $3;
+								_type_creator->second_expr = $5;
+								_type_creator->elem_type = $8;
+								$$ = _type_creator;
+							}
 		;
 
 ident_list	: ID_TOKEN				{ 
@@ -475,62 +481,94 @@ ident_list	: ID_TOKEN				{
 								$$ = $1; }
 		;
 // Variable Declaration
-var_decl	: VAR_TOKEN var_list			{  }
-		| /* empty */				{  }
+var_decl	: VAR_TOKEN var_list			{ $$ = $2; }
+		| /* empty */				{ $$ = new std::vector<VarDecl*>; }
 		;
-var_list	: var_list var_item 			{  }
-		| var_item				{  }
+var_list	: var_list var_item 			{ $1->push_back($2);
+								$$ = $1; }
+		| var_item				{ auto new_vec = new std::vector<VarDecl*>;
+								new_vec->push_back($1);
+								$$ = new_vec; }
 		;
-var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	{ add_vars_to_symbol_table($1, $3); }
-		| /* empty */
+var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	
+							{ auto my_var_decl = new VarDecl;
+								my_var_decl->id_list = get_str_vec_from_chars_vec($1);
+								my_var_decl->type_creator = $3;								
+								$$ = my_var_decl; }
 		;	
 
 
 // Procedure and Function Declaration
 proc_decl	: proc_start  FORWARD_TOKEN SEMICOLON_TOKEN
-							{  }
-		| proc_start body SEMICOLON_TOKEN	{  }
+							{ $$ = new FunctionDeclaration($1, NULL, NULL);}
+		| proc_start body SEMICOLON_TOKEN	{ $$ = new FunctionDeclaration($1, $2, NULL); }
 		; 
 
 proc_start	: PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN
-							{  }
+							{ $$ = $3; }
 		;
 
-proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN {  }
+proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN { $$ = $2; }
 		;
 
 func_decl	: func_start COLON_TOKEN type SEMICOLON_TOKEN FORWARD_TOKEN SEMICOLON_TOKEN
-							{  }
+							{ $$ = new FunctionDeclaration($1, NULL, $3); }
 		| func_start COLON_TOKEN type SEMICOLON_TOKEN body SEMICOLON_TOKEN
-							{  }
+							{ $$ = new FunctionDeclaration($1, $5, $3); }
 		; 
 
-func_start	: FUNCTION_TOKEN ID_TOKEN proc_args	{  }
+func_start	: FUNCTION_TOKEN ID_TOKEN proc_args	{ $$ = $3; }
 		;
 
-formal_params	: /* empty */				{  }
-		| param params_list			{  }
+formal_params	: param					{ auto new_vec = new std::vector<Param*>;
+								new_vec->push_back($1);
+								$$ = new_vec;  }
+		| params_list param			{ $1->push_back($2);
+								$$ = $1; }
+		| /* empty */				{ auto new_vec = new std::vector<Param*>; 
+								$$ = new_vec; }
 		;
-param		: varef ident_list COLON_TOKEN type	{  }
+param		: varef ident_list COLON_TOKEN type	{ Param* my_param = new Param;
+								my_param->var_ref = $1;
+								my_param->id_list = get_str_vec_from_chars_vec($2);
+								my_param->type_creator = $4;
+								$$ = my_param; }
 		;
-params_list	: SEMICOLON_TOKEN param	params_list	{  }
-		| /* empty */				{  }
+params_list	: param					{ auto params_list = new std::vector<Param*>;
+								params_list->push_back($1);
+					 			$$ = params_list; }
+		| params_list SEMICOLON_TOKEN param	{ $1->push_back($3);
+								$$ = $1; }
+		| /* empty */				{ auto params_list = new std::vector<Param*>;
+								$$ = params_list; }
 		;
 
-varef		: /* empty */				{  }
-		| VAR_TOKEN				{  }
-		| REF_TOKEN				{  }
+varef		: /* empty */				{ VarRef* my_var_ref  = new VarRef{VarRef::neither};
+								$$ = my_var_ref;}
+		| VAR_TOKEN				{ VarRef* my_var_ref  = new VarRef{VarRef::var};
+								$$ = my_var_ref; }
+		| REF_TOKEN				{ VarRef* my_var_ref  = new VarRef{VarRef::ref};
+								$$ = my_var_ref; }
 		;
 
-body		: const_decl type_decl var_decl block	{  }
+body		: const_decl type_decl var_decl block	{ $$ = new Body($1, $2, $3, $4); }
+		;
+
+func_proc_list	: func_decl				{ auto func_decl_list = new std::vector<FunctionDeclaration*>;
+								func_decl_list->push_back($1);
+								$$ = func_decl_list; }
+		| proc_decl				{ auto func_decl_list = new std::vector<FunctionDeclaration*>;
+								func_decl_list->push_back($1);
+								$$ = func_decl_list; }
+		| func_proc_list func_decl		{ $1->push_back($2);
+								$$ = $1; }
+		| func_proc_list proc_decl		{ $1->push_back($2);
+								$$ = $1; }
+		| /* empty */				{ auto func_decl_list = new std::vector<FunctionDeclaration*>; 
+								$$ = func_decl_list; }
 		;
 
 block		: BEGIN_TOKEN statement_seq END_TOKEN	{ $$ = $2; }
-		;
-
-func_proc_list	: func_decl func_proc_list		{  }
-		| proc_decl func_proc_list		{  }
-		| /* empty */				{  }
 		;
 
 

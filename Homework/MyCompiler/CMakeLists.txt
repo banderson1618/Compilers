@@ -113,6 +113,10 @@ set(cpsl_srcs
   Misc_Classes/ArrayType.cpp
   Misc_Classes/RecordType.hpp
   Misc_Classes/RecordType.cpp
+  Misc_Classes/FunctionDeclaration.hpp
+  Misc_Classes/FunctionDeclaration.cpp
+  Misc_Classes/Body.hpp
+  Misc_Classes/Body.cpp
 
 
   ${BISON_Parser_OUTPUTS}

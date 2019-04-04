@@ -1,12 +1,15 @@
 #include "UsefulFunctions.hpp"
 #include "RegisterPool.hpp"
 #include "SymbolTable.hpp"
+#include "TypesTable.hpp"
 #include "ArrayType.hpp"
+#include "RecordType.hpp"
 #include "Expressions/LvalueExpression.hpp"
 #include <iostream>
 #include <string>
 
 extern RegisterPool register_pool;
+extern TypesTable types_table;
 
 std::string get_reg_from_result(ExpressionResult);
 
@@ -104,5 +107,56 @@ std::string get_reg_from_result(ExpressionResult result){
 bool is_const(ExpressionResult result){
 	return result.result_type == const_int || result.result_type == const_char;
 }
+
+
+
+ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound, TypeCreator* type_creator){
+	ExpressionResult lower_bound_result = lower_bound->emit();
+	ExpressionResult upper_bound_result = upper_bound->emit();
+
+	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";
+
+	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, get_type_from_type_creator(type_creator));
+}
+
+RecordType* make_record_type(std::vector<RecItem*>* rec_list){
+	std::vector<std::vector<std::string>> id_lists;
+	std::vector<Type*> type_list;
+	for (int i = 0; i < rec_list->size();i++){
+		auto curr_rec_item = (*rec_list)[i];
+		id_lists.push_back(curr_rec_item->id_list);
+		type_list.push_back(get_type_from_type_creator(curr_rec_item->type_creator));
+	}
+	auto id_list = id_lists[0];
+	std::string temp_string = id_list[0];
+	return new RecordType(id_lists, type_list);
+}
+
+
+Type* get_type_from_type_creator(TypeCreator* type_creator){
+	switch(type_creator->type_type){
+		case TypeType::simple:
+		{
+			return types_table.get_value(type_creator->base_id);
+		}
+		case TypeType::record:
+		{
+			return make_record_type(type_creator->rec_list);
+		}
+		case TypeType::array:
+		{
+			return make_array_type(type_creator->first_expr, type_creator->second_expr, type_creator->elem_type);
+		}
+	};
+}
+
+
+
+
+
+
+
+
+
 
 
