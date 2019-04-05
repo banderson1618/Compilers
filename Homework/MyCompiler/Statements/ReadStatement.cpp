@@ -27,6 +27,6 @@ void ReadStatement::emit(){
 			std::cout << "\tli\t$v0, 5" << "\t#Read Integer" << std::endl;
 		}
 		std::cout << "\tsyscall" << std::endl;
-		std::cout << "\tsw\t$v0, " << lval->offset << "($sp)\t#Save result of read call into the offset" << std::endl;
+		std::cout << "\tsw\t$v0, " << lval->offset << "(" << lval->base_reg << ")\t#Save result of read call into the offset" << std::endl;
  	}
 }

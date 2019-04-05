@@ -1,12 +1,22 @@
 #include "UsefulFunctions.hpp"
 #include "RegisterPool.hpp"
 #include "SymbolTable.hpp"
+#include "TypesTable.hpp"
 #include "ArrayType.hpp"
+#include "RecordType.hpp"
+#include "Type.hpp"
 #include "Expressions/LvalueExpression.hpp"
 #include <iostream>
 #include <string>
 
 extern RegisterPool register_pool;
+extern TypesTable types_table;
+extern SymbolTable symbol_table;
+
+extern PrimitiveType* int_type;
+extern PrimitiveType* char_type;
+extern PrimitiveType* bool_type;
+extern PrimitiveType* string_type;
 
 std::string get_reg_from_result(ExpressionResult);
 
@@ -25,7 +35,7 @@ std::string load_character(int char_val){
 
 std::string load_lval(Lvalue* lval){
 	std::string ret_reg = register_pool.get_register();
-	std::cout << "\tlw\t" << ret_reg << ", " << lval->offset << "($sp)\t#lvalue being retrieved" << std::endl;
+	std::cout << "\tlw\t" << ret_reg << ", " << lval->offset << "(" << lval->base_reg << ")\t#lvalue being retrieved" << std::endl;
 	return ret_reg;
 }
 
@@ -45,7 +55,7 @@ std::string get_final_offset_reg(ExpressionResult lval_result, ExpressionResult 
 
 	std::cout << "\tadd\t" << expr_reg << ", " << expr_reg << ", " << base_lval->offset << "\t\t# This is now the offset in absolute terms into memory" << std::endl; 
 
-	std::cout << "\tadd\t" << expr_reg << ", " << expr_reg << ", $sp\t\t#This is now the offset into the global memory location" << std::endl; 
+	std::cout << "\tadd\t" << expr_reg << ", " << expr_reg << ", " << base_lval->base_reg << "\t\t#This is now the offset into the global memory location" << std::endl; 
 	return expr_reg;
 }
 
@@ -104,5 +114,78 @@ std::string get_reg_from_result(ExpressionResult result){
 bool is_const(ExpressionResult result){
 	return result.result_type == const_int || result.result_type == const_char;
 }
+
+
+
+ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound, TypeCreator* type_creator){
+	ExpressionResult lower_bound_result = lower_bound->emit();
+	ExpressionResult upper_bound_result = upper_bound->emit();
+
+	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";
+
+	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, get_type_from_type_creator(type_creator));
+}
+
+RecordType* make_record_type(std::vector<RecItem*>* rec_list){
+	std::vector<std::vector<std::string>> id_lists;
+	std::vector<Type*> type_list;
+	for (int i = 0; i < rec_list->size();i++){
+		auto curr_rec_item = (*rec_list)[i];
+		id_lists.push_back(curr_rec_item->id_list);
+		type_list.push_back(get_type_from_type_creator(curr_rec_item->type_creator));
+	}
+	auto id_list = id_lists[0];
+	std::string temp_string = id_list[0];
+	return new RecordType(id_lists, type_list);
+}
+
+
+Type* get_type_from_type_creator(TypeCreator* type_creator){
+	switch(type_creator->type_type){
+		case TypeType::simple:
+		{
+			return types_table.get_value(type_creator->base_id);
+		}
+		case TypeType::record:
+		{
+			return make_record_type(type_creator->rec_list);
+		}
+		case TypeType::array:
+		{
+			return make_array_type(type_creator->first_expr, type_creator->second_expr, type_creator->elem_type);
+		}
+	};
+}
+
+
+void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type){
+	for(int i = 0; i < ids.size(); i++){
+		symbol_table.add_value(ids[i], "$gp", type);
+	}
+}
+
+
+void add_const_to_table(std::string id, Expression* val){
+	ExpressionResult expr_result = val->emit();
+	if (val->type == string_type){
+		symbol_table.add_value(id, string_type, expr_result._register);
+	}
+	else{
+		symbol_table.add_const_val(id, val->type, expr_result.const_val);
+	}
+}
+
+
+void add_type_to_table(std::string id, Type* new_type){
+	types_table.add_value(id, new_type);
+}
+
+
+
+
+
+
+
+
 
 

@@ -43,7 +43,7 @@ void AssignStatement::copy_big_data_single_val(Lvalue* lvalue){
 		std::string temp_reg = register_pool.get_register();
 		for(int i = 0; i < lvalue->type->size(); i+=4){
 			std::cout << "\tlw\t" << temp_reg << ", " << i << "(" << expr_offset << ")\t#load Array Value to copy" << std::endl;		
-			std::cout << "\tsw\t" << temp_reg << ", " << lvalue->offset + i << "($sp)\t#Assign Array Value" << std::endl;
+			std::cout << "\tsw\t" << temp_reg << ", " << lvalue->offset + i << "(" << lvalue->base_reg << ")\t#Assign Array Value" << std::endl;
 		}
 		register_pool.return_register(temp_reg);
 		register_pool.return_register(expr_offset);
@@ -68,7 +68,7 @@ void AssignStatement::assign_single_val(ExpressionResult id_result){
 		throw "Type Error in assign statement";
 	}
 	
-	std::cout << "\tsw\t" << reg_to_save << ", " << lval->offset << "($sp)\t#Assign Statement" << std::endl;
+	std::cout << "\tsw\t" << reg_to_save << ", " << lval->offset << "(" << lval->base_reg << ")\t#Assign Statement" << std::endl;
 
 	register_pool.return_register(reg_to_save);
 }

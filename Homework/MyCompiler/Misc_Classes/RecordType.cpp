@@ -2,6 +2,11 @@
 #include <iostream>
 
 
+std::string get_base_reg(){
+	return "$gp";
+}
+
+
 RecordType::RecordType(std::vector<std::vector<std::string>> id_lists, std::vector<Type*> type_list)
 {
 	this->_size = 0;
@@ -15,7 +20,7 @@ RecordType::RecordType(std::vector<std::vector<std::string>> id_lists, std::vect
 		std::vector<std::string> curr_id_list = id_lists[i];
 		for(int j = 0; j < curr_id_list.size(); j++){
 			std::string curr_id = curr_id_list[j];
-			this->small_sym_table.add_value(curr_id, curr_type);
+			this->small_sym_table.add_value(curr_id, get_base_reg(), curr_type);
 			this->_size += curr_type->size();
 		}
 	}

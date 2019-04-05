@@ -30,7 +30,7 @@ ExpressionResult LeqExpression::emit(){
 
 	std::string ret_reg = register_pool.get_register();
 	std::cout << "\tslt\t" << ret_reg << ", " << left_reg << ", " << right_reg << "\t\t#Less Than or Equal To expression" << std::endl;
-	std::cout << "bne\t" << ret_reg << ", $zero, " << label << "# right was less than left, so left is greater than right. Thus, we can return slt" << std::endl;
+	std::cout << "\tbne\t" << ret_reg << ", $zero, " << label << "# right was less than left, so left is greater than right. Thus, we can return slt" << std::endl;
 	
 	std::cout << "\tli\t" << ret_reg << ", 1" << "\t\t#Eq after greater than expression" << std::endl;
 	std::cout << "\tbeq\t" << left_reg << ", " << right_reg << ", " << label << std::endl;

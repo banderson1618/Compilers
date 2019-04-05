@@ -37,6 +37,10 @@ set(cpsl_srcs
   Expressions/LessExpression.cpp
   Expressions/GreaterExpression.hpp
   Expressions/GreaterExpression.cpp
+  Expressions/SuccExpression.hpp
+  Expressions/SuccExpression.cpp
+  Expressions/PredExpression.hpp
+  Expressions/PredExpression.cpp
 
   Expressions/AddExpression.hpp
   Expressions/AddExpression.cpp
@@ -80,6 +84,18 @@ set(cpsl_srcs
   Statements/NullStatement.cpp
   Statements/StopStatement.hpp
   Statements/StopStatement.cpp
+  Statements/RepeatStatement.hpp
+  Statements/RepeatStatement.cpp
+  Statements/WhileStatement.hpp
+  Statements/WhileStatement.cpp
+  Statements/IfStatement.hpp
+  Statements/IfStatement.cpp
+  Statements/IfBlockStatement.hpp
+  Statements/IfBlockStatement.cpp
+  Statements/ForStatement.hpp
+  Statements/ForStatement.cpp
+  Statements/FunctionCallStatement.hpp
+  Statements/FunctionCallStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp
@@ -99,6 +115,12 @@ set(cpsl_srcs
   Misc_Classes/ArrayType.cpp
   Misc_Classes/RecordType.hpp
   Misc_Classes/RecordType.cpp
+  Misc_Classes/FunctionDeclaration.hpp
+  Misc_Classes/FunctionDeclaration.cpp
+  Misc_Classes/Body.hpp
+  Misc_Classes/Body.cpp
+  Misc_Classes/FunctionTable.hpp
+  Misc_Classes/FunctionTable.cpp
 
 
   ${BISON_Parser_OUTPUTS}

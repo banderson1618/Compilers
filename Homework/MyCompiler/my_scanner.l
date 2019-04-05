@@ -13,6 +13,7 @@
 #include "Expressions/GreaterExpression.hpp"
 
 #include "Expressions/AddExpression.hpp"
+#include "Expressions/SuccExpression.hpp"
 #include "Expressions/BitwiseExpression.hpp"
 #include "Expressions/DivExpression.hpp"
 #include "Expressions/FuncExpression.hpp"
@@ -35,11 +36,16 @@
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
 #include "Statements/StopStatement.hpp"
+#include "Statements/IfStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
 #include "Misc_Classes/ArrayType.hpp"
 #include "Misc_Classes/RecordType.hpp"
+#include "Misc_Classes/Body.hpp"
+#include "Misc_Classes/FunctionDeclaration.hpp"
+
+#include "Misc_Classes/UsefulFunctions.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>

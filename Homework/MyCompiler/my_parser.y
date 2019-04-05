@@ -13,6 +13,8 @@
 #include "Expressions/GreaterExpression.hpp"
 
 #include "Expressions/AddExpression.hpp"
+#include "Expressions/SuccExpression.hpp"
+#include "Expressions/PredExpression.hpp"
 #include "Expressions/BitwiseExpression.hpp"
 #include "Expressions/DivExpression.hpp"
 #include "Expressions/FuncExpression.hpp"
@@ -35,6 +37,12 @@
 #include "Statements/WriteStatement.hpp"
 #include "Statements/NullStatement.hpp"
 #include "Statements/StopStatement.hpp"
+#include "Statements/RepeatStatement.hpp"
+#include "Statements/WhileStatement.hpp"
+#include "Statements/IfBlockStatement.hpp"
+#include "Statements/IfStatement.hpp"
+#include "Statements/ForStatement.hpp"
+#include "Statements/FunctionCallStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -46,6 +54,11 @@
 #include "Misc_Classes/Type.hpp"
 #include "Misc_Classes/ArrayType.hpp"
 #include "Misc_Classes/RecordType.hpp"
+#include "Misc_Classes/Body.hpp"
+#include "Misc_Classes/FunctionDeclaration.hpp"
+
+
+#include "Misc_Classes/UsefulFunctions.hpp"
 
 #include <ctype.h>
 #include <iostream>
@@ -71,53 +84,6 @@ extern int linenumber;
 
 bool testingParser = false;
 
-void add_vars_to_symbol_table(std::vector<char*>* ids, Type* type){
-	for(int i = 0; i < ids->size(); i++){
-		std::string str((*ids)[i]);
-		symbol_table.add_value(str, type);
-	}
-}
-
-
-void add_const_to_table(char* id, Expression* val){
-	ExpressionResult expr_result = val->emit(); // string label if it's a string, register with value otherwise
-	std::string str_id(id);
-	if (val->type == string_type){
-		symbol_table.add_value(str_id, string_type, expr_result._register);
-	}
-	else{
-		symbol_table.add_const_val(str_id, val->type, expr_result.const_val);
-	}
-}
-
-
-void add_type_to_table(char* id, Type* new_type){
-	std::string str_id(id);
-	types_table.add_value(id, new_type);
-}
-
-ArrayType* make_array_type(Expression* lower_bound, Expression* upper_bound, Type* type){
-	ExpressionResult lower_bound_result = lower_bound->emit();
-	ExpressionResult upper_bound_result = upper_bound->emit();
-
-	if (!is_const(lower_bound_result) || !is_const(upper_bound_result)) throw "Array bounds must be constants!";
-
-	return new ArrayType(lower_bound_result.const_val, upper_bound_result.const_val, type);
-}
-
-RecordType* make_record_type(std::vector<RecItem*>* rec_list){
-	std::vector<std::vector<std::string>> id_lists;
-	std::vector<Type*> type_list;
-	for (int i = 0; i < rec_list->size();i++){
-		auto curr_rec_item = (*rec_list)[i];
-		id_lists.push_back(curr_rec_item->id_list);
-		type_list.push_back(curr_rec_item->type);
-	}
-	auto id_list = id_lists[0];
-	std::string temp_string = id_list[0];
-	return new RecordType(id_lists, type_list);
-}
-
 std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_ids){
 	std::vector<std::string> ret_vec;
 	for(int i = 0; i < given_ids->size(); i++){
@@ -129,15 +95,6 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 }
 
 
-Lvalue* copy_lval(Lvalue lval){
-	Lvalue* ret_val = new Lvalue;
-	ret_val->offset = lval.offset;
-	ret_val->type = lval.type;
-	ret_val->string_label = lval.string_label;
-	ret_val->is_const = lval.is_const;
-	ret_val->const_val = lval.const_val;
-	return ret_val;
-}
 
 %}
 
@@ -223,12 +180,23 @@ Lvalue* copy_lval(Lvalue lval){
 	std::vector<Statement*> *statementList;
 	std::vector<LvalueExpression*> *lvalList;
 	std::vector<char*> *string_list;
+	std::vector<IfStatement*>* if_list;
 	Statement* statement;
-	Type* type;
-	ArrayType* arr_type;
-	RecordType* rec_type; 
+	TypeCreator* type;
 	RecItem* rec_item;
 	std::vector<RecItem*>* rec_list;
+	ConstDecl* const_decl;
+	std::vector<ConstDecl*>* const_list;
+	TypeDecl* type_decl;
+	std::vector<TypeDecl*>* type_list;
+	VarDecl* var_decl;
+	std::vector<VarDecl*>* var_list;
+	Param* param;
+	std::vector<Param*>* param_list;
+	FunctionDeclaration* func_decl;
+	std::vector<FunctionDeclaration*>* func_decl_list;
+	VarRef* var_ref;
+	Body* body;
 }
 
 
@@ -238,15 +206,26 @@ Lvalue* copy_lval(Lvalue lval){
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <statement> statement assign read_statement write_statement null_statement stop_statement
+%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement for_statement procedure_call
 %type <lvalList> args_list_lval
-%type <statementList> statement_seq block
+%type <statementList> statement_seq block else_statement
 %type <string_list> ident_list
-%type <type> type simple_type
-%type <arr_type> array_type
-%type <rec_type> record_type
+%type <type> type simple_type array_type record_type
 %type <rec_item> rec_item
 %type <rec_list> rec_list
+%type <if_list> elseif_list
+%type <const_list> const_decl eq_list
+%type <const_decl> eq_item
+%type <type_list> type_decl type_list
+%type <type_decl> type_item
+%type <var_list> var_decl var_list
+%type <var_decl> var_item
+%type <param> param
+%type <param_list> params_list formal_params proc_args proc_start func_start
+%type <func_decl> func_decl proc_decl
+%type <func_decl_list> func_proc_list
+%type <var_ref> varef
+%type <body> body
 
 
 %%
@@ -254,25 +233,16 @@ Lvalue* copy_lval(Lvalue lval){
 
 
 program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_FILE
-							{	auto my_tree = new Program($5); 
+							{	
+								auto my_tree = new Program($1, $2, $3, $4, $5); 
 								my_tree->emit();
-								string_table.write_strings();}	
-		| expr END_OF_FILE			{ 	$1->emit(); }
+							}	
 		;
 
 
-lvalue 		: ID_TOKEN 				{ 	std::string str_id($1);
-								Lvalue base = symbol_table.get_value(str_id);
-								$$ = new LvalueExpression(copy_lval(base)); } 
-		| lvalue PER_TOKEN ID_TOKEN 		{ 	
-								std::string str_id($3);
-								RecordType* rec_type = dynamic_cast<RecordType*>($1->get_type());
-								Lvalue base = rec_type->get_value(str_id);
-								$$ = new LvalueExpression(copy_lval(base));
-							}
-		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{ 
-								$$ = new LvalueExpression($1, $3);
-							}
+lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression(std::string($1));}
+		| lvalue PER_TOKEN ID_TOKEN 		{ $$ = new LvalueExpression($1, std::string($3)); }
+		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{ $$ = new LvalueExpression($1, $3); }
 		;
 
 // Expressions
@@ -321,16 +291,18 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 								$$ = new ToIntExpression($3);}
 		| PRED_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
 							{ if (testingParser) { std::cout << "Found PredExpression" << std::endl; }
-								$$ = new ToIntExpression($3);}
+								$$ = new PredExpression($3);}
 		| SUCC_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
-							{ if (testingParser) { std::cout << "Found SuccExpression" << std::endl; }
-								$$ = new ToIntExpression($3);}
+							{ $$ = new SuccExpression($3);}
 		| NUM_TOKEN				{ if (testingParser) { std::cout << "Found IntExpression" << std::endl; }
 								$$ = new IntExpression($1);}
 		| CHAR_TOKEN				{ if (testingParser) { std::cout << "Found CharExpression" << std::endl; }
 								char new_char;
 								if($1[1] == '\\' && $1[2] == 'n'){
 									new_char = '\n';
+								}
+								else if($1[1] == '\\' && $1[2] == 't'){
+									new_char = '\t';
 								}
 								else{
 									new_char = $1[1];
@@ -359,7 +331,7 @@ args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
 
 // Statements
 null_statement 	: /* empty */				{ $$ = new NullStatement(); };
-procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }
+procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { $$ = new FunctionCallStatement(std::string($1), $3); }
 
 
 write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { if (testingParser) { std::cout << "Found WriteStatement" << std::endl; }
@@ -371,23 +343,33 @@ return_statement: RETURN_TOKEN  			{ }
 		;
 stop_statement	: STOP_TOKEN				{ $$ = new StopStatement();}
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{  }
+							{ $$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::TO); }
 		| FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr DOWNTO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{  }
+							{ $$ = new ForStatement(std::string($2), $4, $6, $8, ForRunOptions::DOWNTO); }
 		;
 repeat_statement: REPEAT_TOKEN statement_seq UNTIL_TOKEN expr
-							{  };
+							{ $$ = new RepeatStatement($2, $4); };
 while_statement	: WHILE_TOKEN expr DO_TOKEN statement_seq END_TOKEN
-							{  };
+							{ $$ = new WhileStatement($4, $2); };
 if_statement	: IF_TOKEN expr THEN_TOKEN statement_seq elseif_list else_statement END_TOKEN
-							{  }
+							{ $$ = new IfBlockStatement(new IfStatement($4, $2),
+											$5, $6); }
 		;
-elseif_list	: /* empty */
-		| ELSEIF_TOKEN expr THEN_TOKEN statement_seq elseif_list
-							{  }
+elseif_list	: /* empty */				{ $$ = new std::vector<IfStatement*>; }
+		| elseif_list ELSEIF_TOKEN expr THEN_TOKEN statement_seq 
+							{ 
+								$1->push_back(new IfStatement($5, $3));
+								$$ = $1;
+							}
+		| ELSEIF_TOKEN expr THEN_TOKEN statement_seq 
+							{ 
+								auto ret_vec = new std::vector<IfStatement*>;
+								ret_vec->push_back(new IfStatement($4, $2));
+								$$ = ret_vec;
+							}
 		;
-else_statement	: /* empty */				{  }
-		| ELSE_TOKEN statement_seq		{  }
+else_statement	: /* empty */				{ $$ = NULL; }
+		| ELSE_TOKEN statement_seq		{ $$ = $2; }
 		;
 
 
@@ -395,15 +377,15 @@ assign		: lvalue ASSIGN_TOKEN expr		{  if (testingParser) { std::cout << "Found 
 								$$ = new AssignStatement($1, $3); };
 
 statement	: assign				{ $$ = $1; }
-		| if_statement				{  }
-		| while_statement			{  }
-		| repeat_statement			{  }
-		| for_statement				{  }
+		| if_statement				{ $$ = $1; }
+		| while_statement			{ $$ = $1; }
+		| repeat_statement			{ $$ = $1; }
+		| for_statement				{ $$ = $1; }
 		| stop_statement			{ $$ = $1; }
 		| return_statement			{  }
 		| read_statement			{ $$ = $1; }
 		| write_statement			{ $$ = $1; }
-		| procedure_call			{  }
+		| procedure_call			{ $$ = $1; }
 		| null_statement			{ $$ = $1; }
 		;
 		
@@ -417,31 +399,51 @@ statement_seq	: statement				{  	auto new_vec = new std::vector<Statement*>;
 
 
 // Constant declaration
-const_decl	: CONST_TOKEN eq_list			{  }
-		| /* empty */				{  }
+const_decl	: CONST_TOKEN eq_list			{ $$ = $2; }
+		| /* empty */				{ $$ = new std::vector<ConstDecl*>; }
 		;
-eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{ add_const_to_table($1, $3); }
+eq_item		: ID_TOKEN EQ_TOKEN expr SEMICOLON_TOKEN{ auto my_const_decl = new ConstDecl;
+								my_const_decl->id = std::string($1);
+								my_const_decl->expr = $3;
+								$$ = my_const_decl; }
 		;
-eq_list		: eq_item 				{  }
-		| eq_list eq_item			{  }
+eq_list		: eq_item 				{ auto my_list = new std::vector<ConstDecl*>;
+								my_list->push_back($1);
+								$$ = my_list; }
+		| eq_list eq_item			{ $1->push_back($2);
+								$$ = $1; }
 		;
 // Type Declarations
-type_decl	: TYPE_TOKEN type_list			{  }
-		| /* empty */				{  }
+type_decl	: TYPE_TOKEN type_list			{ $$ = $2; }
+		| /* empty */				{ $$ = new std::vector<TypeDecl*>;}
 		;
-type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{ add_type_to_table($1, $3); }
+type_item	: ID_TOKEN EQ_TOKEN type SEMICOLON_TOKEN{ auto my_type_decl = new TypeDecl;
+								my_type_decl->id = std::string($1);
+								my_type_decl->type_creator = $3;
+								$$ = my_type_decl; }
 		;
-type_list	: type_list type_item			{  }
-		| type_item				{  }
+type_list	: type_list type_item			{ $1->push_back($2);
+								$$ = $1; }
+		| type_item				{ auto my_type_list = new std::vector<TypeDecl*>;
+								my_type_list->push_back($1);
+								$$ = my_type_list; }
 		;
 type		: simple_type				{ $$ = $1; }
 		| record_type				{ $$ = $1; }
 		| array_type				{ $$ = $1; }
 		;
-simple_type	: ID_TOKEN				{ std::string str($1);
-								$$ = types_table.get_value(str); }
+simple_type	: ID_TOKEN				{ 
+								TypeCreator* type_creator = new TypeCreator;
+								type_creator->type_type = TypeType::simple;
+								type_creator->base_id = std::string($1);
+								$$ = type_creator; }
 		;
-record_type	: RECORD_TOKEN rec_list END_TOKEN	{ $$ = make_record_type($2); }
+record_type	: RECORD_TOKEN rec_list END_TOKEN	{ 
+								TypeCreator* type_creator = new TypeCreator;
+								type_creator->type_type = TypeType::record;
+								type_creator->rec_list = $2;
+								$$ = type_creator;
+							}
 		;
 rec_list	: rec_list rec_item 			{ 
 								$1->push_back($2);
@@ -457,12 +459,19 @@ rec_item	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 							{ 	
 								RecItem* _rec_item = new RecItem;
 								_rec_item->id_list = get_str_vec_from_chars_vec($1);
-								_rec_item->type = $3;
+								_rec_item->type_creator = $3;
 								$$ = _rec_item;
 							}
 		;
 array_type	: ARRAY_TOKEN LBRAC_TOKEN expr COLON_TOKEN expr RBRAC_TOKEN OF_TOKEN type
-							{ $$ = make_array_type($3, $5, $8); }
+							{ 
+								TypeCreator* _type_creator = new TypeCreator;
+								_type_creator->type_type = TypeType::array;
+								_type_creator->first_expr = $3;
+								_type_creator->second_expr = $5;
+								_type_creator->elem_type = $8;
+								$$ = _type_creator;
+							}
 		;
 
 ident_list	: ID_TOKEN				{ 
@@ -473,62 +482,91 @@ ident_list	: ID_TOKEN				{
 								$$ = $1; }
 		;
 // Variable Declaration
-var_decl	: VAR_TOKEN var_list			{  }
-		| /* empty */				{  }
+var_decl	: VAR_TOKEN var_list			{ $$ = $2; }
+		| /* empty */				{ $$ = new std::vector<VarDecl*>; }
 		;
-var_list	: var_list var_item 			{  }
-		| var_item				{  }
+var_list	: var_list var_item 			{ $1->push_back($2);
+								$$ = $1; }
+		| var_item				{ auto new_vec = new std::vector<VarDecl*>;
+								new_vec->push_back($1);
+								$$ = new_vec; }
 		;
-var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	{ add_vars_to_symbol_table($1, $3); }
-		| /* empty */
+var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN	
+							{ auto my_var_decl = new VarDecl;
+								my_var_decl->id_list = get_str_vec_from_chars_vec($1);
+								my_var_decl->type_creator = $3;								
+								$$ = my_var_decl; }
 		;	
 
 
 // Procedure and Function Declaration
-proc_decl	: proc_start  FORWARD_TOKEN SEMICOLON_TOKEN
-							{  }
-		| proc_start body SEMICOLON_TOKEN	{  }
+proc_decl	: PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN  FORWARD_TOKEN SEMICOLON_TOKEN
+							{ $$ = new FunctionDeclaration(std::string($2), $3, NULL, NULL);}
+		| PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN body SEMICOLON_TOKEN	
+							{ $$ = new FunctionDeclaration(std::string($2), $3, $5, NULL); }
 		; 
 
-proc_start	: PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN
-							{  }
+proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN { $$ = $2; }
 		;
 
-proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN {  }
-		;
-
-func_decl	: func_start COLON_TOKEN type SEMICOLON_TOKEN FORWARD_TOKEN SEMICOLON_TOKEN
-							{  }
-		| func_start COLON_TOKEN type SEMICOLON_TOKEN body SEMICOLON_TOKEN
-							{  }
+func_decl	: FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN FORWARD_TOKEN SEMICOLON_TOKEN
+							{ $$ = new FunctionDeclaration(std::string($2),$3, NULL, $5); }
+		| FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN body SEMICOLON_TOKEN
+							{ $$ = new FunctionDeclaration(std::string($2),$3, $7, $5); }
 		; 
 
-func_start	: FUNCTION_TOKEN ID_TOKEN proc_args	{  }
+func_start	: FUNCTION_TOKEN ID_TOKEN proc_args	{ $$ = $3; }
 		;
 
-formal_params	: /* empty */				{  }
-		| param params_list			{  }
+formal_params	: param					{ auto new_vec = new std::vector<Param*>;
+								new_vec->push_back($1);
+								$$ = new_vec;  }
+		| params_list param			{ $1->push_back($2);
+								$$ = $1; }
+		| /* empty */				{ auto new_vec = new std::vector<Param*>; 
+								$$ = new_vec; }
 		;
-param		: varef ident_list COLON_TOKEN type	{  }
+param		: varef ident_list COLON_TOKEN type	{ Param* my_param = new Param;
+								my_param->var_ref = $1;
+								my_param->id_list = get_str_vec_from_chars_vec($2);
+								my_param->type_creator = $4;
+								$$ = my_param; }
 		;
-params_list	: SEMICOLON_TOKEN param	params_list	{  }
-		| /* empty */				{  }
+params_list	: param					{ auto params_list = new std::vector<Param*>;
+								params_list->push_back($1);
+					 			$$ = params_list; }
+		| params_list SEMICOLON_TOKEN param	{ $1->push_back($3);
+								$$ = $1; }
+		| /* empty */				{ auto params_list = new std::vector<Param*>;
+								$$ = params_list; }
 		;
 
-varef		: /* empty */				{  }
-		| VAR_TOKEN				{  }
-		| REF_TOKEN				{  }
+varef		: /* empty */				{ VarRef* my_var_ref  = new VarRef{VarRef::neither};
+								$$ = my_var_ref;}
+		| VAR_TOKEN				{ VarRef* my_var_ref  = new VarRef{VarRef::var};
+								$$ = my_var_ref; }
+		| REF_TOKEN				{ VarRef* my_var_ref  = new VarRef{VarRef::ref};
+								$$ = my_var_ref; }
 		;
 
-body		: const_decl type_decl var_decl block	{  }
+body		: const_decl type_decl var_decl block	{ $$ = new Body($1, $2, $3, $4); }
+		;
+
+func_proc_list	: func_decl				{ auto func_decl_list = new std::vector<FunctionDeclaration*>;
+								func_decl_list->push_back($1);
+								$$ = func_decl_list; }
+		| proc_decl				{ auto func_decl_list = new std::vector<FunctionDeclaration*>;
+								func_decl_list->push_back($1);
+								$$ = func_decl_list; }
+		| func_proc_list func_decl		{ $1->push_back($2);
+								$$ = $1; }
+		| func_proc_list proc_decl		{ $1->push_back($2);
+								$$ = $1; }
+		| /* empty */				{ auto func_decl_list = new std::vector<FunctionDeclaration*>; 
+								$$ = func_decl_list; }
 		;
 
 block		: BEGIN_TOKEN statement_seq END_TOKEN	{ $$ = $2; }
-		;
-
-func_proc_list	: func_decl func_proc_list		{  }
-		| proc_decl func_proc_list		{  }
-		| /* empty */				{  }
 		;
 
 

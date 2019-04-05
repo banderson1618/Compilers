@@ -11,8 +11,9 @@ SymbolTable::SymbolTable(){
 	next_offset = 0;
 }
 
-void SymbolTable::add_value(std::string id, Type* type){
+void SymbolTable::add_value(std::string id, std::string base_reg, Type* type){
 	Lvalue new_lval;
+	new_lval.base_reg = base_reg;
 	new_lval.offset = next_offset;
 	new_lval.type = type;
 	new_lval.is_const = false;
@@ -48,7 +49,7 @@ Lvalue SymbolTable::get_value(std::string id){
 		}
 	}
 	std::cout << id << std::endl;
-	throw "Could not find variable " + id;
+	throw "Could not find variable in symbol table";
 }
 
 void SymbolTable::enter_scope(){
