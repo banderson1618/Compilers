@@ -71,7 +71,7 @@ main(int argc, char** argv){
 		std::cout << "Can't open file" << std::endl;
 		return -1;
 	}
-
+	./cpsl < in > out
 	yyin = myfile;
 
 	std::ofstream out(output_name);
