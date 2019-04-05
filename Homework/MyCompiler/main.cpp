@@ -6,6 +6,7 @@
 #include "Misc_Classes/SymbolTable.hpp"
 #include "Misc_Classes/TypesTable.hpp"
 #include "Misc_Classes/StringTable.hpp"
+#include "Misc_Classes/FunctionTable.hpp"
 #include "Misc_Classes/Type.hpp"
 
 extern int yyparse();
@@ -14,6 +15,7 @@ extern FILE *yyin;
 extern SymbolTable symbol_table;
 extern TypesTable types_table;
 extern StringTable string_table;
+extern FunctionTable function_table;
 extern RegisterPool register_pool;
 
 extern int label_num;
@@ -48,6 +50,7 @@ main(int argc, char** argv){
 	symbol_table = SymbolTable();
 	types_table = TypesTable();
 	string_table = StringTable();
+	function_table = FunctionTable();
 	register_pool = RegisterPool();
 	int_type = new PrimitiveType();
 	char_type = new PrimitiveType();

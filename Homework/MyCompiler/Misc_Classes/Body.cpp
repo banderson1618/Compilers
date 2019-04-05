@@ -10,3 +10,9 @@ Body::Body(std::vector<ConstDecl*>* _const_decls, std::vector<TypeDecl*>* _type_
 	var_decls = _var_decl;
 	statement_seq = _statement_list;
 }
+
+void Body::emit(){
+	for(int i = 0; i < statement_seq->size(); i++){
+		(*statement_seq)[i]->emit();
+	}
+}

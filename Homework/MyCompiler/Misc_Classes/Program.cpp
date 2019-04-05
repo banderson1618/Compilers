@@ -13,11 +13,6 @@ extern StringTable string_table;
 extern TypesTable types_table;
 extern SymbolTable symbol_table;
 
-extern PrimitiveType* int_type;
-extern PrimitiveType* char_type;
-extern PrimitiveType* bool_type;
-extern PrimitiveType* string_type;
-
 
 Program::Program(std::vector<ConstDecl*>* _const_decls, std::vector<TypeDecl*>* _type_decls, std::vector<VarDecl*>* _var_decls, std::vector<FunctionDeclaration*>* _func_decls, std::vector<Statement*>* block_statements){
 	_block_statements = block_statements;
@@ -25,33 +20,6 @@ Program::Program(std::vector<ConstDecl*>* _const_decls, std::vector<TypeDecl*>* 
 	type_decls = _type_decls;
 	var_decls = _var_decls;
 	func_decls = _func_decls;
-}
-
-
-void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type){
-	for(int i = 0; i < ids.size(); i++){
-		symbol_table.add_value(ids[i], "$gp", type);
-	}
-}
-
-
-void add_const_to_table(std::string id, Expression* val){
-	ExpressionResult expr_result = val->emit();
-	if (val->type == string_type){
-		symbol_table.add_value(id, string_type, expr_result._register);
-	}
-	else{
-		symbol_table.add_const_val(id, val->type, expr_result.const_val);
-	}
-}
-
-
-void add_type_to_table(std::string id, Type* new_type){
-	types_table.add_value(id, new_type);
-}
-
-void Program::emit_function_declarations(){
-
 }
 
 void Program::add_consts(){
@@ -75,6 +43,14 @@ void Program::add_vars(){
 	}
 }
 
+void Program::declare_functions(){
+	for(int i = 0; i < func_decls->size(); i++){
+		auto func_decl = (*func_decls)[i];
+		std::string label = "func_label_" + std::to_string(i+1);
+		func_decl->emit(label);
+	}
+}
+
 
 void Program::emit(){
 	types_table.get_value("integer");
@@ -82,13 +58,14 @@ void Program::emit(){
 	add_types();
 	add_vars();
 
+
 	std::cout << ".globl main" << std::endl;
 	std::cout << "#Start program here" << std::endl;
 	std::cout << "main:" << std::endl;
 	std::cout << "\tla\t$gp, GLOBAL\t\t#load in the global address" << std::endl;
 	std::cout << "\tj\tprogram_start\t\t#Jump to main method\n" << std::endl;
 
-	emit_function_declarations();
+	declare_functions();
 
 	std::cout << "program_start:" << std::endl;
 	for(int i = 0; i < _block_statements->size(); i++){
@@ -103,3 +80,4 @@ void Program::emit(){
 	std::cout << "\n\n.align 2" << std::endl;
 	std::cout << "GLOBAL:" << std::endl;
 }
+

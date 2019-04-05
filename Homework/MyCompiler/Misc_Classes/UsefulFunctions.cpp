@@ -4,12 +4,19 @@
 #include "TypesTable.hpp"
 #include "ArrayType.hpp"
 #include "RecordType.hpp"
+#include "Type.hpp"
 #include "Expressions/LvalueExpression.hpp"
 #include <iostream>
 #include <string>
 
 extern RegisterPool register_pool;
 extern TypesTable types_table;
+extern SymbolTable symbol_table;
+
+extern PrimitiveType* int_type;
+extern PrimitiveType* char_type;
+extern PrimitiveType* bool_type;
+extern PrimitiveType* string_type;
 
 std::string get_reg_from_result(ExpressionResult);
 
@@ -150,6 +157,28 @@ Type* get_type_from_type_creator(TypeCreator* type_creator){
 	};
 }
 
+
+void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type){
+	for(int i = 0; i < ids.size(); i++){
+		symbol_table.add_value(ids[i], "$gp", type);
+	}
+}
+
+
+void add_const_to_table(std::string id, Expression* val){
+	ExpressionResult expr_result = val->emit();
+	if (val->type == string_type){
+		symbol_table.add_value(id, string_type, expr_result._register);
+	}
+	else{
+		symbol_table.add_const_val(id, val->type, expr_result.const_val);
+	}
+}
+
+
+void add_type_to_table(std::string id, Type* new_type){
+	types_table.add_value(id, new_type);
+}
 
 
 

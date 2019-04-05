@@ -42,6 +42,7 @@
 #include "Statements/IfBlockStatement.hpp"
 #include "Statements/IfStatement.hpp"
 #include "Statements/ForStatement.hpp"
+#include "Statements/FunctionCallStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -205,7 +206,7 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement for_statement
+%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement for_statement procedure_call
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block else_statement
 %type <string_list> ident_list
@@ -330,7 +331,7 @@ args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
 
 // Statements
 null_statement 	: /* empty */				{ $$ = new NullStatement(); };
-procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { }
+procedure_call 	: ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { $$ = new FunctionCallStatement(std::string($1), $3); }
 
 
 write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { if (testingParser) { std::cout << "Found WriteStatement" << std::endl; }
@@ -384,7 +385,7 @@ statement	: assign				{ $$ = $1; }
 		| return_statement			{  }
 		| read_statement			{ $$ = $1; }
 		| write_statement			{ $$ = $1; }
-		| procedure_call			{  }
+		| procedure_call			{ $$ = $1; }
 		| null_statement			{ $$ = $1; }
 		;
 		
@@ -499,22 +500,19 @@ var_item 	: ident_list COLON_TOKEN type SEMICOLON_TOKEN
 
 
 // Procedure and Function Declaration
-proc_decl	: proc_start  FORWARD_TOKEN SEMICOLON_TOKEN
-							{ $$ = new FunctionDeclaration($1, NULL, NULL);}
-		| proc_start body SEMICOLON_TOKEN	{ $$ = new FunctionDeclaration($1, $2, NULL); }
+proc_decl	: PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN  FORWARD_TOKEN SEMICOLON_TOKEN
+							{ $$ = new FunctionDeclaration(std::string($2), $3, NULL, NULL);}
+		| PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN body SEMICOLON_TOKEN	
+							{ $$ = new FunctionDeclaration(std::string($2), $3, $5, NULL); }
 		; 
-
-proc_start	: PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN
-							{ $$ = $3; }
-		;
 
 proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN { $$ = $2; }
 		;
 
-func_decl	: func_start COLON_TOKEN type SEMICOLON_TOKEN FORWARD_TOKEN SEMICOLON_TOKEN
-							{ $$ = new FunctionDeclaration($1, NULL, $3); }
-		| func_start COLON_TOKEN type SEMICOLON_TOKEN body SEMICOLON_TOKEN
-							{ $$ = new FunctionDeclaration($1, $5, $3); }
+func_decl	: FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN FORWARD_TOKEN SEMICOLON_TOKEN
+							{ $$ = new FunctionDeclaration(std::string($2),$3, NULL, $5); }
+		| FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN body SEMICOLON_TOKEN
+							{ $$ = new FunctionDeclaration(std::string($2),$3, $7, $5); }
 		; 
 
 func_start	: FUNCTION_TOKEN ID_TOKEN proc_args	{ $$ = $3; }

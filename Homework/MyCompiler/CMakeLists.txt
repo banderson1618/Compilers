@@ -94,6 +94,8 @@ set(cpsl_srcs
   Statements/IfBlockStatement.cpp
   Statements/ForStatement.hpp
   Statements/ForStatement.cpp
+  Statements/FunctionCallStatement.hpp
+  Statements/FunctionCallStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp
@@ -117,6 +119,8 @@ set(cpsl_srcs
   Misc_Classes/FunctionDeclaration.cpp
   Misc_Classes/Body.hpp
   Misc_Classes/Body.cpp
+  Misc_Classes/FunctionTable.hpp
+  Misc_Classes/FunctionTable.cpp
 
 
   ${BISON_Parser_OUTPUTS}
