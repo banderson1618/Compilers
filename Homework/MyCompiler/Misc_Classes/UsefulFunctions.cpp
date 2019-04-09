@@ -6,12 +6,15 @@
 #include "RecordType.hpp"
 #include "Type.hpp"
 #include "Expressions/LvalueExpression.hpp"
+#include "FunctionTable.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
 
 extern RegisterPool register_pool;
 extern TypesTable types_table;
 extern SymbolTable symbol_table;
+extern FunctionTable function_table;
 
 extern PrimitiveType* int_type;
 extern PrimitiveType* char_type;
@@ -164,6 +167,12 @@ void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type){
 	}
 }
 
+void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type, std::string base_reg){
+	for(int i = 0; i < ids.size(); i++){
+		symbol_table.add_value(ids[i], base_reg, type);
+	}
+}
+
 
 void add_const_to_table(std::string id, Expression* val){
 	ExpressionResult expr_result = val->emit();
@@ -179,6 +188,134 @@ void add_const_to_table(std::string id, Expression* val){
 void add_type_to_table(std::string id, Type* new_type){
 	types_table.add_value(id, new_type);
 }
+
+//---------------------------------------------------------------------------
+//
+// Function Calling
+//
+//---------------------------------------------------------------------------
+
+
+
+void spill_registers(int size_to_save){
+	std::cout << "#spilling all registers" << std::endl;
+	for(int i = 0; i < 8; i++){
+		std::cout << "\tsw\t$t" << i << ", " << (i*2) * 4 + (size_to_save - 72) << "($sp)" << std::endl;
+		std::cout << "\tsw\t$s" << i << ", " << (i*2+1) * 4 + (size_to_save - 72)<< "($sp)" << std::endl;
+	}
+	std::cout << "\tsw\t$fp, " << size_to_save - 8 << "($sp)" << std::endl;
+	std::cout << "\tsw\t$ra, " << size_to_save - 4 << "($sp)" << std::endl;
+}
+
+void load_registers(int size_to_save){
+	std::cout << "#loading all registers" << std::endl;
+	for(int i = 0; i < 8; i++){
+		std::cout << "\tlw\t$t" << i << ", " << (i*2) * 4 + (size_to_save - 72) << "($sp)" << std::endl;
+		std::cout << "\tlw\t$s" << i << ", " << (i*2+1) * 4 + (size_to_save - 72) << "($sp)" << std::endl;
+	}
+	std::cout << "\tlw\t$fp, " << size_to_save - 8 << "($sp)" << std::endl;
+	std::cout << "\tlw\t$ra, " << size_to_save - 4 << "($sp)" << std::endl;
+}
+
+std::vector<std::string> get_arg_registers(FuncPrototype my_prototype, std::vector<Expression*>* args){
+	if (my_prototype.arg_types.size() != args->size()){
+		throw "Wrong number of args in function call";
+	}
+	
+	std::vector<std::string> arg_registers;
+	for(int i = 0; i < args->size(); i++){
+		auto arg = (*args)[i];
+		Type* expected_arg_type = my_prototype.arg_types[i];
+		ExpressionResult arg_result = arg->emit();
+		if (arg->type != expected_arg_type){
+			throw "Function call args don't match function prototype"; 
+		}
+		arg_registers.push_back(get_reg_from_result(arg_result));	
+	}
+	return arg_registers;
+}
+
+int get_size_to_save(FuncPrototype prototype, std::vector<Expression*>* args){
+	int registers_size = 72; // 4 * 16 = 64 for $t and $s, plus $fp and $ra
+	
+	int ret_val_size = 0;
+	if (prototype.ret_type != NULL) {
+		ret_val_size = prototype.ret_type->size();
+	}
+
+	int args_size = 0;
+	for(int i = 0; i < args->size(); i++){
+		args_size += (*args)[i]->type->size();
+	}
+
+
+	return registers_size + ret_val_size + args_size;
+}
+
+
+int save_to_stack(FuncPrototype prototype, std::vector<Expression*>* args, std::vector<std::string> arg_registers){
+	int size_to_save = get_size_to_save(prototype, args);
+
+	std::cout << "\taddi\t$sp, $sp, -" << size_to_save << "\t\t#add enough space to the stack to hold all the registers, the frame pointer, and the return address" << std::endl;
+	spill_registers(size_to_save);
+
+	std::cout << "#saving args" << std::endl;
+
+	int offset = prototype.ret_type->size();
+
+	for(int i = 0; i < arg_registers.size(); i++){
+		std::cout << "\tsw\t" << arg_registers[i] << ", " << offset << "($sp)" << std::endl;
+		offset += (*args)[i]->type->size();
+	}
+
+	return size_to_save;
+}
+
+
+void return_arg_registers(std::vector<std::string> arg_registers){
+	for(int i = 0; i < arg_registers.size(); i++){
+		register_pool.return_register(arg_registers[i]);
+	}
+}
+
+
+
+ExpressionResult call_function(std::string id, std::vector<Expression*>* args){
+	std::cout << "#Calling function" << std::endl;
+	FuncPrototype my_prototype = function_table.get_value(id);
+	std::vector<std::string> arg_registers = get_arg_registers(my_prototype, args);
+
+	int size_to_save = save_to_stack(my_prototype, args, arg_registers);
+	return_arg_registers(arg_registers);
+	std::cout << "\tori\t$fp, $sp, 0\t\t#Set frame pointer to the stack pointer" << std::endl;
+	std::cout << "\tjal\t" << my_prototype.func_label << "\t\t#Go to function" << std::endl;
+
+	load_registers(size_to_save);
+
+	std::string ret_reg = register_pool.get_register();
+	std::cout << "\tlw\t" << ret_reg << ", 0($sp)\t\t#load return value" << std::endl;
+	std::cout << "\taddi\t$sp, $sp, " << size_to_save <<  "\t\t#get that space back" << std::endl;
+
+	ExpressionResult ret_result;
+	ret_result.result_type = reg;
+	ret_result._register = ret_reg;
+	return ret_result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

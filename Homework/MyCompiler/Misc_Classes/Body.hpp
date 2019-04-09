@@ -9,6 +9,7 @@ class Body {
 	public:
 		Body(std::vector<ConstDecl*>*, std::vector<TypeDecl*>*, std::vector<VarDecl*>*, std::vector<Statement*>*);
 		void emit();
+		void write_epilogue();
 
 	private:
 		std::vector<ConstDecl*>* const_decls;

@@ -17,7 +17,6 @@
 #include "Expressions/PredExpression.hpp"
 #include "Expressions/BitwiseExpression.hpp"
 #include "Expressions/DivExpression.hpp"
-#include "Expressions/FuncExpression.hpp"
 #include "Expressions/MultExpression.hpp"
 #include "Expressions/NegExpression.hpp"
 #include "Expressions/ParenExpression.hpp"
@@ -25,6 +24,7 @@
 #include "Expressions/SubExpression.hpp"
 #include "Expressions/ToCharExpression.hpp"
 #include "Expressions/ToIntExpression.hpp"
+#include "Expressions/FunctionCallExpression.hpp"
 
 
 #include "Expressions/IntExpression.hpp"
@@ -43,6 +43,7 @@
 #include "Statements/IfStatement.hpp"
 #include "Statements/ForStatement.hpp"
 #include "Statements/FunctionCallStatement.hpp"
+#include "Statements/ReturnStatement.hpp"
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
@@ -206,7 +207,7 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 %type <exprList> args_list
 %type <val> NUM_TOKEN
 %type <stringVal> STRING_TOKEN CHAR_TOKEN
-%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement for_statement procedure_call
+%type <statement> statement assign read_statement write_statement null_statement stop_statement repeat_statement while_statement if_statement for_statement procedure_call return_statement
 %type <lvalList> args_list_lval
 %type <statementList> statement_seq block else_statement
 %type <string_list> ident_list
@@ -221,7 +222,7 @@ std::vector<std::string> get_str_vec_from_chars_vec(std::vector<char*>* given_id
 %type <var_list> var_decl var_list
 %type <var_decl> var_item
 %type <param> param
-%type <param_list> params_list formal_params proc_args proc_start func_start
+%type <param_list> params_list formal_params proc_args
 %type <func_decl> func_decl proc_decl
 %type <func_decl_list> func_proc_list
 %type <var_ref> varef
@@ -237,6 +238,7 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 								auto my_tree = new Program($1, $2, $3, $4, $5); 
 								my_tree->emit();
 							}	
+		| proc_decl END_OF_FILE			{std::cout << "parsed successfully" << std::endl;}
 		;
 
 
@@ -282,7 +284,7 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 								$$ = new ParenExpression($2);}
 		| ID_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN 
 							{ if (testingParser) { std::cout << "Found FuncExpression" << std::endl; }
-								$$ = new FuncExpression($1, $3);}
+								$$ = new FunctionCallExpression($1, $3);}
 		| CHR_TOKEN LPAREN_TOKEN expr RPAREN_TOKEN 
 							{ if (testingParser) { std::cout << "Found ToCharExpression" << std::endl; }
 								$$ = new ToCharExpression($3);}
@@ -338,8 +340,8 @@ write_statement	: WRITE_TOKEN LPAREN_TOKEN args_list RPAREN_TOKEN { if (testingP
 									$$ = new WriteStatement($3);};
 read_statement	: READ_TOKEN LPAREN_TOKEN args_list_lval RPAREN_TOKEN { if (testingParser) { std::cout << "Found ReadStatement" << std::endl; }
 									$$ = new ReadStatement($3);};
-return_statement: RETURN_TOKEN  			{ }
-		| RETURN_TOKEN expr  			{ }
+return_statement: RETURN_TOKEN  			{ $$ = new ReturnStatement(NULL); }
+		| RETURN_TOKEN expr  			{ $$ = new ReturnStatement($2);}
 		;
 stop_statement	: STOP_TOKEN				{ $$ = new StopStatement();}
 for_statement	: FOR_TOKEN ID_TOKEN ASSIGN_TOKEN expr TO_TOKEN expr DO_TOKEN statement_seq END_TOKEN
@@ -382,7 +384,7 @@ statement	: assign				{ $$ = $1; }
 		| repeat_statement			{ $$ = $1; }
 		| for_statement				{ $$ = $1; }
 		| stop_statement			{ $$ = $1; }
-		| return_statement			{  }
+		| return_statement			{ $$ = $1; }
 		| read_statement			{ $$ = $1; }
 		| write_statement			{ $$ = $1; }
 		| procedure_call			{ $$ = $1; }
@@ -515,13 +517,10 @@ func_decl	: FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN F
 							{ $$ = new FunctionDeclaration(std::string($2),$3, $7, $5); }
 		; 
 
-func_start	: FUNCTION_TOKEN ID_TOKEN proc_args	{ $$ = $3; }
-		;
-
 formal_params	: param					{ auto new_vec = new std::vector<Param*>;
 								new_vec->push_back($1);
 								$$ = new_vec;  }
-		| params_list param			{ $1->push_back($2);
+		| params_list SEMICOLON_TOKEN param	{ $1->push_back($3);
 								$$ = $1; }
 		| /* empty */				{ auto new_vec = new std::vector<Param*>; 
 								$$ = new_vec; }

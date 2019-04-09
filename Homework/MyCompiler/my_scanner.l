@@ -16,7 +16,6 @@
 #include "Expressions/SuccExpression.hpp"
 #include "Expressions/BitwiseExpression.hpp"
 #include "Expressions/DivExpression.hpp"
-#include "Expressions/FuncExpression.hpp"
 #include "Expressions/MultExpression.hpp"
 #include "Expressions/NegExpression.hpp"
 #include "Expressions/ParenExpression.hpp"

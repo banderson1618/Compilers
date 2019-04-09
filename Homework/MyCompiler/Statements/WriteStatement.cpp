@@ -78,8 +78,11 @@ void WriteStatement::emit(){
 			//write_bool(reg_to_print);
 			write_integer(reg_to_print);
 		}
-		else{
+		else if (expr->type == int_type){
 			write_integer(reg_to_print);
+		}
+		else{
+			throw "Can't write non-primitive";
 		}
 		
 		std::cout << "\tsyscall" << std::endl;

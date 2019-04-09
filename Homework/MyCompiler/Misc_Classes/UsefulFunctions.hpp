@@ -58,5 +58,8 @@ Type* get_type_from_type_creator(TypeCreator*);
 void add_const_to_table(std::string id, Expression* val);
 void add_type_to_table(std::string id, Type* new_type);
 void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type);
+void add_vars_to_symbol_table(std::vector<std::string> ids, Type* type, std::string base_reg);
+
+ExpressionResult call_function(std::string, std::vector<Expression*>*);
 
 #endif

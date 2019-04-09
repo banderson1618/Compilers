@@ -41,7 +41,8 @@ ForStatement::ForStatement(std::string _for_var_id, Expression* _init_var_val, E
 }
 
 std::string get_init_base_reg(){
-	return "$gp";
+	if(symbol_table.get_scope() == 2) return "$gp";
+	else return "$sp";
 }
 
 
@@ -53,7 +54,11 @@ void assign_init_val(std::string for_var_id, Expression* for_var_init_val){
 	}
 	std::string for_var_base_reg = get_init_base_reg();
 
-	symbol_table.add_value(for_var_id, for_var_base_reg, for_var_init_val->type); //TODO: Make this dynamic with whatever the expression type is
+	try{
+		symbol_table.get_value(for_var_id);
+	}catch(const char* msg){
+		symbol_table.add_value(for_var_id, for_var_base_reg, for_var_init_val->type);
+	}
 	
 	
 	auto lval_expr = new LvalueExpression(for_var_id);
@@ -61,7 +66,7 @@ void assign_init_val(std::string for_var_id, Expression* for_var_init_val){
 	Lvalue* lval = lval_result.lval;
 
 	std::string for_var_reg = get_reg_from_result(init_val_result);
-	std::cout << "\tsw\t" << for_var_reg << ", " << lval->offset << "(" << for_var_base_reg << ")\t#Assign Statement" << std::endl;
+	std::cout << "\tsw\t" << for_var_reg << ", " << lval->offset << "(" << for_var_base_reg << ")\t#Assign for loop variable" << std::endl;
 
 	register_pool.return_register(for_var_reg);	
 }
@@ -99,7 +104,7 @@ void ForStatement::emit(){
 	std::string end_label = "for_end_" + std::to_string(for_label_num);
 	for_label_num++;
 
-	symbol_table.enter_scope();
+	//symbol_table.enter_scope();
 	assign_init_val(for_var_id, for_var_init_val);
 
 	std::cout << head_label << ":" << std::endl;
@@ -120,7 +125,7 @@ void ForStatement::emit(){
 	}
 	std::cout << "\tj " << head_label << std::endl;
 	std::cout << end_label << ":" << std::endl;
-	symbol_table.exit_scope();
+	//symbol_table.exit_scope();
 }
 
 int ForStatement::for_label_num = 1;

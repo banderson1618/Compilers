@@ -10,6 +10,7 @@
 struct FuncPrototype{
 	std::string func_label;
 	std::vector<Type*> arg_types;
+	Type* ret_type;
 };
 
 class FunctionTable{

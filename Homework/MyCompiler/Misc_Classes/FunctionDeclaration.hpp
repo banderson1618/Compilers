@@ -14,6 +14,7 @@ class FunctionDeclaration{
 		void write_prologue();
 		void write_epilogue();
 		void add_to_func_table(std::string);
+		void add_args_to_symbol_table();
 		std::string id;
 		std::vector<Param*>* params;
 		Body* body;

@@ -28,10 +28,17 @@ class SymbolTable{
 
 		void enter_scope();
 		void exit_scope();
+		void reset_sp_offset();
+		void reset_fp_offset();
+		void set_fp_offset(int);
+
+		int get_scope();
 		
 	private:
 		std::vector<std::map<std::string, Lvalue>> tables;
-		int next_offset;
+		int next_gp_offset;
+		int next_sp_offset;
+		int next_fp_offset;
 };
 
 #endif

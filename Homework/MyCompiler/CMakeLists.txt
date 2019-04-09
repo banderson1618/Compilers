@@ -41,6 +41,8 @@ set(cpsl_srcs
   Expressions/SuccExpression.cpp
   Expressions/PredExpression.hpp
   Expressions/PredExpression.cpp
+  Expressions/FunctionCallExpression.hpp
+  Expressions/FunctionCallExpression.cpp
 
   Expressions/AddExpression.hpp
   Expressions/AddExpression.cpp
@@ -48,8 +50,6 @@ set(cpsl_srcs
   Expressions/BitwiseExpression.cpp
   Expressions/DivExpression.hpp
   Expressions/DivExpression.cpp
-  Expressions/FuncExpression.hpp
-  Expressions/FuncExpression.cpp
   Expressions/MultExpression.hpp
   Expressions/MultExpression.cpp
   Expressions/NegExpression.hpp
@@ -96,6 +96,8 @@ set(cpsl_srcs
   Statements/ForStatement.cpp
   Statements/FunctionCallStatement.hpp
   Statements/FunctionCallStatement.cpp
+  Statements/ReturnStatement.hpp
+  Statements/ReturnStatement.cpp
 
   Misc_Classes/Program.hpp
   Misc_Classes/Program.cpp
