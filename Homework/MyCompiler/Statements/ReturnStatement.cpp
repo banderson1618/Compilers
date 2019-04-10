@@ -12,6 +12,9 @@
 extern SymbolTable symbol_table;
 extern RegisterPool register_pool;
 
+std::string epilogue_label;
+int epilogue_num = 1;
+
 ReturnStatement::ReturnStatement(Expression* _val){
 	val = _val;
 }
@@ -21,4 +24,9 @@ void ReturnStatement::emit(){
 	std::string val_reg = get_reg_from_result(val_result);
 
 	std::cout << "\tsw\t" << val_reg << ", 0($fp)\t\t#Loading return value" << std::endl;
+	std::cout << "\tj\t" << epilogue_label << "\t\t#Jump to end of function" << std::endl;
 }
+
+
+
+

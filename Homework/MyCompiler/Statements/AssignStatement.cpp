@@ -47,10 +47,7 @@ void AssignStatement::copy_big_data_single_val(Lvalue* lvalue){
 		}
 		register_pool.return_register(temp_reg);
 		register_pool.return_register(expr_offset);
-	} 
-	//else if(expr_result.result_type == lval){
-	//	expr_offset = expr_result.lval;
-	//}	
+	} 	
 }
 
 

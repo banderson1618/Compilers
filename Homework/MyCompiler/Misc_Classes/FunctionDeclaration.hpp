@@ -19,6 +19,7 @@ class FunctionDeclaration{
 		std::vector<Param*>* params;
 		Body* body;
 		Type* ret_type;
+		TypeCreator* ret_type_creator;
 };
 
 

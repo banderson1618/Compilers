@@ -15,7 +15,7 @@ FunctionDeclaration::FunctionDeclaration(std::string _id, std::vector<Param*>* _
 	id = _id;
 	params = _params;
 	body = _body;
-	ret_type = get_type_from_type_creator(_ret_type);
+	ret_type_creator = _ret_type;
 }
 
 
@@ -52,10 +52,11 @@ void FunctionDeclaration::add_args_to_symbol_table(){
 
 
 void FunctionDeclaration::emit(std::string label){
+	ret_type = get_type_from_type_creator(ret_type_creator);
 	add_to_func_table(label);
 
 	symbol_table.enter_scope();
-	symbol_table.set_fp_offset(ret_type->size());
+	if(ret_type != NULL) symbol_table.set_fp_offset(ret_type->size());
 
 	add_args_to_symbol_table();
 

@@ -238,7 +238,6 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 								auto my_tree = new Program($1, $2, $3, $4, $5); 
 								my_tree->emit();
 							}	
-		| proc_decl END_OF_FILE			{std::cout << "parsed successfully" << std::endl;}
 		;
 
 

@@ -53,7 +53,6 @@ void Program::declare_functions(){
 
 
 void Program::emit(){
-	types_table.get_value("integer");
 	add_consts();
 	add_types();
 	add_vars();

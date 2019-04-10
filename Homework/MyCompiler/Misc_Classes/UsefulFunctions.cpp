@@ -144,6 +144,7 @@ RecordType* make_record_type(std::vector<RecItem*>* rec_list){
 
 
 Type* get_type_from_type_creator(TypeCreator* type_creator){
+	if (type_creator == NULL) return NULL;
 	switch(type_creator->type_type){
 		case TypeType::simple:
 		{
@@ -217,12 +218,18 @@ void load_registers(int size_to_save){
 	std::cout << "\tlw\t$ra, " << size_to_save - 4 << "($sp)" << std::endl;
 }
 
-std::vector<std::string> get_arg_registers(FuncPrototype my_prototype, std::vector<Expression*>* args){
+struct ArgReg{
+	bool is_primitive;
+	std::string reg;
+	Lvalue* lval;
+};
+
+std::vector<ArgReg> get_arg_registers(FuncPrototype my_prototype, std::vector<Expression*>* args){
 	if (my_prototype.arg_types.size() != args->size()){
 		throw "Wrong number of args in function call";
 	}
 	
-	std::vector<std::string> arg_registers;
+	std::vector<ArgReg> arg_registers;
 	for(int i = 0; i < args->size(); i++){
 		auto arg = (*args)[i];
 		Type* expected_arg_type = my_prototype.arg_types[i];
@@ -230,7 +237,17 @@ std::vector<std::string> get_arg_registers(FuncPrototype my_prototype, std::vect
 		if (arg->type != expected_arg_type){
 			throw "Function call args don't match function prototype"; 
 		}
-		arg_registers.push_back(get_reg_from_result(arg_result));	
+		
+		ArgReg new_arg_reg;
+		if(arg->type->size() == 4){
+			new_arg_reg.is_primitive = true;
+			new_arg_reg.reg = get_reg_from_result(arg_result);
+		} 
+		else{ // it's a record or array	
+			new_arg_reg.is_primitive = false;			
+			new_arg_reg.lval = arg_result.lval;
+		}
+		arg_registers.push_back(new_arg_reg);	
 	}
 	return arg_registers;
 }
@@ -252,19 +269,34 @@ int get_size_to_save(FuncPrototype prototype, std::vector<Expression*>* args){
 	return registers_size + ret_val_size + args_size;
 }
 
+void copy_big_arg(int copy_to_offset, Lvalue* lval){
+	std::cout << "#Copy big arg here" << std::endl;
+	std::string temp_reg = register_pool.get_register();
+	for(int i = 0; i < lval->type->size(); i+=4){
+		std::cout << "\tlw\t" << temp_reg << ", " << i + lval->offset << "(" << lval->base_reg << ")\t#load Array Value to copy" << std::endl;		
+		std::cout << "\tsw\t" << temp_reg << ", " << i + copy_to_offset << "($sp)\t#Copy array val into argument" << std::endl;
+	}
+	register_pool.return_register(temp_reg);
+}
 
-int save_to_stack(FuncPrototype prototype, std::vector<Expression*>* args, std::vector<std::string> arg_registers){
+
+int save_to_stack(FuncPrototype prototype, std::vector<Expression*>* args, std::vector<ArgReg> arg_registers){
 	int size_to_save = get_size_to_save(prototype, args);
 
 	std::cout << "\taddi\t$sp, $sp, -" << size_to_save << "\t\t#add enough space to the stack to hold all the registers, the frame pointer, and the return address" << std::endl;
 	spill_registers(size_to_save);
 
 	std::cout << "#saving args" << std::endl;
-
-	int offset = prototype.ret_type->size();
+	int offset = 0;
+	if(prototype.ret_type != NULL) offset = prototype.ret_type->size();
 
 	for(int i = 0; i < arg_registers.size(); i++){
-		std::cout << "\tsw\t" << arg_registers[i] << ", " << offset << "($sp)" << std::endl;
+		if(arg_registers[i].is_primitive){
+			std::cout << "\tsw\t" << arg_registers[i].reg << ", " << offset << "($sp)" << std::endl;
+		}
+		else{
+			copy_big_arg(offset, arg_registers[i].lval);
+		}
 		offset += (*args)[i]->type->size();
 	}
 
@@ -272,9 +304,11 @@ int save_to_stack(FuncPrototype prototype, std::vector<Expression*>* args, std::
 }
 
 
-void return_arg_registers(std::vector<std::string> arg_registers){
+void return_arg_registers(std::vector<ArgReg> arg_registers){
 	for(int i = 0; i < arg_registers.size(); i++){
-		register_pool.return_register(arg_registers[i]);
+		if(arg_registers[i].is_primitive){
+			register_pool.return_register(arg_registers[i].reg);
+		}
 	}
 }
 
@@ -283,7 +317,7 @@ void return_arg_registers(std::vector<std::string> arg_registers){
 ExpressionResult call_function(std::string id, std::vector<Expression*>* args){
 	std::cout << "#Calling function" << std::endl;
 	FuncPrototype my_prototype = function_table.get_value(id);
-	std::vector<std::string> arg_registers = get_arg_registers(my_prototype, args);
+	std::vector<ArgReg> arg_registers = get_arg_registers(my_prototype, args);
 
 	int size_to_save = save_to_stack(my_prototype, args, arg_registers);
 	return_arg_registers(arg_registers);
