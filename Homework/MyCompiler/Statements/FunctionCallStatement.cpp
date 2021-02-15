@@ -1,6 +1,6 @@
 #include "FunctionCallStatement.hpp"
 #include "Expressions/Expression.hpp"
-#include "Misc_Classes/FunctionTable.hpp"
+#include "Misc_Classes/Tables/FunctionTable.hpp"
 #include "Misc_Classes/Type.hpp"
 #include "Misc_Classes/UsefulFunctions.hpp"
 #include <iostream>

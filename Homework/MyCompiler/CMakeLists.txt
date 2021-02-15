@@ -105,12 +105,12 @@ set(cpsl_srcs
   Misc_Classes/RegisterPool.cpp
   Misc_Classes/Type.hpp
   Misc_Classes/Type.cpp
-  Misc_Classes/SymbolTable.hpp
-  Misc_Classes/SymbolTable.cpp
-  Misc_Classes/TypesTable.hpp
-  Misc_Classes/TypesTable.cpp
-  Misc_Classes/StringTable.hpp
-  Misc_Classes/StringTable.cpp
+  Misc_Classes/Tables/SymbolTable.hpp
+  Misc_Classes/Tables/SymbolTable.cpp
+  Misc_Classes/Tables/TypesTable.hpp
+  Misc_Classes/Tables/TypesTable.cpp
+  Misc_Classes/Tables/StringTable.hpp
+  Misc_Classes/Tables/StringTable.cpp
   Misc_Classes/UsefulFunctions.hpp
   Misc_Classes/UsefulFunctions.cpp
   Misc_Classes/ArrayType.hpp
@@ -121,8 +121,8 @@ set(cpsl_srcs
   Misc_Classes/FunctionDeclaration.cpp
   Misc_Classes/Body.hpp
   Misc_Classes/Body.cpp
-  Misc_Classes/FunctionTable.hpp
-  Misc_Classes/FunctionTable.cpp
+  Misc_Classes/Tables/FunctionTable.hpp
+  Misc_Classes/Tables/FunctionTable.cpp
 
 
   ${BISON_Parser_OUTPUTS}

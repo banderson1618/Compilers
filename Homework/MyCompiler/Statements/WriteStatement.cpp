@@ -2,7 +2,7 @@
 #include "Expressions/Expression.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
 #include "Misc_Classes/Type.hpp"
-#include "Misc_Classes/StringTable.hpp"
+#include "Misc_Classes/Tables/StringTable.hpp"
 #include "Misc_Classes/UsefulFunctions.hpp"
 #include <string>
 #include <vector>

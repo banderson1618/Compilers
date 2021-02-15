@@ -1,7 +1,7 @@
 #ifndef TYPES_TABLE_H
 #define TYPES_TABLE_H
 
-#include "Type.hpp"
+#include "../Type.hpp"
 
 #include <vector>
 #include <map>

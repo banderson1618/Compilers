@@ -1,7 +1,7 @@
 #include "UsefulFunctions.hpp"
 #include "Statements/Statement.hpp"
 #include "Statements/ReturnStatement.hpp"
-#include "SymbolTable.hpp"
+#include "Tables/SymbolTable.hpp"
 #include "Body.hpp"
 #include <iostream>
 

@@ -1,5 +1,5 @@
 #include "StringExpression.hpp"
-#include "Misc_Classes/StringTable.hpp"
+#include "Misc_Classes/Tables/StringTable.hpp"
 #include "Misc_Classes/Type.hpp"
 #include <string>
 #include <iostream>

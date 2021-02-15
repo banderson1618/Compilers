@@ -1,7 +1,7 @@
 #ifndef SYMBOL_TABLE_H
 #define SYMBOL_TABLE_H
 
-#include "Type.hpp"
+#include "../Type.hpp"
 
 #include <vector>
 #include <map>

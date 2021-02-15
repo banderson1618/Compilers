@@ -3,10 +3,10 @@
 #include <string>
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
-#include "Misc_Classes/SymbolTable.hpp"
-#include "Misc_Classes/TypesTable.hpp"
-#include "Misc_Classes/StringTable.hpp"
-#include "Misc_Classes/FunctionTable.hpp"
+#include "Misc_Classes/Tables/SymbolTable.hpp"
+#include "Misc_Classes/Tables/TypesTable.hpp"
+#include "Misc_Classes/Tables/StringTable.hpp"
+#include "Misc_Classes/Tables/FunctionTable.hpp"
 #include "Misc_Classes/Type.hpp"
 
 extern int yyparse();

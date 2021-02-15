@@ -1,7 +1,7 @@
 #include "FunctionDeclaration.hpp"
 #include "UsefulFunctions.hpp"
-#include "FunctionTable.hpp"
-#include "SymbolTable.hpp"
+#include "Tables/FunctionTable.hpp"
+#include "Tables/SymbolTable.hpp"
 #include "Body.hpp"
 #include "Type.hpp"
 

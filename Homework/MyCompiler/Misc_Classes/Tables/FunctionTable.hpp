@@ -1,7 +1,7 @@
 #ifndef FUNCTION_TABLE_H
 #define FUNCTION_TABLE_H
 
-#include "Type.hpp"
+#include "../Type.hpp"
 
 #include <vector>
 #include <map>

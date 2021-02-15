@@ -2,7 +2,7 @@
 #include "Expressions/Expression.hpp"
 #include "Expressions/LvalueExpression.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
-#include "Misc_Classes/SymbolTable.hpp"
+#include "Misc_Classes/Tables/SymbolTable.hpp"
 #include "Misc_Classes/UsefulFunctions.hpp"
 #include <iostream>
 #include <string>

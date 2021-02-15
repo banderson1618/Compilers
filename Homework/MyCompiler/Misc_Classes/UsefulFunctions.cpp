@@ -1,12 +1,12 @@
 #include "UsefulFunctions.hpp"
 #include "RegisterPool.hpp"
-#include "SymbolTable.hpp"
-#include "TypesTable.hpp"
+#include "Tables/SymbolTable.hpp"
+#include "Tables/TypesTable.hpp"
 #include "ArrayType.hpp"
 #include "RecordType.hpp"
 #include "Type.hpp"
 #include "Expressions/LvalueExpression.hpp"
-#include "FunctionTable.hpp"
+#include "Tables/FunctionTable.hpp"
 #include <iostream>
 #include <string>
 #include <vector>

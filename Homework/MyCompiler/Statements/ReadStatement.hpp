@@ -4,7 +4,7 @@
 #include "Statement.hpp"
 #include "Expressions/LvalueExpression.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
-#include "Misc_Classes/SymbolTable.hpp"
+#include "Misc_Classes/Tables/SymbolTable.hpp"
 #include <vector>
 
 class ReadStatement : public Statement {

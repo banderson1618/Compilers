@@ -47,9 +47,9 @@
 
 #include "Misc_Classes/Program.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
-#include "Misc_Classes/SymbolTable.hpp"
-#include "Misc_Classes/TypesTable.hpp"
-#include "Misc_Classes/StringTable.hpp"
+#include "Misc_Classes/Tables/SymbolTable.hpp"
+#include "Misc_Classes/Tables/TypesTable.hpp"
+#include "Misc_Classes/Tables/StringTable.hpp"
 #include "Misc_Classes/UsefulFunctions.hpp"
 
 #include "Misc_Classes/Type.hpp"
@@ -312,7 +312,7 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 		| STRING_TOKEN				{ if (testingParser) { std::cout << "Found StringExpression" << std::endl; }
 								$$ = new StringExpression($1);}
 		;
-// rewrite this
+
 args_list	: expr					{	auto new_vec = new std::vector<Expression*>;
 								new_vec->push_back($1);
 								$$ = new_vec;}

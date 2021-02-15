@@ -3,7 +3,7 @@
 
 #include "Expression.hpp"
 #include "Misc_Classes/RegisterPool.hpp"
-#include "Misc_Classes/SymbolTable.hpp"
+#include "Misc_Classes/Tables/SymbolTable.hpp"
 #include <string>
 
 enum LvalType {

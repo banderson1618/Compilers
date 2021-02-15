@@ -16,3 +16,8 @@ The following dependencies are necessary to run the compiler along with the prod
 The compiler is expected to be run from the command line. To build the compiler, clone the repository and navigate to the main directory. From there, run `cmake .`, followed by `make`. This will generate a `cpsl` executable in the main directory, which can then be run.
 
 This compiler reads the CPSL program from stdin and outputs MIPS to stdout. As such, it is recommended that the user redirect stdin and stdout to point towards their CPSL file and the output MIPS file, respectively. For example, to compile `my_cpsl_program.cpsl` into `my_mips_program.asm`, run `./cpsl <my_cpsl_program.cpsl >my_mips_program.asm`. A set of example CPSL files can be found in the `examples` directory, demonstrating how the language handles expressions, control statements, data structures, and functions.
+
+##How the Compiler Works
+
+###Scanning and Parsing
+The compiler 

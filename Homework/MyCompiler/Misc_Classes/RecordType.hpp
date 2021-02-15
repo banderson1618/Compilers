@@ -3,7 +3,7 @@
 
 #include "UsefulFunctions.hpp"
 #include "Type.hpp"
-#include "SymbolTable.hpp"
+#include "Tables/SymbolTable.hpp"
 #include <vector>
 
 struct TypeCreator;
