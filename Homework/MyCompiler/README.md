@@ -18,6 +18,9 @@ The compiler is expected to be run from the command line. To build the compiler,
 This compiler reads the CPSL program from stdin and outputs MIPS to stdout. As such, it is recommended that the user redirect stdin and stdout to point towards their CPSL file and the output MIPS file, respectively. For example, to compile `my_cpsl_program.cpsl` into `my_mips_program.asm`, run `./cpsl <my_cpsl_program.cpsl >my_mips_program.asm`. A set of example CPSL files can be found in the `examples` directory, demonstrating how the language handles expressions, control statements, data structures, and functions.
 
 ##How the Compiler Works
+The compiler begins in `main.cpp`. Here, it creates a global value for the tables used by the compiler, as well as the register pool. It then inserts the predefined values needed for the type table (the primitive types) and the symbol table ("true" and "false" are assigned the applicable BOOLEAN values). From here, it calls `yyparse`, which starts the scanning and parsing section of the compiler.
 
 ###Scanning and Parsing
-The compiler 
+The first step taken by the compiler is to scan the given file and replace the text with tokens that can be more reliably used by the parser. This is done with Flex, which searches for text patterns with regex, and returns tokens for matches. It scans for keywords first (for example, "if" would be replaced by an IF_TOKEN), then operators ("+" replaced with ADD_TOKEN), then the more general ids, strings, and numbers, whose values are stored using the `yylval` tool. These tokens are then sent to the parser.
+
+The parser takes the tokens and verifies that they form a valid CPSL program, then uses the tokens to insert the various statements and expressions in the program tree, which will recursively emit code
