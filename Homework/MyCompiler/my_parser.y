@@ -240,7 +240,9 @@ program		: const_decl type_decl var_decl func_proc_list block PER_TOKEN END_OF_F
 							}	
 		;
 
-
+// an lvalue is a token that is assigned a place in memory. It can either be a primitive variable, a member of an array,
+// or a struct. "lvalue" is short for "Left Value", meaning any value that can be put on the left hand side of an
+// assignment statement
 lvalue 		: ID_TOKEN 				{ $$ = new LvalueExpression(std::string($1));}
 		| lvalue PER_TOKEN ID_TOKEN 		{ $$ = new LvalueExpression($1, std::string($3)); }
 		| lvalue LBRAC_TOKEN expr RBRAC_TOKEN	{ $$ = new LvalueExpression($1, $3); }
@@ -313,6 +315,7 @@ expr		: lvalue 				{ if (testingParser) { std::cout << "Found LvalueExpression" 
 								$$ = new StringExpression($1);}
 		;
 
+// used for function calls and write statements
 args_list	: expr					{	auto new_vec = new std::vector<Expression*>;
 								new_vec->push_back($1);
 								$$ = new_vec;}
@@ -321,7 +324,7 @@ args_list	: expr					{	auto new_vec = new std::vector<Expression*>;
 		| /* empty */				{$$ = new std::vector<Expression*>;}
 		;
 
-
+// used for read calls (must be lvalues because only lvalues can be assigned)
 args_list_lval	: lvalue				{	auto new_vec = new std::vector<LvalueExpression*>;
 								new_vec->push_back($1);
 								$$ = new_vec;}
@@ -507,14 +510,15 @@ proc_decl	: PROC_TOKEN ID_TOKEN proc_args SEMICOLON_TOKEN  FORWARD_TOKEN SEMICOL
 							{ $$ = new FunctionDeclaration(std::string($2), $3, $5, NULL); }
 		; 
 
-proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN { $$ = $2; }
-		;
 
 func_decl	: FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN FORWARD_TOKEN SEMICOLON_TOKEN
 							{ $$ = new FunctionDeclaration(std::string($2),$3, NULL, $5); }
 		| FUNCTION_TOKEN ID_TOKEN proc_args COLON_TOKEN type SEMICOLON_TOKEN body SEMICOLON_TOKEN
 							{ $$ = new FunctionDeclaration(std::string($2),$3, $7, $5); }
-		; 
+		;
+
+proc_args	: LPAREN_TOKEN formal_params RPAREN_TOKEN { $$ = $2; }
+		;
 
 formal_params	: param					{ auto new_vec = new std::vector<Param*>;
 								new_vec->push_back($1);
