@@ -50,3 +50,16 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Other
+cpsl
+.idea
+CMakeFiles
+cmake_install.cmake
+*parser.cpp
+*parser.hpp
+*scanner.cpp
+CMakeCache.txt
+Makefile
+*CPSL_Compiler.cbp
+/Homework/MyCompiler/Testing/*
